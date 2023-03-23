@@ -1,0 +1,97 @@
+/* Body*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* position: ; */
+}
+
+/* Header(trademark) */
+
+
+
+/* main */
+
+main{
+    background-color: #45425A;
+    height: 557px;
+    width: 1017px;
+    /* body */
+    border: none;
+    border-radius: 20px;
+}
+
+/* mainLogin */
+
+.mainLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainLogin #login{
+    background-color:#F8CBA6;
+    margin: 20px;
+    padding-bottom: 20px;
+    height: 500px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.mainLogin #login h2{
+    
+}
+.mainLogin #login form{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    gap: 10px;
+}
+.mainLogin #login form label{
+
+}
+
+.mainLogin #loginGmail{
+    width: 280px;
+    height: 29px;
+    
+}
+.mainLogin #loginPassword{
+    width: 280px;
+    height: 29px;
+
+}
+.mainLogin form #loginButton{
+margin-top: 15px;
+padding: 0px 10px;
+align-self: center;
+height: 40px;
+width: 180px;
+/* font */
+font-size: 18px;
+/* body */
+border: none;
+border-radius: 11px;
+background-color:  #FFFBEB;
+}
+
+.mainLogin #login #signupButton{
+    align-self: flex-end;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    /* font */
+    font-size: 15px;
+    /* body */
+    border: none;
+    background-color: transparent;
+    opacity: 1;
+    
+
+
+}
