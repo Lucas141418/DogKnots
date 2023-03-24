@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css">
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
     <title>Inicio de Sesión</title>
 </head>
 <body>
@@ -14,20 +15,34 @@
     <main>
         <div class="mainLogin">
             <div id="slider">
-                <img src="" alt="slider">
+                <div class="imgSlider">
+                    <img src="" alt="">
+                </div>
+
+                <div class="imgSlider">
+                    <img src="" alt="">
+                </div>
+
+                <div class="imgSlider">
+                    <img src="" alt="">
+                </div>
 
             </div>
 
             <div id="login">
                 <h2>Iniciar Sesión</h2>
-
                 <form>
-                    <label for="loginGmail"> Correo</label>
-                    <input type="email" placeholder="example.email@gmail.com" id="loginGmail">
+                    <div class="formInput">
+                        <i class="fa-solid fa-user fa-bounce "></i>
+                        <label for="loginGmail">Correo</label>
+                        <input type="email" placeholder="example.email@gmail.com " id="loginGmail" required>
+                    </div>
 
-                    <label for="loginPassword">Contraseña</label>
-                    <input type="password" placeholder="*********" id="loginPassword">
-
+                    <div class="formInput">
+                        <i class="fa-solid fa-eye-slash"></i>
+                        <label for="loginPassword">Contraseña</label>
+                        <input type="password" placeholder="*********" id="loginPassword" required>
+                    </div>
                     <button type="button" id="loginButton">Iniciar Sesión</button>
                 </form>
 

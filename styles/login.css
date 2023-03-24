@@ -1,10 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
 /* Body*/
 body{
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-height: 90vh;
+    min-width: 80vw;
+
+    align-items: center; 
     justify-content: center;
-    /* position: ; */
+
+    background-color: #0C0909;
 }
 
 /* Header(trademark) */
@@ -14,59 +25,145 @@ body{
 /* main */
 
 main{
-    background-color: #45425A;
-    height: 557px;
-    width: 1017px;
-    /* body */
+    /* style */
+    background-color: #F8CBA6;
     border: none;
     border-radius: 20px;
+    box-shadow: 30px -18px 50px #45425A;
+    /* size */
+    margin-top: 90px;
+    width: 1417px;
+    height: 857px;
 }
 
-/* mainLogin */
+
+
+/* mainLogin This section contains the user login and signup part and an image slider part*/
 
 .mainLogin{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 40px;
 }
 
+/* mainLogin slider part */
+.mainLogin #slider{
+    /* position */
+    position: relative;
+    display: flex;
+    align-items: center;
+    /*size*/
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    overflow: hidden;    
+    
+}
+
+.mainLogin #slider .imgSlider{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0.6;
+    flex-grow: 0;
+    max-width: 100%;
+    /* animation part */
+    transform: translate3d(0,0,0);
+    transition: all 1400ms;
+    animation-name: slider;
+    animation-duration: 6.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+}
+
+
+.mainLogin #slider img{
+    margin: 0px 15px;
+    border-radius: 36px;
+    max-width: 900px;
+    max-height: 700px;
+}
+
+/* autoanimation part */
+@keyframes slider{
+    33%{
+        transform: translate3d(calc(-100% * 0), 0, 0);
+    }
+    66%{
+        transform: translate3d(calc(-100% * 1), 0, 0);
+    }
+    100%{
+        transform: translate3d(calc(-100% * 2), 0, 0);
+    }
+
+}
+
+
+
+
 .mainLogin #login{
-    background-color:#F8CBA6;
+    background-color:  #FFE7CC ;
     margin: 20px;
-    padding-bottom: 20px;
-    height: 500px;
-    width: 350px;
+    padding-bottom: 10px;
+    height: 730px;
+    width: 490px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    justify-content: space-evenly;
+    gap: 20px;
+    border: 2px solid white;
+    box-shadow: 12px 15px 10px gray;
+    border-radius: 40px;
 }
 .mainLogin #login h2{
+    font-size: 44px;
     
 }
 .mainLogin #login form{
-    margin: 50px;
+    margin: 20px;
+    position: relative;
+    bottom: 75px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 300px;
-    gap: 10px;
+    width: 450px;
+    gap: 20px;
 }
 .mainLogin #login form label{
+    font-size: 20px;
+}
+
+.mainLogin #login form input{
+    border: none;
+    border-radius: 20px;
+    background: #a3a0a0;
 
 }
 
 .mainLogin #loginGmail{
-    width: 280px;
-    height: 29px;
+    width: 440px;
+    height: 36px;
     
 }
 .mainLogin #loginPassword{
-    width: 280px;
-    height: 29px;
+    align-content: center;
+    width: 440px;
+    height: 36px;
 
 }
+.mainLogin #login form input::placeholder{
+    color: rgb(202, 202, 202);
+    ;
+    font-size: 15px;
+    padding-left: 18px;
+}
+
 .mainLogin form #loginButton{
 margin-top: 15px;
 padding: 0px 10px;
@@ -82,15 +179,17 @@ background-color:  #FFFBEB;
 }
 
 .mainLogin #login #signupButton{
-    align-self: flex-end;
+    position: relative;
+    top: 57px;
+    left: 170px;
+    
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
     /* font */
-    font-size: 15px;
+    font-size: 20px;
     /* body */
     border: none;
     background-color: transparent;
-    opacity: 1;
     
 
 
