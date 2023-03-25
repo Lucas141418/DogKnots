@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -6,191 +6,222 @@
 }
 /* Body*/
 body{
-    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 90vh;
-    min-width: 80vw;
-
     align-items: center; 
     justify-content: center;
-
-    background-color: #0C0909;
+    background: linear-gradient(to right, #45425A  15%, #0C0909 29%)
 }
 
 /* Header(trademark) */
 
 
 
-/* main */
-
-main{
-    /* style */
-    background-color: #F8CBA6;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 30px -18px 50px #45425A;
-    /* size */
-    margin-top: 90px;
-    width: 1417px;
-    height: 857px;
-}
-
 
 
 /* mainLogin This section contains the user login and signup part and an image slider part*/
-
 .mainLogin{
-    position: relative;
+    /* position */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     margin: 40px;
-}
+    /* size */
+    width: 90em;
+    height: 50em;
+    /* sytle */
+    border-radius: 25px;
+    background-color:#FFFBEB;
+    box-shadow: 10px -8px 90px #45425A;
 
-/* mainLogin slider part */
-.mainLogin #slider{
-    /* position */
-    position: relative;
-    display: flex;
-    align-items: center;
-    /*size*/
-    border-radius: 10px;
-    max-width: 800px;
-    width: 100%;
-    overflow: hidden;    
     
 }
 
-.mainLogin #slider .imgSlider{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0.6;
-    flex-grow: 0;
-    max-width: 100%;
-    /* animation part */
-    transform: translate3d(0,0,0);
-    transition: all 1400ms;
-    animation-name: slider;
-    animation-duration: 6.5s;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-
+/* mainLogin img part */
+.mainLogin #coverImg{
+    margin-left: 100px;
+    
+    /*size*/
+    height: 40em;
+    /* sytle */
+    border-radius: 10%;
+    border: 5px solid #0C0909;
+    
 }
 
-
-.mainLogin #slider img{
-    margin: 0px 15px;
-    border-radius: 36px;
-    max-width: 900px;
-    max-height: 700px;
-}
-
-/* autoanimation part */
-@keyframes slider{
-    33%{
-        transform: translate3d(calc(-100% * 0), 0, 0);
-    }
-    66%{
-        transform: translate3d(calc(-100% * 1), 0, 0);
-    }
-    100%{
-        transform: translate3d(calc(-100% * 2), 0, 0);
-    }
-
+.mainLogin #coverImg img{
+    /* sytle */
+    border-radius: 10%;
+    /*size*/
+    width: 100%;
+    height: 100%;
 }
 
 
 
+/* login part */
 
 .mainLogin #login{
-    background-color:  #FFE7CC ;
-    margin: 20px;
-    padding-bottom: 10px;
-    height: 730px;
-    width: 490px;
+    /* position */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    gap: 20px;
-    border: 2px solid white;
-    box-shadow: 12px 15px 10px gray;
-    border-radius: 40px;
+    /* size */
+    height: 100%;
+    width: 40%;
+    /* sytyle */
+    background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);
+    border-radius: 0px 20px 20px 0px ;
 }
-.mainLogin #login h2{
-    font-size: 44px;
+
+.mainLogin #login h1{
+    text-transform: uppercase;
+    font-size: 40px;
     
 }
 .mainLogin #login form{
-    margin: 20px;
+    /* position */
     position: relative;
-    bottom: 75px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 450px;
+    /* size */
+    width: 28em;
     gap: 20px;
 }
+
+/* label and input part */
 .mainLogin #login form label{
-    font-size: 20px;
+    margin-left: 20px;
+    font-size: 16px;
 }
 
 .mainLogin #login form input{
-    border: none;
+    border: #0C0909 3px solid;
     border-radius: 20px;
-    background: #a3a0a0;
-
-}
-
-.mainLogin #loginGmail{
-    width: 440px;
-    height: 36px;
-    
-}
-.mainLogin #loginPassword{
-    align-content: center;
-    width: 440px;
-    height: 36px;
-
-}
-.mainLogin #login form input::placeholder{
-    color: rgb(202, 202, 202);
+    font-size: 16px;
+    padding-left: 35px;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);
     ;
-    font-size: 15px;
-    padding-left: 18px;
+
 }
 
-.mainLogin form #loginButton{
+
+.mainLogin #formInputG i{
+    position: absolute;
+    top: 38px;
+    left: 15px;
+
+}
+.mainLogin #formInputP i{
+    position: absolute;
+    bottom: 90px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.mainLogin  #login #loginGmail{
+    align-content: center;
+    width: 26em;
+    height: 2.3em;
+}
+
+
+.mainLogin  #login #loginPassword{
+    align-content: center;
+    width: 26em;
+    height: 2.3em;
+
+}
+.mainLogin form input::placeholder{
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+
+/* buttons part */
+
+#loginButton{
 margin-top: 15px;
 padding: 0px 10px;
 align-self: center;
-height: 40px;
-width: 180px;
+height: 2.5em;
+width: 16em;
 /* font */
-font-size: 18px;
+font-size: 16px;
 /* body */
 border: none;
-border-radius: 11px;
-background-color:  #FFFBEB;
+border-radius: 31px;
+border: #0C0909 3px solid;
+cursor: pointer;
+background: transparent;
+transition: all 300ms ;
 }
 
+#loginButton:hover{
+    background-color: white;
+    box-shadow: 0px 5px 50px rgb(22, 21, 21);
+    transform: translateY(-5px);
+}
+
+
+/* Footer login part */
+.mainLogin #login #footerLogin{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+
+}
+.mainLogin #footerLogin a{
+    text-decoration: none;
+    color: #45425A;
+}
+.mainLogin #footerLogin a:hover{
+    color: white;
+}
 .mainLogin #login #signupButton{
-    position: relative;
-    top: 57px;
-    left: 170px;
-    
-    margin-right: 20px;
-    margin-bottom: 1px;
     /* font */
     font-size: 20px;
     /* body */
     border: none;
     background-color: transparent;
-    
+}
+.mainLogin #login #signupButton:hover{
+    cursor: pointer;
+    color: white;
+}
 
 
+/* -----Responsive Part */
+@media screen and (max-width: 780px){
+    .mainLogin{
+        width: 90%;
+
+    }
+    .mainLogin #login{
+        width: 100%;
+        border: 10px;
+        
+
+    }
+    .mainLogin #login form input{
+    }
+    .mainLogin #login form{
+        width:80%;
+
+    }
+
+    header{
+        display: none;
+    }
+    #coverImg{
+        display: none;
+    }
+   
+   
 }

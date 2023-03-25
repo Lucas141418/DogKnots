@@ -12,48 +12,41 @@
     <header>
         <img src="" alt="logo del sistema">
     </header>
-    <main>
-        <div class="mainLogin">
-            <div id="slider">
-                <div class="imgSlider">
-                    <img src="" alt="">
+    <main class="mainLogin">
+        
+        <div id="coverImg">
+            <img src="animation_500_lfnj9d8q.gif" alt="">
+        </div>
+
+        <div id="login">
+
+            <h1>Iniciar Sesión</h1>
+
+            <form>
+                <div id="formInputG">
+                    <label for="loginGmail">Correo</label>
+                    <input type="email" placeholder="example.email@gmail.com " id="loginGmail" required>
+                    <i class="fa-solid fa-user"></i>
                 </div>
 
-                <div class="imgSlider">
-                    <img src="" alt="">
+                <div id="formInputP">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" placeholder="*********" id="loginPassword" required>
+                    <i class="fa-solid fa-eye-slash"></i>
                 </div>
-
-                <div class="imgSlider">
-                    <img src="" alt="">
-                </div>
-
-            </div>
-
-            <div id="login">
-                <h2>Iniciar Sesión</h2>
-                <form>
-                    <div class="formInput">
-                        <i class="fa-solid fa-user fa-bounce "></i>
-                        <label for="loginGmail">Correo</label>
-                        <input type="email" placeholder="example.email@gmail.com " id="loginGmail" required>
-                    </div>
-
-                    <div class="formInput">
-                        <i class="fa-solid fa-eye-slash"></i>
-                        <label for="loginPassword">Contraseña</label>
-                        <input type="password" placeholder="*********" id="loginPassword" required>
-                    </div>
-                    <button type="button" id="loginButton">Iniciar Sesión</button>
-                </form>
+                    <button type="submit" id="loginButton">Iniciar Sesión</button>
+            </form>
 
 
-
+            <div id="footerLogin">
                 <button type="button" id="signupButton">Registrarse</button>
-
+                <a href="">Contraseña olvida</a>
             </div>
-
 
         </div>
+
+
+    
     </main>
     
 </body>
