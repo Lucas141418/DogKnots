@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Traslados</title>
+    <link rel="stylesheet" href="styles/traslados.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap">
+</head>
+
+<body>
+    <main>
+        <div class="columnOne">
+            <p>column one</p>
+
+            <!-- div de la imagen -->
+            <div class="assetImage">
+
+            </div>
+
+            <div>
+                <h2>Filtros</h2>
+                <div class="filters">
+                    <h3>Motivo</h3>
+                    <label for="disuse">Desuso
+                        <input type="checkbox" name="reason" id="disuse" value="Desuso">
+                    </label>
+                    <label for="damage">Daño
+                        <input type="checkbox" name="reason" id="damage" value="Daño">
+                    </label>
+
+                    <label id="origin" for="origin">Origen *
+                        <select id="origin" class="">
+                            <option value="" disabled selected hidden>
+                                Unidad de origen
+                            </option>
+                            <option value="warehouse">Unidad de bodega</option>
+                            <option value="unitHeredia">Unidad de Heredia</option>
+                            <option value="unitSanJosé">Unidad de San José</option>
+                        </select>
+                    </label>
+
+                    <label id="destination" for="destination">Destino *
+                        <select id="destination" class="">
+                            <option value="" disabled selected hidden>
+                                Unidad de destino
+                            </option>
+                            <option value="warehouse">Unidad de bodega</option>
+                            <option value="unitHeredia">Unidad de Heredia</option>
+                            <option value="unitSanJosé">Unidad de San José</option>
+                        </select>
+                    </label>
+
+
+                    <label for="assetName">Nombre de activo</label>
+                    <input type="text" id="assetName" name="assetName" placeholder="Ej: Silla de oficina">
+                    <label for="assetId">Nombre de activo</label>
+                    <input type="text" id="assetId" name="assetId" placeholder="Ej: 000000">
+
+                </div>
+            </div>
+        </div>
+        <div class="columnTwo">
+
+            <h1>Traslados</h1>
+
+            <div class="selectedItemContainer">
+                <div class="transferAtributtesContainer">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Id de solicitud:</td>
+                                <td>003</td>
+                                <td>Motivo:</td>
+                                <td>Daño</td>
+
+                            </tr>
+                            <tr>
+                                <td>Nombre de activo:</td>
+                                <td>Silla ergonómica</td>
+                                <td>Origen:</td>
+                                <td>Unidad de San José</td>
+
+                            </tr>
+                            <tr>
+                                <td>Id activo:</td>
+                                <td>003333</td>
+                                <td>Destino:</td>
+                                <td> Unidad de bodega</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="buttons">
+                    <div class="bottonsAcceptDecline">
+                        <button class="button">Aceptar</button>
+                        <button class="button">Rechazar</button>
+                    </div>
+                    <div class="registerTransferButton">
+                        <button class="button">Registrar solicitud</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- tabla -->
+            <div class="tableContainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id de solicitud</th>
+                            <th>Nombre de activo</th>
+                            <th>Id activo</th>
+                            <th>Motivo</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>003</td>
+                            <td>Silla ergonómica</td>
+                            <td>003333</td>
+                            <td>Daño</td>
+                            <td>Unidad de San José</td>
+                            <td>Unidad de bodega</td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Monitor Dell 21"</td>
+                            <td>000002</td>
+                            <td>Daño</td>
+                            <td>Unidad de Heredia</td>
+                            <td>Unidad de Guanacaste</td>
+                        </tr>
+                        <tr>
+                            <td>005</td>
+                            <td>Silla sala de conferencia</td>
+                            <td>000285</td>
+                            <td>Desuso</td>
+                            <td>Unidad de Alajuela</td>
+                            <td>Unidad de bodega</td>
+                        </tr>
+                        <tr>
+                            <td>009</td>
+                            <td>Headset Jabra</td>
+                            <td>000893</td>
+                            <td>Daño</td>
+                            <td>Unidad de bodega</td>
+                            <td>Unidad de donaciones</td>
+                        </tr>
+                        <tr>
+                            <td>008</td>
+                            <td>Laptop Dell</td>
+                            <td>000789</td>
+                            <td>Desuso</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Limón</td>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>Escritorio</td>
+                            <td>001532</td>
+                            <td>Desuso</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Alajuela</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

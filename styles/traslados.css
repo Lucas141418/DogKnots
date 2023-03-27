@@ -1,0 +1,175 @@
+*{
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+
+
+main{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    height: 100%;
+     /* margin: 1rem; */
+
+}
+
+/* second layout */
+
+.columnOne{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.columnOne div{
+    display: flex;
+    flex-direction: column;
+}
+
+.assetImage{
+    background-color: rgb(131, 109, 109);
+    height: 200px;
+
+}
+
+.filters{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+.columnTwo{
+
+    display:flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    
+
+}
+
+/* third layout */
+
+h1{
+    flex: 0 0 auto;
+    font-size: 2.5rem;
+}
+
+.selectedItemContainer{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    flex: 1 0 auto;
+    max-height: 9rem;
+    height: 30%;
+
+}
+
+
+.transferAtributtesContainer div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    
+}
+
+.bottonsAcceptDecline {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+
+}
+
+.button{
+    border: none;
+    border-radius: 6px;
+    padding: 0.25rem;
+    width: 75%;
+    height: 3rem;
+}
+
+
+
+.bottonsAcceptDecline div{
+    border: 10px;
+
+}
+
+
+.registerTransferButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+   
+
+.tableContainer{
+    width: 100%;
+    height: 60%;
+    /* flex: 0 0 auto; */
+
+}
+
+/* table */
+table{
+    border-collapse: collapse;
+    border: 1px solid #dee1e6ff;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+
+}
+
+table th{
+    background-color: #f8f9faff;
+    text-align: left;
+    font-weight: bold;
+    display: table-cell;
+    padding: 12px 15px;
+}
+
+table tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    padding: 12px 15px;
+}
+
+table td{
+
+    display:table-cell;
+    text-align: left;
+    padding: 12px 15px;
+
+}
+
+table tbody tr:nth-child(odd){
+
+    background-color: #FEFEFF;
+
+}
+
+table tbody tr:nth-child(even){
+    background-color: #f8f9faff;
+}
+
+
+
