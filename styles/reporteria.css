@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+
+}
+/* Header*/
+header{
+    border: 2px solid black;
+    padding: 1em;
+
+}
+
+
+/* main */
+main{
+    border: 8px rgb(210, 16, 16) dotted;
+
+    
+    /* Position */
+    display: flex;
+    flex-direction: row;
+   
+    /* size */
+    width: 99%;
+    height: 90vh;
+    /* style */
+
+}
+.paragraph{
+    font-size: 16px;
+}
+
+/* asidebar section */
+main aside{
+    border: 5px rgb(227, 20, 217) solid;
+    /* Position */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2.5cm;
+    align-items: flex-start;
+    /* size */
+    width: 18%;
+    /* style */
+
+}
+aside h2{
+
+    font-size: 24px;
+    width: 100%
+
+}
+
+aside .btsSection{
+    border: 5px rgb(48, 227, 20) solid;
+
+    /* Position */
+    display: flex;
+    flex-direction: column;
+    gap: 1cm;
+    /* size */
+    width: 100%;
+    /* style */
+
+}
+
+aside .btsSection h2{
+
+    border-bottom: 5px solid black;
+    padding-bottom: 15px;
+    height: 100%;
+}
+
+.btsSection button{
+    border: none;
+    text-align: start;
+    padding-left: 20px;
+    font-size: 18px;
+
+
+    background: none;
+    transition: all ease 300ms;
+}
+.btsSection button:hover{
+    transform: translate(15px, -15px);
+   
+    
+}
+
+/* Section part */
+main section{
+     /* test */
+    border: 5px solid rgb(39, 8, 8); 
+    /*  */
+    /* Position */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+   
+    /* size */
+    width: 100%;
+    /* style */
+    
+}
+section #filter{
+    border: 5px rgb(227, 199, 20) solid;
+    /* Position */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;    
+    /* size */
+    width: 95%;
+    /* style */
+
+
+}
+
+/* Checkboxes Sections */
+#filter .checkboxesOptions{
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0px;
+}
+.checkboxesOptions p{
+    text-align: center;
+}
+.checkboxesOptions .checkBoxes{
+    display: flex;
+    flex-direction: row;
+}
+
+#filter input,select{
+    border-radius: 20px;
+    padding: 0px 10px;
+}
+/* Table Section */
+
+table {
+    border: 1px solid #dee1e6ff;
+    border-radius: 5px;
+    height: 100%;
+    width: 78vw;
+    margin-top: 20px;
+  }
+  
+
+  table th {
+    background-color: #f8f9faff;
+    text-align: left;
+    font-weight: bold;
+    display: table-cell;
+    padding: 8px;
+  }
+  
+  table tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+  
+  table td {
+    display: table-cell;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  table tbody tr:nth-child(odd) {
+    background-color: #fefeff;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: #f8f9faff;
+  }
+
+
+
