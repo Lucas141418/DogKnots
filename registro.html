@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles/usuarios.css" />
+    <script src="
+https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js
+"></script>
+    <script type="text/javascript" src="scripts/registro.js"></script>
+  </head>
+  <body class="register-page">
+    <div class="header">
+      <div class="container">
+        <div class="header-left">
+          <div class="logo">
+            <img src="assets/logo.png" alt="" />
+          </div>
+          <div class="navigation">
+            <ul class="nav-menu">
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  >Administracion</a
+                >
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  >Registros</a
+                >
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer"
+                  >Translados</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="login">
+            <div class="username">
+              <span>Nombre Completo</span>
+              <img src="assets/Avatar.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section main">
+      <div class="container">
+        <h2>Registro de Usuarios</h2>
+        <div class="grid">
+          <div class="profile-picture">
+            <div>
+              <img src="assets/avatar-big.png" alt="" id="avatar-image"/>
+              <div>
+                <p>Formatos adminitidos: PNG, JPG</p>
+                <div class="customFileButton">
+                    <button id="fileButtonAvatar">Elegir imagen</button>
+                    <input type="file" id="avatar"/>
+                </div>
+                <span class="error-message" id="avatar-error"></span>
+              </div>
+            </div>
+          </div>
+          <div class="register-block">
+            <div>
+              <form id="register" class="register-form" action="#">
+                <div class="form-group">
+                  <label>
+                    Nombre
+                    <input
+                      type="text"
+                      name="nombre"
+                      id="nombre"
+                    />
+                    <span class="error-message" id="name-error"></span>
+                  </label>
+                  <label for="cedula">
+                    Cedula de identidad
+                    <input
+                      type="text"
+                      name="cedula"
+                      id="cedula"
+                      placeholder="0102340567"
+                    />
+                    <span class="error-message" id="cedula-error"></span>
+                  </label>
+                  <label>
+                    Primer Apellido
+                    <input
+                      type="text"
+                      name="primerapellidos"
+                      id="primerapellidos"
+                    />
+                    <span
+                      class="error-message"
+                      id="primerapellidos-error"
+                    ></span>
+                  </label>
+                  <label>
+                    Segundo Apellido
+                    <input
+                      type="text"
+                      name="segundoapellidos"
+                      id="segundoapellidos"
+                    />
+                    <span
+                      class="error-message"
+                      id="segundoapellidos-error"
+                    ></span>
+                  </label>
+                  <label>
+                    Telefono
+                    <input type="text" name="telefono" id="telefono" placeholder="1234-5678"/>
+                    <span class="error-message" id="telefono-error"></span>
+                  </label>
+                  <label>
+                    Correo Electronico
+                    <input type="email" name="email" id="email" />
+                    <span class="error-message" id="email-error"></span>
+                  </label>
+                  <label for="nacimiento">
+                    Fecha de nacimiento
+                    <input type="date" name="nacimiento" id="nacimiento" />
+                    <span class="error-message" id="nacimiento-error"></span>
+                  </label>
+                  <label>
+                    Unidad a la que pertenece
+                    <select name="unidad" id="unidad">
+                      <option value="0"></option>
+                      <option value="1">Unidad 1</option>
+                      <option value="2">Unidad 2</option>
+                      <option value="3">Unidad 3</option>
+                      <option value="4">Unidad 4</option>
+                    </select>
+                    <span class="error-message" id="unidad-error"></span>
+                  </label>
+                </div>
+                <div class="buttons">
+                  <button type="button" id="cancel" class="btn-cancel">Cancelar</button>
+                  <button type="button" id="save" class="btn-submit"/>Crear</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,303 @@
+/* Container 6785 */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+.container {
+  margin: 0 30px;
+}
+
+.section {
+  padding: 20px 0;
+}
+
+.header {
+  background: #dee1e6ff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.header > div {
+  display: flex;
+}
+.header > div .header-left, .header > div .header-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.header > div .header-right {
+  margin-left: auto;
+}
+.header .login .username {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header .login .username:hover {
+  cursor: pointer;
+}
+.header .navigation .nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  list-style: none;
+  gap: 20px;
+}
+.header .navigation .nav-menu li a {
+  color: #000000ff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.header .navigation .nav-menu li a:hover {
+  background: #000000ff;
+  color: #dee1e6ff;
+}
+
+.main .grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .grid > div {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #dee1e6ff;
+}
+.main .grid > div:last-child {
+  border-right: none;
+}
+.main .grid .sidebar-left {
+  color: #000000ff;
+}
+.main .grid .sidebar-left h2 {
+  margin-bottom: 50px;
+}
+.main .grid .sidebar-left .title {
+  font-size: 34px;
+  border-left: 5px solid #000;
+  padding-left: 5px;
+}
+.main .grid .sidebar-left .content {
+  border-top: 1px solid #000;
+  margin-top: 20px;
+}
+.main .grid .sidebar-left .content .menu-sidebar-left {
+  list-style: none;
+  padding: 20px 0;
+}
+.main .grid .sidebar-left .content .menu-sidebar-left li {
+  padding: 10px 0;
+}
+.main .grid .sidebar-left .content .menu-sidebar-left li a {
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+  font-size: 24px;
+  padding-left: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.main .grid .sidebar-left .content .menu-sidebar-left li:hover {
+  background-color: #e7e7e7;
+}
+.main .grid .sidebar-left .content .menu-sidebar-left li:hover a {
+  color: #000;
+}
+.main .grid .sidebar-right {
+  color: #000000ff;
+}
+.main .grid .content table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #dee1e6ff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.main .grid .content table thead tr {
+  background-color: #f8f9faff;
+  color: #000000ff;
+  text-align: left;
+  font-weight: bold;
+}
+.main .grid .content table th,
+.main .grid .content table td {
+  padding: 12px 15px;
+}
+.main .grid .content table tbody tr {
+  border-bottom: 1px solid #dee1e6ff;
+}
+.main .grid .content table tbody tr:nth-of-type(even) {
+  background-color: #f8f9faff;
+}
+.main .grid .content table tbody tr:last-of-type {
+  border-bottom: 2px solid #dee1e6ff;
+}
+.main .grid .content table tbody tr.active-row {
+  font-weight: bold;
+  color: #000000ff;
+}
+
+.register-page .grid {
+  display: flex;
+}
+.register-page .grid .error-message {
+  color: red;
+  font-size: 12px;
+}
+.register-page .grid > div {
+  flex: 1;
+  padding: 20px;
+  border: 0;
+}
+.register-page .grid > div:last-child {
+  border-right: none;
+}
+.register-page .grid .profile-picture {
+  max-width: 25%;
+  text-align: center;
+}
+.register-page .grid .profile-picture > div {
+  padding: 20px;
+  border: 1px solid #dee1e6ff;
+}
+.register-page .grid .profile-picture #avatar-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.register-page .grid .register-block {
+  max-width: calc(100% - 25%);
+}
+.register-page .grid .register-block > div {
+  padding: 20px;
+  border: 1px solid #dee1e6ff;
+}
+.register-page .grid .register-block .register-form .form-group {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.register-page .grid .register-block .register-form .form-group label {
+  margin-bottom: 20px;
+  width: calc(50% - 15px);
+  color: #000;
+}
+.register-page .grid .register-block .register-form .form-group input, .register-page .grid .register-block .register-form .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dee1e6ff;
+}
+.register-page .grid .register-block .register-form .buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.register-page .grid .register-block .register-form .buttons .btn-cancel {
+  background-color: transparent;
+  color: #000;
+  padding: 10px;
+  border: 0;
+  text-decoration: underline;
+}
+.register-page .grid .register-block .register-form .buttons .btn-cancel:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+}
+.register-page .grid .register-block .register-form .buttons .btn-submit {
+  padding: 10px;
+  border: 1px solid #dee1e6ff;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.register-page .grid .register-block .register-form .buttons .btn-submit:hover {
+  background-color: blue;
+}
+
+.update-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.update-user .form-group {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.update-user .form-group label {
+  margin-bottom: 20px;
+  width: 100%;
+  color: #000;
+}
+.update-user .form-group input, .update-user .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dee1e6ff;
+}
+.update-user .buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.update-user .buttons .cancel {
+  background-color: transparent;
+  color: #000;
+  padding: 10px;
+  border: 0;
+  text-decoration: underline;
+}
+.update-user .buttons .cancel:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+}
+.update-user .buttons .save {
+  padding: 10px;
+  border: 1px solid #dee1e6ff;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.update-user .buttons .save:hover {
+  background-color: blue;
+}
+
+.customFileButton #fileButtonAvatar {
+  background-color: #000;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.customFileButton #fileButtonAvatar:hover {
+  background-color: #413f3f;
+}
+.customFileButton #avatar {
+  display: none;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="styles/usuarios.css">
+    <script src="
+    https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js
+    "></script>
+        <script type="text/javascript" src="scripts/table-users.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="" />
+                  </div>
+                  <div class="navigation">
+                    <ul class="nav-menu">
+                      <li>
+                        <a href="http://" target="_blank" rel="noopener noreferrer"
+                          >Administracion</a
+                        >
+                      </li>
+                      <li>
+                        <a href="http://" target="_blank" rel="noopener noreferrer"
+                          >Registros</a
+                        >
+                      </li>
+                      <li>
+                        <a href="http://" target="_blank" rel="noopener noreferrer"
+                          >Translados</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="header-right">
+              <div class="login">
+                <div class="username">
+                  <span>Nombre Completo</span>
+                  <img src="assets/Avatar.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="section main">
+        <div class="container">
+            <div class="grid">
+                <div class="sidebar-left">
+                    <h2> Administracion</h2>
+                    <div>
+                        <h3 class="title">
+                            <span>
+                                <img src="assets/Buildings-active.png" alt="">
+                            </span>
+                            Usuarios
+                        </h3>
+                        <div class="content">
+                            <ul class="menu-sidebar-left">
+                                <li>
+                                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                                    <span>
+                                        <img src="assets/Buildings.png" alt="">
+                                    </span>
+                                    Ver Usuarios
+                                    </a>
+                                </li>
+                                <li><a href="http://" target="_blank" rel="noopener noreferrer">
+                                    <span>
+                                        <img src="assets/Clipboard.png" alt="">
+                                    </span>Registrar Usuario</a></li>
+                                <li><a href="http://" target="_blank" rel="noopener noreferrer">
+                                    <span>
+                                        <img src="assets/Note.png" alt="">
+                                    </span>Editar Usuario</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <table id="table-users">
+                        <thead>
+                                <th>Cedula</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Correo Electronico</th>
+                                <th>Telefono</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Unidad a la que pertenece</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sidebar-right">
+                    <h2>Usuario</h2>
+                    <h3>Foto de Perfil</h3>
+                    <div>
+                        <img src="assets/avatar-preview.png" alt="" id="image-profile">
+                        <div class="customFileButton">
+                            <button id="fileButtonAvatar">Elegir imagen</button>
+                            <input type="file" id="avatar"/>
+                        </div>
+                    </div>
+                    <form action="#" class="update-user">
+                        <div class="form-group">
+                            <label>
+                                Nombre
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                            </label>
+                        <label>
+                            Primer Apellido
+                            <input type="text" name="apellidos" id="primerapellidos">
+                        </label>
+                        <label>
+                            Segundo Apellido
+                            <input type="text" name="apellidos" id="segundoapellidos">
+                        </label>
+                        <label>
+                            Correo Electronico
+                            <input type="email" name="email" id="email">
+                        </label>
+                        <label>
+                            Telefono
+                            <input type="text" name="telefono" id="telefono">
+                        </label>
+                        <label>
+                            Unidad a la que pertenece
+                            <select name="unidad" id="unidad">
+                                <option value="1">Unidad de Bodega</option>
+                                <option value="2">Unidad de Guanacaste</option>
+                                <option value="3">Unidad de Donaciones</option>
+                                <option value="4">Unidad de Alajuela</option>
+                            </select>
+                        </label>
+                        </div>
+                        <div class="buttons">
+                            <button class="cancel">Cancelar</button>
+                        <button type="submit" class="save">Guardar</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
