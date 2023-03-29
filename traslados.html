@@ -8,13 +8,44 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
 
   <body>
+    <header class="header">
+      <img src="assets/logoProvisional.png" alt="logo" id="logo" />
+      <nav class="nav">
+        <!-- <select id="administration" class="header-select">
+          <option value="" disabled selected hidden>Administración</option>
+          <option value="users">Usuarios</option>
+          <option value="units">Unidades</option>
+          <option value="assets">Activos</option>
+        </select> -->
+
+        <a href="#">Administración</a>
+        <a href="#">Registros</a>
+        <a href="#">Traslados</a>
+      </nav>
+      <div class="header-right-element">
+        <a href="#">Nombre completo</a>
+        <span class="material-symbols-rounded"> account_circle </span>
+      </div>
+    </header>
+
     <main class="mainContainer">
       <h1 class="h1Element">Traslados</h1>
 
-      <div class="selectedItemImage"></div>
+      <!-- <div class="selected-item-image-container">
+        
+      </div> -->
+      <img
+        src="https://media.nidux.net/pull/2000/2000/3259/122317-product-63eaaa5ac14a2-63-het-5008-ma-3.jpg"
+        alt="silla"
+        class="selected-image"
+      />
 
       <div class="selectedItemContainer">
         <table class="transferAtributtesTable">
@@ -40,19 +71,20 @@
           </tbody>
         </table>
         <div class="buttonsAcceptDeclineContainer">
-          <button class="button">Aceptar</button>
-          <button class="button">Rechazar</button>
+          <button class="third-button">Aceptar</button>
+          <button class="second-button">Rechazar</button>
         </div>
         <div class="registerTransferButtonContainer">
-          <button class="button">Registrar solicitud</button>
+          <button class="first-button">Registrar solicitud</button>
         </div>
       </div>
 
       <!-- filters -->
 
-      <div class="filterContainer">
+      <div class="filter-container">
+        <hr />
         <h2 class="h2Element">Filtros</h2>
-        <p class="reason">Motivo</p>
+        <label class="reason">Motivo</label>
         <label for="disuse" id="checkbox1"
           ><input type="checkbox" name="reason" id="disuse" value="Desuso" />
           Desuso
