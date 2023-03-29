@@ -4,13 +4,27 @@
     padding: 0;
     font-family: 'Open Sans', sans-serif;
 }
+:root{
+    --color1:#ffffff;
+    --color2: #000000;
+    --color3: #a6a6a6;
+    --color4: #d58936;
+    --color5: #a44200;
+    --color6: #69140e;
+    --color7: #3c1518;
+}
+
+
 /* Body*/
 body{
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: center;
-    background: linear-gradient(to right, #45425A  15%, #0C0909 29%)
+    /* background: linear-gradient(to right, #45425A  15%, #0C0909 29%); */
+    background: linear-gradient(to right, var(--color3)  25%, var(--color2) 49%);
+    width: 100%;
+    min-height: 100vh;
 }
 
 /* Header(trademark) */
@@ -19,8 +33,8 @@ body{
 
 
 
-/* mainLogin This section contains the user login and signup part and an image slider part*/
-.mainLogin{
+/* main-.main-login This section contains the user login and signup part and an image slider part*/
+.main-login{
     /* position */
     display: flex;
     flex-direction: row;
@@ -32,37 +46,30 @@ body{
     height: 50em;
     /* sytle */
     border-radius: 25px;
-    background-color:#FFFBEB;
-    box-shadow: 10px -8px 90px #45425A;
-
-    
+    /* background-color:#FFFBEB; */
+    background-color: var(--color1);
+    box-shadow: -50px 10px 90px #45425A; 
 }
 
-/* mainLogin img part */
-.mainLogin #coverImg{
+/* main-.main-login img part */
+.main-login #coverImg{
     margin-left: 100px;
     
     /*size*/
     height: 40em;
     /* sytle */
-    border-radius: 10%;
-    border: 5px solid #0C0909;
-    
+    border-radius: 6px;
+    /* border: 5px solid #0C0909; */
 }
-
-.mainLogin #coverImg img{
+.main-login #coverImg img{
     /* sytle */
-    border-radius: 10%;
+    border-radius: 6px;
     /*size*/
     width: 100%;
     height: 100%;
 }
-
-
-
 /* login part */
-
-.mainLogin #login{
+.main-login #login{
     /* position */
     display: flex;
     flex-direction: column;
@@ -72,76 +79,62 @@ body{
     height: 100%;
     width: 40%;
     /* sytyle */
-    background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);
+    background: linear-gradient(to right, var(--color1) 1%, var(--color6) 99%);
     border-radius: 0px 20px 20px 0px ;
 }
-
-.mainLogin #login h1{
+.main-login #login h1{
     text-transform: uppercase;
-    font-size: 40px;
-    
+    font-size: 40px; 
 }
-.mainLogin #login form{
+.main-login #login form{
     /* position */
-    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     /* size */
-    width: 28em;
-    gap: 20px;
+    /* width: 28em; */
+    gap: 20px; 
 }
-
 /* label and input part */
-.mainLogin #login form label{
-    margin-left: 20px;
-    font-size: 16px;
+.main-login #login form label{
+    /* margin-left: 20px; */
+    font-size: 20px;
 }
+.main-login #login .form-input{
+    position: relative;
 
-.mainLogin #login form input{
-    border: #0C0909 3px solid;
+    /* padding-left: 35px; */
+    /* size */
+    width: 80%;
+}
+#login .form-input input{
+    /* Position */
+    /* size */
+    width: 450px;
+    height: 45px;
+    /* padding: 5px 10px; */
+    /* style */
+    border: #1c0c0c 3px solid;
     border-radius: 20px;
     font-size: 16px;
-    padding-left: 35px;
-    width: 100%;
-    height: 80%;
-    background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);
-    ;
+    color: var(--color2);
+    outline-color: white;
+    /* background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);; */
+    background: transparent
 
 }
-
-
-.mainLogin #formInputG i{
+.form-input i{
     position: absolute;
-    top: 38px;
-    left: 15px;
-
-}
-.mainLogin #formInputP i{
-    position: absolute;
-    bottom: 90px;
-    right: 10px;
     cursor: pointer;
+    top: 54px;
+    right: 40px;
 }
 
-.mainLogin  #login #loginGmail{
-    align-content: center;
-    width: 26em;
-    height: 2.3em;
-}
-
-
-.mainLogin  #login #loginPassword{
-    align-content: center;
-    width: 26em;
-    height: 2.3em;
-
-}
-.mainLogin form input::placeholder{
-    font-size: 15px;
+.main-login form input::placeholder{
+    color: var(--color2);
+    font-size: 16px;
     padding-left: 5px;
 }
-
 
 /* buttons part */
 
@@ -159,59 +152,58 @@ border-radius: 31px;
 border: #0C0909 3px solid;
 cursor: pointer;
 background: transparent;
-transition: all 300ms ;
+transition: all 0.5s ;
 }
 
 #loginButton:hover{
-    background-color: white;
+    background: var(--color1);
     box-shadow: 0px 5px 50px rgb(22, 21, 21);
     transform: translateY(-5px);
 }
 
 
 /* Footer login part */
-.mainLogin #login #footerLogin{
+.main-login #login #footerLogin{
     display: flex;
     align-items: center;
     gap: 30px;
     cursor: pointer;
-
 }
-.mainLogin #footerLogin a{
+.main-login #footerLogin a{
     text-decoration: none;
-    color: #45425A;
+    color: var(--color2);
 }
-.mainLogin #footerLogin a:hover{
+.main-login #footerLogin a:hover{
     color: white;
 }
-.mainLogin #login #signupButton{
+.main-login #login #signupButton{
     /* font */
     font-size: 20px;
     /* body */
     border: none;
     background-color: transparent;
 }
-.mainLogin #login #signupButton:hover{
+.main-login #login #signupButton:hover{
     cursor: pointer;
-    color: white;
+    color: var(--color1);
 }
 
 
 /* -----Responsive Part */
 @media screen and (max-width: 780px){
-    .mainLogin{
+    .main-login{
         width: 90%;
 
     }
-    .mainLogin #login{
+    .main-login #login{
         width: 100%;
         border: 10px;
         
 
     }
-    .mainLogin #login form input{
+    .main-login #login form input{
     }
-    .mainLogin #login form{
+    .main-login #login form{
         width:80%;
 
     }
