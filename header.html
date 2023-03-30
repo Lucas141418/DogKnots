@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav__list">
+        <span class="nav__list-logo">SICA</span>
+          <li class="nav__list-item">Administración
+            <ul class="nav__list-item-drop">
+              <li>Usuarios</li>
+              <li>Unidades</li>
+              <li>Activos</li>
+            </ul>
+          </li>
+          <li class="nav__list-item">Registros
+            <ul class="nav__list-item-drop">
+              <li>Bitácora</li>
+              <li>Reportería</li>
+            </ul>
+          </li>
+          <li class="nav__list-item">Traslados
+            <ul class="nav__list-item-drop">
+              <li>Creación de solicitud</li>
+              <li>Solicitudes pendientes</li>
+            </ul>
+          </li>
+          <img src="./assets/user.png" alt="user-pic" class="user-pic" id="userPic">
+
+          <!--Inicio del Sub menu para el usuario-->
+
+          <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img src="./assets/user.png" alt="user-pic">
+                    <h3>Bryan Jara</h3>
+                </div>
+                <hr>
+                <a href="#" class="sub-menu-link">
+                    <img src="./assets/settings.png">
+                    <p>Editar perfil</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="./assets/settings.png">
+                    <p>Ajustes</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="./assets/settings.png">
+                    <p>Salir</p>
+                    <span>></span>
+                </a>
+            </div>
+          </div>
+          
+        
+          <!--Fin del Sub menu para el usuario-->
+
+        </ul>
+      </nav>
+      <main>
+    
+      </main>
+      <footer class="footer">
+        <div class="container">
+         <div class="row">
+           <div class="footer-col">
+             <h1 class="logo">SICA</h4>
+           </div>
+           <div class="footer-col">
+             <h4>Registro</h4>
+             <ul>
+               <li><a href="#">mi cuenta</a></li>
+               <li><a href="#">mi unidad</a></li>
+               <li><a href="#">registros de activos</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+             <h4>Reportería</h4>
+             <ul>
+               <li><a href="#">ir a reportes</a></li>
+               <li><a href="#">movimientos por unidad</a></li>
+               <li><a href="#">movimientos por usuario</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+            <h4>perfiles</h4>
+            <ul>
+              <li><a href="#">crear un perfil nuevo</a></li>
+              <li><a href="#">consulta de usuarios</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>solicitudes</h4>
+            <ul>
+              <li><a href="#">crear una nueva solicitud</a></li>
+              <li><a href="#">consulta de solicitudes</a></li>
+            </ul>
+          </div>
+        </div>
+        <br><br><br>
+        <div class="row">
+            <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
+            </div>
+        </div>
+     </footer>
+      <script src="./scripts/header.js"></script>
+</body>
+</html>
