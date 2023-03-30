@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registro de traslado</title>
+    <link rel="stylesheet" href="styles/registroTraslado.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    />
+  </head>
+  <body>
+    <main class="mainContainer">
+      <h1 class="h1Element">Registro de traslado</h1>
+      <p class="formTitle">Ingreso de información del traslado</p>
+
+      <!-- form section -->
+      <form>
+        <div class="imageContainer"></div>
+
+        <div class="formInputs1">
+          <label for="assetId">Id de activo: </label>
+          <input
+            type="text"
+            name="assetId"
+            id="assetId"
+            placeholder="Ej: 000001"
+            maxlength="6"
+          />
+
+          <label for="currentUnit">Unidad actual: </label
+          ><input
+            type="text"
+            name="currentUnit"
+            id="currentUnit"
+            placeholder="Ej: Unidad de Heredia"
+            maxlength="30"
+          />
+        </div>
+
+        <div class="formInputs2">
+          <label for="assetName">Nombre del activo: </label
+          ><input
+            type="text"
+            name="assetName"
+            id="assetName"
+            placeholder="Ej: Silla ergonómica"
+            maxlength="30"
+          />
+          <label for="destinationUnit">Unidad de destino: </label
+          ><input
+            type="text"
+            name="destinationUnit"
+            id="destinationUnit"
+            placeholder="Ej: Unidad de San José"
+            maxlength="30"
+          />
+        </div>
+        <div class="formInputs3">
+          <label for="justification">Justificación de traslado: </label>
+          <textarea
+            name="justification"
+            id="justification"
+            cols="30"
+            rows="10"
+            placeholder="Ej: Explique el porqué del traslado."
+          >
+          </textarea>
+        </div>
+
+        <div class="formInputs4">
+          <div class="radioButton">
+            <p>Motivo de traslado:</p>
+
+            <label for="reason" id="radiobutton1"
+              ><input type="radio" name="reason" id="damage" value="Daño" />
+              Daño
+            </label>
+
+            <label for="reason" id="radiobutton2"
+              ><input type="radio" name="reason" id="disuse" value="Desuso" />
+              Desuso
+            </label>
+          </div>
+          <div class="buttonsContainer">
+            <button class="button">Cancelar</button>
+            <button class="button">Guardar</button>
+          </div>
+        </div>
+
+        <div class="formInputs5">
+          <label for="">Subir fotos del activo a trasladar</label>
+          <div class="uploadImageContainer">
+            <img src="assets/Cloud arrow up 1.png" alt="cloudUp" />
+            <p>Formatos admitidos: PNG, JPG</p>
+            <button class="uploadButton">Buscar archivos</button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
