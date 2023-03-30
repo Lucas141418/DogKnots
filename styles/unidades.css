@@ -209,9 +209,10 @@ table tbody tr:nth-child(odd) {
 .search-filters input[type="text"]{
     border: none;
 }
-
+/* Search  establecido por el equipo*/
 .field-container-text{
-    background: #c3a19f;
+    background: #f0e8e7;
+    border-radius: 6px;
     padding: 0.5rem;
 }
 
