@@ -25,18 +25,16 @@
   p{
     font-weight: 300;
   }
-
-  main{
-    height: 100vh;
-  }
   
   body{
     background: #f1f4ff;
+    min-height: 100vh;
+    width: 100%;
   }
   
   .nav {
     position: fixed;
-    width: 100vw;
+    width: 100%;
     background-color: white;
     box-shadow: 0 0 10px var(--clr-gray300);
   }
@@ -45,7 +43,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 2rem;
     margin: 0 2rem;
   }
   
