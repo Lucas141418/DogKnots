@@ -103,6 +103,8 @@ form div textarea {
   width: 85%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 15px;
+  align-items: ;
 }
 
 .upload-image-container {
@@ -115,7 +117,6 @@ form div textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0.5rem;
 }
 
 form {
