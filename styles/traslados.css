@@ -167,14 +167,14 @@ hr {
   border-radius: 5px;
 }
 
-.first-button {
+.red-button {
   border: none;
   border-radius: 0.5rem;
   background-color: #69140e;
   color: white;
 }
 
-.first-button:hover {
+.red-button:hover {
   border: 2px solid #69140e;
   border-radius: 0.5rem;
   background-color: white;
@@ -182,14 +182,14 @@ hr {
   /* font-weight: 700; */
 }
 
-.second-button {
+.orange-button {
   border: none;
   border-radius: 0.5rem;
   background-color: #a44200;
   color: white;
 }
 
-.second-button:hover {
+.orange-button:hover {
   border: 2px solid #a44200;
   border-radius: 0.5rem;
   background-color: white;
@@ -197,7 +197,7 @@ hr {
   /* font-weight: 700; */
 }
 
-.third-button {
+.white-orange-button {
   border: none;
   border-radius: 0.5rem;
   background-color: white;
@@ -205,7 +205,23 @@ hr {
   border: 2px solid #a44200;
 }
 
-.third-button:hover {
+.white-orange-button:hover {
+  border: 2px solid #69140e;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #69140e;
+  /* font-weight: 700; */
+}
+
+.white-red-button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #69140e;
+  border: 2px solid #69140e;
+}
+
+.white-red-button:hover {
   border: 2px solid #69140e;
   border-radius: 0.5rem;
   background-color: white;
@@ -324,7 +340,7 @@ select,
 #assetName,
 #assetId {
   margin-bottom: 6px;
-  width: 60%;
+  width: 80%;
 }
 
 label {

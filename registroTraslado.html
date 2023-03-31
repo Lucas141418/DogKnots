@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Registro de traslado</title>
+    <link rel="stylesheet" href="styles/traslados.css" />
     <link rel="stylesheet" href="styles/registroTraslado.css" />
     <link
       rel="stylesheet"
@@ -16,7 +17,11 @@
 
       <!-- form section -->
       <form>
-        <div class="imageContainer"></div>
+        <img
+          src="https://media.nidux.net/pull/2000/2000/3259/122317-product-63eaaa5ac14a2-63-het-5008-ma-3.jpg"
+          alt="silla"
+          class="uploaded-image"
+        />
 
         <div class="formInputs1">
           <label for="assetId">Id de activo: </label>
@@ -25,7 +30,6 @@
             name="assetId"
             id="assetId"
             placeholder="Ej: 000001"
-            maxlength="6"
           />
 
           <label for="currentUnit">Unidad actual: </label
@@ -69,31 +73,35 @@
         </div>
 
         <div class="formInputs4">
-          <div class="radioButton">
+          <div class="radio-button-container">
             <p>Motivo de traslado:</p>
 
-            <label for="reason" id="radiobutton1"
-              ><input type="radio" name="reason" id="damage" value="Daño" />
-              Daño
-            </label>
+            <label for="reason" id="radiobutton1" class="radio-button">
+              <input type="radio" name="reason" id="damage" value="Daño" />
+              Daño</label
+            >
 
-            <label for="reason" id="radiobutton2"
+            <label for="reason" id="radiobutton2" class="radio-button"
               ><input type="radio" name="reason" id="disuse" value="Desuso" />
               Desuso
             </label>
           </div>
           <div class="buttonsContainer">
-            <button class="button">Cancelar</button>
-            <button class="button">Guardar</button>
+            <button class="orange-button">Cancelar</button>
+            <button class="white-orange-button">Guardar</button>
           </div>
         </div>
 
         <div class="formInputs5">
           <label for="">Subir fotos del activo a trasladar</label>
-          <div class="uploadImageContainer">
-            <div class="uploadIcon"></div>
-            <p>Formatos admitidos: PNG, JPG</p>
-            <button class="uploadButton">Buscar archivos</button>
+          <div class="upload-image-container">
+            <img
+              src="assets/cloudUpIcon.png"
+              alt="uploadLogo"
+              class="format-label"
+            />
+            <label class="admitted-format">Formatos admitidos: PNG, JPG</label>
+            <button class="white-orange-button">Buscar archivos</button>
           </div>
         </div>
       </form>
