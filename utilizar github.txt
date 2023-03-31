@@ -1,0 +1,16 @@
+git pull --> Pone al día el repositorio de la pc con el de la nube
+
+git switch nombre_de_la_rama ---> Para cambiar de rama
+
+git status ---> Se vé el status de que lo que he subido o borrado, pero sin subir a nube
+
+gidd add --> Hace un preguardado de mis cambios
+
+git commit -m "Cometario para el add" 
+
+git push --> Termina de subir los cambios a la nube
+
+git log --> Historial de cambios que se han hecho en la nube 
+
+git checkout --> Con los commit de git log se puede cargar los guardados
+
