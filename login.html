@@ -22,17 +22,17 @@
 
             <h1>Iniciar Sesión</h1>
 
-            <form>
+            <form id="loginSection">
                 <div class="form-input">
                     <i class="fa-solid fa-user fa-xl"></i>
                     <label for="loginGmail">Correo</label>
-                    <input type="email" placeholder="example.email@gmail.com " id="loginGmail" required>
+                    <input type="text" placeholder="example.email@gmail.com " id="loginGmail">
                 </div>
 
                 <div class="form-input">
                     <i class="fa-solid fa-eye-slash fa-xl"></i>
                     <label for="loginPassword">Contraseña</label>
-                    <input type="password" placeholder="*********" id="loginPassword" required>
+                    <input type="password" placeholder="*********" id="loginPassword">
                 </div>
                     <button type="submit" id="loginButton">Iniciar Sesión</button>
             </form>
@@ -50,4 +50,7 @@
     </main>
     
 </body>
+<script src="login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </html>

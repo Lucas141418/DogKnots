@@ -28,6 +28,9 @@ body{
 }
 
 /* Header(trademark) */
+sweetalert-content{
+    background-color: var(--color3);
+}
 
 
 
