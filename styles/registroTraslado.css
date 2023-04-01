@@ -4,6 +4,13 @@
   --clr-primary-dark: #9c94c9;
   --clr-gray300: #e1e5ee;
   --clr-accents: #a44200;
+  --color1: #ffffff;
+  --color2: #000000;
+  --color3: #a6a6a6;
+  --color4: #d58936;
+  --color5: #a44200;
+  --color6: #69140e;
+  --color7: #3c1518;
 }
 
 /* border radius */
@@ -217,8 +224,9 @@ input:not([type="radio"]) {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: white;
-  box-shadow: 0 0 10px var(--clr-gray300);
+  background-color: var(--color6);
+  /* box-shadow: 0 0 10px var(--clr-gray300); */
+  box-shadow: 0 0 10px #965b56;
 }
 
 /* .nav__list {
@@ -240,6 +248,7 @@ input:not([type="radio"]) {
   list-style: none;
   /* margin-right: auto; */
   cursor: pointer;
+  max-height: 4rem;
 }
 
 .nav__list-item {
@@ -248,6 +257,7 @@ input:not([type="radio"]) {
   position: relative;
   padding: 1.5rem 1rem;
   cursor: pointer;
+  color: white;
 }
 
 .nav__list-item::after {
@@ -258,7 +268,7 @@ input:not([type="radio"]) {
   position: absolute;
   left: 1rem;
   bottom: 0.8rem;
-  background-color: var(--clr-primary);
+  background-color: white;
   transition: width 200ms ease-in;
 }
 
@@ -289,6 +299,7 @@ input:not([type="radio"]) {
   visibility: hidden;
   transition: opacity 200ms ease-in-out;
   border-radius: 8px;
+  color: #000000;
 }
 
 .nav__list-item-drop li {
