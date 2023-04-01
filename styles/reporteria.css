@@ -20,9 +20,11 @@ body{
 }
 /* Header*/
 #logo{
-    height: 100px;
-    width: 100px;
-    margin-right: 20px;
+  padding: 10px 0px;
+    width:5%;
+    border-radius:100%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -197,7 +199,7 @@ main{
     /* Position */
     display: flex;
     flex-direction: row;
-    padding-top: 100px;
+    padding-top: 104px;
    
     /* size */
     width: 99%;
