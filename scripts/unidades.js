@@ -20,12 +20,13 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     const initUnitsInformation = () => {
+        this.localStorage.setItem("CurrentSection", "UnitInformation");
         const unitInfoContent = document.createElement('div');
         unitInfoContent.classList.add('unit-information');
         const units = /*html*/`
             <div class="section-filters">
                 
-                <h2>Filtros de Busqueda</h2>
+                <h2 id= search-filters>Filtros de Busqueda</h2>
 
                 <button class="icon-btn"><i class="fa-solid fa-trash"></i> Eliminar unidad</button>
                 
@@ -54,7 +55,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
                 <span class="field-container">
                     <label for="search-for-register-date">Fecha de registro</label>
-                    <select id="search-for-register-date"><option value="">-Any-</option></select>
+                    <input type="date" name id="search-for-register-date">
                 </span>
                 
                 <button aria-label="Filtrar" class="icon-btn search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -84,9 +85,78 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     const initUnitForm = () => {
+        this.localStorage.setItem("CurrentSection", "UnitForm");
         const unitForm = document.createElement('div');
         unitForm.classList.toggle('unit-form');
-        const units_form = /*html*/`formulario`;
+        const units_form = /*html*/`
+        
+        
+            <form class= "unit-register">
+
+                <h2 id= "title-form">Formulario de Registro</h2>
+
+                <div class= "unit-name-register">
+                    <label for= "unit-name">Nombre de la unidad</label>
+                    <input id= "unit-name" placeholder= "Digite el nombre la unidad...">
+                </div>
+
+                <div class= "unit-id-register">
+                    <label for= "unit-id">ID</label>
+                    <label id= "unit-id">:  001</label>
+                </div>
+
+                <div class= "unit-description-register">
+                <label for= "unit-description">Descripción</label>
+                <textarea id= "unit-description" placeholder= "Digite descripción de la unidad..."></textarea>
+                </div>
+
+                <div class= "unit-province-register">
+                    <label for= "unit-province">Provincia</label>
+                    <select id= "unit-province">
+                        <option value="">-Any-</option>
+                        <option value="">-San José-</option>
+                        <option value="">-Alajuela-</option>
+                        <option value="">-Cartago-</option>
+                        <option value="">-Heredia-</option>
+                        <option value="">-Puntarenas-</option>
+                        <option value="">-Guanacaste-</option>
+                        <option value="">-Limón-</option>
+                    </select>
+                </div>                
+
+                <div class= "unit-canton-register">
+                <label for= "unit-canton">Cantón</label>
+                <input id= "unit-canton" placeholder= "Ej: San Carlos">
+                </div>      
+
+                <div class= "unit-district-register">
+                <label for= "unit-district">Distrito</label>
+                <input id= "unit-district" placeholder= "Ej: La Fortuna">
+                </div>    
+
+                <div class= "unit-direction-details-register">
+                <label for= "unit-direction-details">Otras señas</label>
+                <textarea id= "unit-direction-details" placeholder= "Digite detalles de la dirección..."></textarea>
+                </div>
+
+                <div class="unit-date-register">
+                <label for="unit-date">Fecha de registro</label>
+                <label id= "unit-date">01/04/2023</label>
+                </div>
+
+                <div class="buttons-register">
+                <button  class="white-orange-button" type= "Button">Cancelar</button>
+                <button class="orange-button" type= "Button">Guardar</button>
+                </div>
+
+
+
+
+            </form>
+        
+        
+        
+        `;
         unitForm.innerHTML = units_form;
         mainContentContainer.innerHTML = unitForm.outerHTML;
     }
@@ -107,8 +177,23 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     this.setTimeout(() => {
-        initUnitsInformation();
-        initTable();
+        const currentSection = localStorage.getItem("CurrentSection");
+        if (!currentSection) {
+            initUnitsInformation();
+            initTable();
+        } else {
+            switch (currentSection) {
+                case "UnitInformation":
+                    initUnitsInformation();
+                    initTable();
+                    break;
+                case "UnitForm":
+                    initUnitForm();
+                        break;
+                default:
+                    break;
+            }
+        }
     }, 0)
 });
 
@@ -155,4 +240,39 @@ const tableData = [
         loc: 'San Jose',
         created: '01/01/2023',
     },
+
+    {
+        id: '006',
+        name: 'Name01',
+        desc: 'Test Data',
+        loc: 'San Jose',
+        created: '01/01/2023',
+    },
+
+    {
+        id: '006',
+        name: 'Name01',
+        desc: 'Test Data',
+        loc: 'San Jose',
+        created: '01/01/2023',
+    },
+
+    {
+        id: '006',
+        name: 'Name01',
+        desc: 'Test Data',
+        loc: 'San Jose',
+        created: '01/01/2023',
+    },
+
+    {
+        id: '006',
+        name: 'Name01',
+        desc: 'Test Data',
+        loc: 'San Jose',
+        created: '01/01/2023',
+    },
+
+
+
 ]
