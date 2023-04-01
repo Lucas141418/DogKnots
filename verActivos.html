@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/verActivos.css">
     <title>Ver y Modificar activos</title>
 </head>
@@ -14,7 +15,7 @@
         <!--Inicio del nav -->
                 <nav class="nav">
                     <ul class="nav__list">
-                        <img src="assets/logo.png" alt="" id="logo">
+                        <img src="assets/logo.jpg" alt="" id="logo">
                     <span class="nav__list-logo">SICA</span>
                       <li class="nav__list-item">Administración
                         <ul class="nav__list-item-drop">
@@ -71,42 +72,38 @@
                   </nav>
         <!--Fin del nav -->
         
-            </header>
+    </header>
         <!--Fin del header -->
 
         <main>
             <aside>
 
                 <div class="aside-title">
-                    <h2 id="mainTitle">Registros</h2>
-                    <h2 id="secundaryTitle"> <i class="fa-solid fa-clipboard"></i> Reporteria</h2>
+                    <h2 id="mainTitle">Administración</h2>
+                    <h2 id="secundaryTitle"> <i class="fa-solid fa-building-shield"></i> Activos</h2>
                 </div>
 
-                <div class="btsSection">
+                <div class="bts-section">
 
-                    <button  id="btnUsers" > <i class="fa-solid fa-user"></i>  Usuarios</button>
-                    <button  id="btnUnits">  <i class="fa-solid fa-building"></i>   Unidades</button>
-                    <button  id="btnAssets">  <i class="fa-solid fa-box"></i>   Activos</button>
-                    <button  id="btnLogbook"><i class="fa-solid fa-book"></i>  Bitacora</button>
-                    <button  id="btnWarehouses">  <i class="fa-solid fa-truck"></i>  Bodega</button>
-                    <button  id="btnDonations">  <i class="fa-solid fa-hand-holding-heart"></i>  Donaciones</button>
+                    <button  id="btnActives" > <i class="fa-solid fa-building"></i> Ver activos</button>
+                    <button  id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar activos</button>
+                    <button  id="btnEdit">  <i class="fa-solid fa-pen-to-square"></i>   Editar activos</button>
+                    
 
                 </div>
             </aside>
 
 
-
-
             <section>
                 <div id="filter">
     
-                    <div class="checkboxesOptions">
-                        <p class="paragraph">Rol</p>
+                    <div class="checkboxes-options">
+                        <p class="paragraph">Estado</p>
     
                         <div class="checkboxes">
-                            <label> Jefatura <input type="radio" name="rol" id="jefaturaRol"></label>
-                            <label>	Proveduria <input type="radio" name="rol" id="proveduriaRol" ></label>
-                            <label> Encargado de inventario <input type="radio" name="rol"  id="encargadoRol"></label>
+                            <label> En uso <input type="radio" name="rol" id="used"></label>
+                            <label>	Desuso <input type="radio" name="rol" id="disuse" ></label>
+                            <label> Dañado <input type="radio" name="rol"  id="damage"></label>
                         </div>
                         
                         
@@ -118,31 +115,48 @@
                     </div>
     
     
-                    <div class="checkboxesOptions">
+                    <div class="checkboxes-options">
     
                         
-                        <label for="">Unidad</label>
+                        <label for="">Origen</label>
     
-                        <select>
-                            <option value="San Jose">San José</option>
-                            <option value="Alajuela">Alajuela</option>
-                            <option value="Cartago">Cartago</option>
-                            <option value="Heredia">Heredia</option>
-                            <option value="Guanacaste">Guanacaste</option>
-                            <option value="Puntarenas">Puntarenas</option>
-                            <option value="Limon">Limón</option>
+                          <select>
+                            <option value="sedeCentral">Sede Central</option>
+                            <option value="bodega">Bodega</option>
+                            <option value="donaciones">Donaciones</option>
+                            <option value="alajuela">Alajuela</option>
+                            <option value="sanJose">San José</option>
+                            <option value="puntarenas">Puntarenas</option>
+                            <option value="heredia">Heredia</option>
                           </select>
     
-                        <label for="dateInput">Fecha</label>
-                        <input type="date" name="" id="dateInput">
+                          <label for="">Destino</label>
+    
+                            <select>
+                              <option value="sedeCentral">Sede Central</option>
+                              <option value="bodega">Bodega</option>
+                              <option value="donaciones">Donaciones</option>
+                              <option value="alajuela">Alajuela</option>
+                              <option value="sanJose">San José</option>
+                              <option value="puntarenas">Puntarenas</option>
+                              <option value="heredia">Heredia</option>
+                            </select>
                         
                     </div>
     
-    
-                    <div class="field-container-text">
-                        <input type="text" placeholder="Buscar">
+                    
+                    <div class="search-part">
+                      <div class="field-container-text">
+                          <input type="text" placeholder="Nombre de activo" id="activeName">
+                          <button  class="first-button" type="submit"><i class="fa fa-search"></i>Buscar</button>
+                      </div>
+
+                      <div class="field-container-text">
+                        <input type="text" placeholder="Id del activo" id="activeId">
                         <button  class="first-button" type="submit"><i class="fa fa-search"></i>Buscar</button>
-                    </div>
+                      </div>
+                  </div>
+                    
                     
                 </div>
     
@@ -150,73 +164,94 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Usuario</th>
-                            <th>Rol</th>
-                            <th>Identificación</th>
-                            <th>Correo electrónico</th>
-                            <th>Fecha de nacimiento</th>
-                            <th>Unidad</th>
+                            <th>Id de solicitud</th>
+                            <th>Nombre de activo</th>
+                            <th>Id activo</th>
+                            <th>Descripción de traslado</th>
+                            <th>Estado</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Editar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Alejandra Torres Ramírez</td>
-                            <td>Encargado de inventario</td>
-                            <td>111847253</td>
-                            <td>alejandra.torres@proveguar.ac.cr</td>
-                            <td>12/04/88</td>
-                            <td>Guanacaste</td>
+                            <td>003</td>
+                            <td>Silla ergonómica</td>
+                            <td>003333</td>
+                            <td>Daño en pistón de aire</td>
+                            <td>En uso</td>
+                            <td>Unidad de San José</td>
+                            <td>Unidad bodega</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
                         </tr>
                         <tr>
-                            <td>José Rodríguez García</td>
-                            <td>Proveduria</td>
-                            <td>123789610</td>
-                            <td>jose.rodriguez@proveguar.ac.cr</td>
-                            <td>22/11/95</td>
-                            <td>San José</td>
+                            <td>004</td>
+                            <td>Monitor Dell 21"</td>
+                            <td>000002</td>
+                            <td>Pixeles muertos</td>
+                            <td>En uso</td>
+                            <td>Unidad de Heredia</td>
+                            <td>Unidad de Guanacaste</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
                         </tr>
                         <tr>
-                            <td>Andrea Ruiz López</td>
-                            <td>Encargado de inventario</td>
-                            <td>158302479</td>
-                            <td>andrea.ruiz@proveguar.ac.cr</td>
-                            <td>07/08/83</td>
-                            <td>Puntarenas</td>
-                            <td></td>
+                            <td>005</td>
+                            <td>Silla sala de conferencia</td>
+                            <td>000285</td>
+                            <td>Para donación</td>
+                            <td>En uso</td>
+                            <td>Unidad de Alajuela</td>
+                            <td>Unidad de bodega</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
                         </tr>
                         <tr>
-                            <td>David Pérez Hernández</td>
-                            <td>Jefatura</td>
-                            <td>198765432</td>
-                            <td>david.perez@proveguar.ac.cr</td>
-                            <td>03/05/92</td>
-                            <td>Cartago</td>
+                            <td>009</td>
+                            <td>Headset Jabra</td>
+                            <td>000893</td>
+                            <td>Micrófono con interferencia</td>
+                            <td>En uso</td>
+                            <td>Unidad de bodega</td>
+                            <td>Unidad de donaciones</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
                         </tr>
                       
                         
                         <tr>
-                            <td>Sandra González Ortiz</td>
-                            <td>Jefatura</td>
-                            <td>176594820</td>
-                            <td>sandra.gonzalez@proveguar.ac.cr</td>
-                            <td>19/07/87</td>
-                            <td>Cartago</td>
+                            <td>008</td>
+                            <td>Escritorio</td>
+                            <td>001532</td>
+                            <td>Se solicita en Alajuela</td>
+                            <td>En uso</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Alajuela</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
                         </tr>
                         <tr>
-                            <td>Oscar Martínez Jiménez</td>
-                            <td>Proveduria</td>
-                            <td>127684539</td>
-                            <td>oscar.martinez@proveguar.ac.cr</td>
-                            <td>02/02/91</td>
-                            <td>Alajuela</td>
+                            <td>001</td>
+                            <td>Laptop Dell</td>
+                            <td>000789</td>
+                            <td>Para donación</td>
+                            <td>En uso</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Limón</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
                         </tr>
                         <tr>
-                            <td>Natalia Castro Ruiz</td>
-                            <td>Encargado de inventario</td>
-                            <td>102938475</td>
-                            <td>natalia.castro@proveguar.ac.cr</td>
-                            <td>15/09/94</td>
-                            <td>Heredia</td>
+                            <td>002</td>
+                            <td>Teléfono</td>
+                            <td>000620</td>
+                            <td>Táctil daño</td>
+                            <td>Dañado</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Bodega</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
                         </tr>
     
                     </tbody>
@@ -288,4 +323,5 @@
 
 
 </body>
+<script src="scripts/header.js"></script>
 </html>
