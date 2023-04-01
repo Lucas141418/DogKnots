@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+:root{
+    --color1:#ffffff;
+    --color2: #000000;
+    --color3: #a6a6a6;
+    --color4: #d58936;
+    --color5: #a44200;
+    --color6: #69140e;
+    --color7: #3c1518;
+}
+
+
+/* Body*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    /* background: linear-gradient(to right, #45425A  15%, #0C0909 29%); */
+    background: linear-gradient(to right, var(--color3)  25%, var(--color2) 49%);
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Header(trademark) */
+sweetalert-content{
+    background-color: var(--color3);
+}
+
+
+
+
+
+/* main-.main-login This section contains the user login and signup part and an image slider part*/
+.main-login{
+    /* position */
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    margin: 40px;
+    /* size */
+    width: 90em;
+    height: 50em;
+    /* sytle */
+    border-radius: 25px;
+    /* background-color:#FFFBEB; */
+    background-color: var(--color1);
+    box-shadow: -50px 10px 90px #45425A; 
+}
+
+/* main-.main-login img part */
+.main-login #coverImg{
+    margin-left: 100px;
+    
+    /*size*/
+    height: 40em;
+    /* sytle */
+    border-radius: 6px;
+    /* border: 5px solid #0C0909; */
+}
+.main-login #coverImg img{
+    /* sytle */
+    border-radius: 6px;
+    /*size*/
+    width: 100%;
+    height: 100%;
+}
+/* login part */
+.main-login #login{
+    /* position */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* size */
+    height: 100%;
+    width: 40%;
+    /* sytyle */
+    background: linear-gradient(to right, var(--color1) 1%, var(--color6) 99%);
+    border-radius: 0px 20px 20px 0px ;
+}
+.main-login #login h1{
+    text-transform: uppercase;
+    font-size: 40px; 
+}
+.main-login #login form{
+    /* position */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* size */
+    /* width: 28em; */
+    gap: 20px; 
+}
+/* label and input part */
+.main-login #login form label{
+    /* margin-left: 20px; */
+    font-size: 20px;
+}
+.main-login #login .form-input{
+    position: relative;
+
+    /* padding-left: 35px; */
+    /* size */
+    width: 80%;
+}
+#login .form-input input{
+    /* Position */
+    /* size */
+    width: 450px;
+    height: 45px;
+    /* padding: 5px 10px; */
+    /* style */
+    border: #1c0c0c 3px solid;
+    border-radius: 20px;
+    font-size: 16px;
+    color: var(--color2);
+    outline-color: white;
+    /* background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);; */
+    background: transparent
+
+}
+.form-input i{
+    position: absolute;
+    cursor: pointer;
+    top: 54px;
+    right: 40px;
+}
+
+.main-login form input::placeholder{
+    color: var(--color2);
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+/* buttons part */
+
+#loginButton{
+margin-top: 15px;
+padding: 0px 10px;
+align-self: center;
+height: 2.5em;
+width: 16em;
+/* font */
+font-size: 16px;
+/* body */
+border: none;
+border-radius: 31px;
+border: #0C0909 3px solid;
+cursor: pointer;
+background: transparent;
+transition: all 0.5s ;
+}
+
+#loginButton:hover{
+    background: var(--color1);
+    box-shadow: 0px 5px 50px rgb(22, 21, 21);
+    transform: translateY(-5px);
+}
+
+
+/* Footer login part */
+.main-login #login #footerLogin{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+}
+.main-login #footerLogin a{
+    text-decoration: none;
+    color: var(--color2);
+}
+.main-login #footerLogin a:hover{
+    color: white;
+}
+.main-login #login #signupButton{
+    /* font */
+    font-size: 20px;
+    /* body */
+    border: none;
+    background-color: transparent;
+}
+.main-login #login #signupButton:hover{
+    cursor: pointer;
+    color: var(--color1);
+}
+
+
+/* -----Responsive Part */
+@media screen and (max-width: 780px){
+    .main-login{
+        width: 90%;
+
+    }
+    .main-login #login{
+        width: 100%;
+        border: 10px;
+        
+
+    }
+    .main-login #login form input{
+    }
+    .main-login #login form{
+        width:80%;
+
+    }
+
+    header{
+        display: none;
+    }
+    #coverImg{
+        display: none;
+    }
+   
+   
+}
