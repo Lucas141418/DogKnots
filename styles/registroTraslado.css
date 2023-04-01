@@ -56,6 +56,8 @@ p {
 
 .h1Element {
   grid-column: 2 / 4;
+  color: #69140e;
+  font-size: 2.5rem;
 }
 
 .h2Element {
@@ -194,13 +196,14 @@ input:not([type="radio"]) {
   margin: 15px 10px;
 }
 
-.button {
+button {
   border: none;
   border-radius: 6px;
   /* padding: 0 1rem; */
-  width: 35%;
+  width: 75%;
   height: 100%;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .radio-button-container {
@@ -215,6 +218,51 @@ input:not([type="radio"]) {
   padding: 0.5rem;
   width: 10rem;
   cursor: pointer;
+}
+
+.orange-button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #a44200;
+  color: white;
+}
+
+.orange-button:hover {
+  border: 2px solid #a44200;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #a44200;
+  /* font-weight: 700; */
+}
+
+.white-orange-button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #a44200;
+  border: 2px solid #a44200;
+}
+
+.white-orange-button:hover {
+  border: 2px solid #69140e;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #69140e;
+  /* font-weight: 700; */
+}
+.white-red-button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #69140e;
+  border: 2px solid #69140e;
+}
+.white-red-button:hover {
+  border: 2px solid #69140e;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #69140e;
+  /* font-weight: 700; */
 }
 
 /* header section */
