@@ -1,153 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="styles/usuarios.css" />
-    <script src="
-https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js
-"></script>
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/usuarios.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/registro.js"></script>
-  </head>
-  <body class="register-page">
-    <div class="header">
-      <div class="container">
-        <div class="header-left">
-          <div class="logo">
-            <img src="assets/logo.png" alt="" />
-          </div>
-          <div class="navigation">
-            <ul class="nav-menu">
-              <li>
-                <a href="http://" target="_blank" rel="noopener noreferrer"
-                  >Administracion</a
-                >
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body class="register-page">
+    <header>
+        <nav class="nav">
+            <ul class="nav__list">
+                <img src="assets/logoAbajo.png" alt="" id="logo">
+                <li class="nav__list-item">Administración
+                <ul class="nav__list-item-drop">
+                  <li>Usuarios</li>
+                  <li>Unidades</li>
+                  <li>Activos</li>
+                </ul>
               </li>
-              <li>
-                <a href="http://" target="_blank" rel="noopener noreferrer"
-                  >Registros</a
-                >
+              <li class="nav__list-item">Registros
+                <ul class="nav__list-item-drop">
+                  <li>Bitácora</li>
+                  <li>Reportería</li>
+                </ul>
               </li>
-              <li>
-                <a href="http://" target="_blank" rel="noopener noreferrer"
-                  >Translados</a
-                >
+              <li class="nav__list-item">Traslados
+                <ul class="nav__list-item-drop">
+                  <li>Creación de solicitud</li>
+                  <li>Solicitudes pendientes</li>
+                </ul>
               </li>
+              <img src="./assets/user.png" alt="user-pic" class="user-pic" id="userPic">
+    
+              <!--Inicio del Sub menu para el usuario-->
+    
+              <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="./assets/user.png" alt="user-pic">
+                        <h3>Bryan Jara</h3>
+                    </div>
+                    <hr>
+                    <a href="#" class="sub-menu-link">
+                        <img alt="icono de configuración" src="./assets/settings.png">
+                        <p>Editar perfil</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img alt="icono de configuración" src="./assets/settings.png">
+                        <p>Ajustes</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img alt="icono de configuración" src="./assets/settings.png">
+                        <p>Salir</p>
+                        <span>></span>
+                    </a>
+                </div>
+              </div>
             </ul>
-          </div>
-        </div>
-        <div class="header-right">
-          <div class="login">
-            <div class="username">
-              <span>Nombre Completo</span>
-              <img src="assets/Avatar.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section main">
-      <div class="container">
-        <h2>Registro de Usuarios</h2>
-        <div class="grid">
-          <div class="profile-picture">
-            <div>
-              <img src="assets/avatar-big.png" alt="" id="avatar-image"/>
-              <div>
-                <p>Formatos adminitidos: PNG, JPG</p>
-                <div class="customFileButton">
-                    <button id="fileButtonAvatar">Elegir imagen</button>
-                    <input type="file" id="avatar"/>
+          </nav>
+    </header>
+    <main>
+      <div class="section main">
+        <div class="container">        
+          <h2 id="mainTitle" class="h1ElementUsuarios">Usuario</h2>
+          <div class="grid">
+            <div class="profile-picture">
+              <div >
+                <img src="assets/avatar-big.png" alt="" id="avatar-image"/>
+                <div class="formInputs5">
+                  <br>
+                  <label for="">Subir fotografía</label>
+                  <div class="upload-image-container">
+                    <img
+                      src="assets/cloudUpIcon.png"
+                      alt="uploadLogo"
+                      class="format-label"
+                    />
+                    <label class="admitted-format" >Formatos admitidos: .png, .jpg</label>
+                    <div class="customFileButton">
+                      <button id="fileButtonAvatar" class="orange-button">Elegir imagen</button>
+                      <input type="file" alt="imagen de perfil" id="avatar" aria-label="search"/>
+                  </div>
                 </div>
                 <span class="error-message" id="avatar-error"></span>
+                </div>
+              </div>
+            </div>
+            <div class="register-block">
+              <div>
+                <form id="register" class="register-form" action="#">
+                  <div class="form-group">
+                    <label>
+                      Nombre
+                      <input
+                        type="text"
+                        name="nombre"
+                        id="nombre"
+                      />
+                      <span class="error-message" id="name-error"></span>
+                    </label>
+                    <label for="cedula">
+                      Cedula de identidad
+                      <input
+                        type="text"
+                        name="cedula"
+                        id="cedula"
+                        placeholder="0102340567"
+                      />
+                      <span class="error-message" id="cedula-error"></span>
+                    </label>
+                    <label>
+                      Primer Apellido
+                      <input
+                        type="text"
+                        name="primerapellidos"
+                        id="primerapellidos"
+                      />
+                      <span
+                        class="error-message"
+                        id="primerapellidos-error"
+                      ></span>
+                    </label>
+                    <label>
+                      Segundo Apellido
+                      <input
+                        type="text"
+                        name="segundoapellidos"
+                        id="segundoapellidos"
+                      />
+                      <span
+                        class="error-message"
+                        id="segundoapellidos-error"
+                      ></span>
+                    </label>
+                    <label>
+                      Telefono
+                      <input type="text" name="telefono" id="telefono" placeholder="1234-5678"/>
+                      <span class="error-message" id="telefono-error"></span>
+                    </label>
+                    <label>
+                      Correo Electronico
+                      <input type="email" name="email" id="email" />
+                      <span class="error-message" id="email-error"></span>
+                    </label>
+                    <label for="nacimiento">
+                      Fecha de nacimiento
+                      <input type="date" name="nacimiento" id="nacimiento" />
+                      <span class="error-message" id="nacimiento-error"></span>
+                    </label>
+                    <label>
+                      Unidad a la que pertenece
+                      <select name="unidad" id="unidad">
+                        <option value="0"></option>
+                        <option value="1">San José</option>
+                        <option value="2">Alajuela</option>
+                        <option value="3">Cartago</option>
+                        <option value="4">Heredia</option>
+                        <option value="5">Puntarenas</option>
+                        <option value="6">Limón</option>
+                        <option value="7">Guanacaste</option>
+                      </select>
+                      <span class="error-message" id="unidad-error"></span>
+                    </label>
+                  </div>
+                  <div class="buttonsContainer">
+                    <button type="button" id="cancel" class="white-orange-button">Cancelar</button>
+                    <button type="button" id="save" class="orange-button"/>Crear</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <div class="register-block">
-            <div>
-              <form id="register" class="register-form" action="#">
-                <div class="form-group">
-                  <label>
-                    Nombre
-                    <input
-                      type="text"
-                      name="nombre"
-                      id="nombre"
-                    />
-                    <span class="error-message" id="name-error"></span>
-                  </label>
-                  <label for="cedula">
-                    Cedula de identidad
-                    <input
-                      type="text"
-                      name="cedula"
-                      id="cedula"
-                      placeholder="0102340567"
-                    />
-                    <span class="error-message" id="cedula-error"></span>
-                  </label>
-                  <label>
-                    Primer Apellido
-                    <input
-                      type="text"
-                      name="primerapellidos"
-                      id="primerapellidos"
-                    />
-                    <span
-                      class="error-message"
-                      id="primerapellidos-error"
-                    ></span>
-                  </label>
-                  <label>
-                    Segundo Apellido
-                    <input
-                      type="text"
-                      name="segundoapellidos"
-                      id="segundoapellidos"
-                    />
-                    <span
-                      class="error-message"
-                      id="segundoapellidos-error"
-                    ></span>
-                  </label>
-                  <label>
-                    Telefono
-                    <input type="text" name="telefono" id="telefono" placeholder="1234-5678"/>
-                    <span class="error-message" id="telefono-error"></span>
-                  </label>
-                  <label>
-                    Correo Electronico
-                    <input type="email" name="email" id="email" />
-                    <span class="error-message" id="email-error"></span>
-                  </label>
-                  <label for="nacimiento">
-                    Fecha de nacimiento
-                    <input type="date" name="nacimiento" id="nacimiento" />
-                    <span class="error-message" id="nacimiento-error"></span>
-                  </label>
-                  <label>
-                    Unidad a la que pertenece
-                    <select name="unidad" id="unidad">
-                      <option value="0"></option>
-                      <option value="1">Unidad 1</option>
-                      <option value="2">Unidad 2</option>
-                      <option value="3">Unidad 3</option>
-                      <option value="4">Unidad 4</option>
-                    </select>
-                    <span class="error-message" id="unidad-error"></span>
-                  </label>
-                </div>
-                <div class="buttons">
-                  <button type="button" id="cancel" class="btn-cancel">Cancelar</button>
-                  <button type="button" id="save" class="btn-submit"/>Crear</button>
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
-  </body>
+    </main>
+
+    <!-- Footer part -->
+
+    <footer class="footer">
+        <div class="container">
+         <div class="row">
+           <div class="footer-col">
+             <h1 class="logo">SICA</h4>
+           </div>
+           <div class="footer-col">
+             <h4>Registro</h4>
+             <ul class="ul-footer">
+               <li><a href="#">mi cuenta</a></li>
+               <li><a href="#">mi unidad</a></li>
+               <li><a href="#">registros de activos</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+             <h4>Reportería</h4>
+             <ul class="ul-footer">
+               <li><a href="#">ir a reportes</a></li>
+               <li><a href="#">movimientos por unidad</a></li>
+               <li><a href="#">movimientos por usuario</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+            <h4>perfiles</h4>
+            <ul class="ul-footer">
+              <li><a href="#">crear un perfil nuevo</a></li>
+              <li><a href="#">consulta de usuarios</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>solicitudes</h4>
+            <ul class="ul-footer">
+              <li><a href="#">crear una nueva solicitud</a></li>
+              <li><a href="#">consulta de solicitudes</a></li>
+            </ul>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
+            </div>
+        </div>
+     </footer>
+    
+
+    
+</body>
+<script src="scripts/usuarios.js"></script>
+<script src="scripts/header.js"></script>
 </html>
