@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidades</title>
+    <script src="https://kit.fontawesome.com/ff763c6118.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/unidades.css">
+</head>
+
+<body>
+
+    <!-- header -->
+
+    <header>
+        <!--Inicio del nav -->
+        <nav class="nav">
+            <img src="./assets/logo.png" alt="" id="logo">
+            <ul class="nav__list">
+                <li class="nav__list-item">Administración
+                    <ul class="nav__list-item-drop">
+                        <li>Usuarios</li>
+                        <li>Unidades</li>
+                        <li>Activos</li>
+                    </ul>
+                </li>
+                <li class="nav__list-item">Registros
+                    <ul class="nav__list-item-drop">
+                        <li>Bitácora</li>
+                        <li>Reportería</li>
+                    </ul>
+                </li>
+                <li class="nav__list-item">Traslados
+                    <ul class="nav__list-item-drop">
+                        <li>Creación de solicitud</li>
+                        <li>Solicitudes pendientes</li>
+                    </ul>
+                </li>
+                </li>
+                <!--Inicio del Sub menu para el usuario-->
+
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="./assets/user.png" alt="user-pic">
+                            <h3>Pablo Venegas</h3>
+                        </div>
+                        <hr>
+                        <a href="#" class="sub-menu-link">
+                            <img src="./assets/settings.png">
+                            <p>Editar perfil</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="./assets/settings.png">
+                            <p>Ajustes</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="./assets/settings.png">
+                            <p>Salir</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                  </div>
+
+                <!--Fin del Sub menu para el usuario-->
+
+            </ul>
+            <img src="./assets/user.png" alt="user-pic" class="user-pic" id="userPic">
+        </nav>
+        <!--Fin del nav -->
+
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <div class="sidebar-title">
+                <h2 id="main-title">Administración</h2>
+                <h2 id="secundary-title"><i class="fa-sharp fa-solid fa-building fa-sm" style="color: #000000;"></i>
+                    Unidades</h2>
+            </div>
+
+            <div class="sidebar-menu">
+                <button class="button-menu" type="button" id="units-btn"><i class="fa-solid fa-eye"
+                        style="color: #000000;"></i> Ver Unidades</button>
+                <button class="button-menu" type="button" id="register-units-btn"><i
+                        class="fa-solid fa-file-circle-plus" style="color: #000000;"></i> Registrar Unidades</button>
+                <button class="button-menu" type="button" id="edit-units-btn"><i class="fa-solid fa-pen-to-square"
+                        style="color: #000000;"></i> Editar Unidades</button>
+            </div>
+
+        </div>
+
+        <div id="main-content"></div>
+    </main>
+
+    <!-- fotter -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h1 class="logo">SICA</h4>
+                </div>
+                <div class="footer-col">
+                    <h4>Registro</h4>
+                    <ul class="ul-footer">
+                        <li><a href="#">mi cuenta</a></li>
+                        <li><a href="#">mi unidad</a></li>
+                        <li><a href="#">registros de activos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Reportería</h4>
+                    <ul class="ul-footer">
+                        <li><a href="#">ir a reportes</a></li>
+                        <li><a href="#">movimientos por unidad</a></li>
+                        <li><a href="#">movimientos por usuario</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>perfiles</h4>
+                    <ul class="ul-footer">
+                        <li><a href="#">crear un perfil nuevo</a></li>
+                        <li><a href="#">consulta de usuarios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>solicitudes</h4>
+                    <ul class="ul-footer">
+                        <li><a href="#">crear una nueva solicitud</a></li>
+                        <li><a href="#">consulta de solicitudes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <p class="derechos">©2023 - Copyright SICA - Todos los derechos reservados. | Desarrollado por Dogknots
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="scripts/header.js"></script>
+<script src="./scripts/unidades.js"></script>
+
+</html>
