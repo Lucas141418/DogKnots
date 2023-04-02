@@ -32,7 +32,9 @@ sweetalert-content{
     background-color: var(--color3);
 }
 
-
+img{
+    width: 130px;
+}
 
 
 
@@ -43,7 +45,7 @@ sweetalert-content{
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
-    margin: 40px;
+    margin: 0px 40px 0px 40px;
     /* size */
     width: 90em;
     height: 50em;

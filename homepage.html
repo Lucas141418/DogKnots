@@ -13,61 +13,66 @@
     <header>
         <nav class="nav">
             <ul class="nav__list">
-                <img src="assets/logo.png" alt="" id="logo">
-            <span class="nav__list-logo">SICA</span>
-              <li class="nav__list-item">Administración
+              <a href="#">
+                <img src="assets/logoAbajo.png" alt="logo" class="nav__list-logo" />
+              </a>
+              <li class="nav__list-item">
+                Administración
                 <ul class="nav__list-item-drop">
-                  <li>Usuarios</li>
+                  <li > <a href="usuarios.html">Usuarios</a></li>
                   <li>Unidades</li>
                   <li>Activos</li>
                 </ul>
               </li>
-              <li class="nav__list-item">Registros
+              <li class="nav__list-item">
+                Registros
                 <ul class="nav__list-item-drop">
                   <li>Bitácora</li>
                   <li>Reportería</li>
                 </ul>
               </li>
-              <li class="nav__list-item">Traslados
+              <li class="nav__list-item">
+                Traslados
                 <ul class="nav__list-item-drop">
                   <li>Creación de solicitud</li>
                   <li>Solicitudes pendientes</li>
                 </ul>
               </li>
-              <img src="./assets/user.png" alt="user-pic" class="user-pic" id="userPic">
-    
+              <img
+                src="./assets/userBlanco.png"
+                alt="user-pic"
+                class="user-pic"
+                id="userPic"
+              />
               <!--Inicio del Sub menu para el usuario-->
-    
               <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
-                    <div class="user-info">
-                        <img src="./assets/user.png" alt="user-pic">
-                        <h3>Bryan Jara</h3>
-                    </div>
-                    <hr>
-                    <a href="#" class="sub-menu-link">
-                        <img src="./assets/settings.png">
-                        <p>Editar perfil</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="sub-menu-link">
-                        <img src="./assets/settings.png">
-                        <p>Ajustes</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="sub-menu-link">
-                        <img src="./assets/settings.png">
-                        <p>Salir</p>
-                        <span>></span>
-                    </a>
+                  <div class="user-info">
+                    <img src="./assets/user.png" alt="user-pic" />
+                    <h3>Eduardo Lucas</h3>
+                  </div>
+                  <hr />
+                  <a href="#" class="sub-menu-link">
+                    <img src="./assets/settings.png" />
+                    <p class="header-paragraph">Editar perfil</p>
+                    <span>></span>
+                  </a>
+                  <!-- <a href="#" class="sub-menu-link">
+                    <img src="./assets/settings.png" />
+                    <p class="header-paragraph">Ajustes</p>
+                    <span>></span>
+                  </a> -->
+                  <a href="#" class="sub-menu-link">
+                    <img src="./assets/settings.png" />
+                    <p class="header-paragraph">Salir</p>
+                    <span>></span>
+                  </a>
                 </div>
               </div>
-              
-            
               <!--Fin del Sub menu para el usuario-->
-    
             </ul>
           </nav>
+          <!-- fin del header -->
     </header>
 
 
@@ -106,17 +111,15 @@
                 <div class="hyperlinkSection">
 
                     <div class="links">
-                        <a href=""> Ver activos</a>
-                        <a href="">Registrar activos</a>
-                        <a href="" >Editar activos</a>
-                        <a href="" >Más</a>
+                        <a href="verActivos.html"> Ver activos</a>
+                        <a href="registrarActivos.html">Registrar activos</a>
+                        <a href="registrarActivos.html" >Editar activos</a>
                     </div>
 
                     <div class="icons">
-                        <a href="" class="fa-solid fa-cart-shopping"></a> 
-                        <a href="" class="fa-sharp fa-solid fa-cart-plus"></a> 
-                        <a href="" class="fa-solid fa-pen-to-square"></a> 
-                        <a href="" class="fa-solid fa-ellipsis-vertical"></a> 
+                        <a href="verActivos.html" class="fa-solid fa-cart-shopping"></a> 
+                        <a href="registrarActivos.html" class="fa-sharp fa-solid fa-cart-plus"></a> 
+                        <a href="registrarActivos.html" class="fa-solid fa-pen-to-square"></a> 
                     </div>
                     
                 </div>
@@ -147,17 +150,15 @@
                 <div class="hyperlinkSection">
                     
                     <div class="links">
-                        <a href="">Ver unidades</a>
-                        <a href="">Registrar activos</a>
-                        <a href="">Editar unidades</a>
-                        <a href="">Más</a>
+                        <a href="unidades.html">Ver unidades</a>
+                        <a href="unidades.html">Registrar activos</a>
+                        <a href="unidades.html">Editar unidades</a>
                     </div>
 
                     <div class="icons">
                         <a href="" class="fa-solid fa-house"></a> 
                         <a href="" class="fa-solid fa-house-medical"></a>
                         <a href="" class="fa-solid fa-pen-to-square"></a>
-                        <a href="" class="fa-solid fa-ellipsis-vertical"></a> 
                     </div>
 
                 </div>
@@ -189,17 +190,16 @@
                 <div class="hyperlinkSection">
 
                     <div class="links">
-                        <a href="">Ver usuarios</a>
-                        <a href="">Registrar usuarios</a>
-                        <a href="">Editar usuarios</a>
-                        <a href="">Más</a>
+                        <a href="usuarios.html">Ver usuarios</a>
+                        <a href="registro.html">Registrar usuarios</a>
+                        <a href="registro.html">Editar usuarios</a>
                     </div>
 
                     <div class="icons">
-                        <a href="" class="fa-solid fa-user"></a>
-                        <a href="" class="fa-solid fa-user-plus"></a>
-                        <a href="" class="fa-solid fa-user-pen"></a>
-                        <a href="" class="fa-solid fa-ellipsis-vertical"></a> 
+                        <a href="usuarios.html" class="fa-solid fa-user"></a>
+                        <a href="registro.html" class="fa-solid fa-user-plus"></a>
+                        <a href="registro.html" class="fa-solid fa-user-pen"></a>
+                        
                     </div>
 
                 </div>
@@ -220,38 +220,36 @@
            </div>
            <div class="footer-col">
              <h4>Registro</h4>
-             <ul class="ul-footer">
-               <li><a href="#">mi cuenta</a></li>
-               <li><a href="#">mi unidad</a></li>
-               <li><a href="#">registros de activos</a></li>
+             <ul>
+               <li><a href="#">Mi cuenta</a></li>
+               <li><a href="#">Mi unidad</a></li>
+               <li><a href="#">Registros de activos</a></li>
              </ul>
            </div>
            <div class="footer-col">
              <h4>Reportería</h4>
-             <ul class="ul-footer">
-               <li><a href="#">ir a reportes</a></li>
-               <li><a href="#">movimientos por unidad</a></li>
-               <li><a href="#">movimientos por usuario</a></li>
+             <ul>
+               <li><a href="#">Ir a reportes</a></li>
+               <li><a href="#">Movimientos por unidad</a></li>
+               <li><a href="#">Movimientos por usuario</a></li>
              </ul>
            </div>
            <div class="footer-col">
-            <h4>perfiles</h4>
-            <ul class="ul-footer">
-              <li><a href="#">crear un perfil nuevo</a></li>
-              <li><a href="#">consulta de usuarios</a></li>
+            <h4>Perfiles</h4>
+            <ul>
+              <li><a href="#">Crear un perfil nuevo</a></li>
+              <li><a href="#">Consulta de usuarios</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4>solicitudes</h4>
-            <ul class="ul-footer">
-              <li><a href="#">crear una nueva solicitud</a></li>
-              <li><a href="#">consulta de solicitudes</a></li>
+            <h4>Solicitudes</h4>
+            <ul>
+              <li><a href="#">Crear una nueva solicitud</a></li>
+              <li><a href="#">Consulta de solicitudes</a></li>
             </ul>
           </div>
         </div>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         <div class="row">
             <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
             </div>

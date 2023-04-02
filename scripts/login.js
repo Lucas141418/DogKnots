@@ -20,14 +20,16 @@ function validation(e) {
 
     if (!email.value.match(gmailExpression) &&  password.value === ""){
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             title: ' Falta el correo y contraseña',
+            confirmButtonColor: "#a44200",
             
           })
     }else if(password.value === ""){
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             title: ' Falta la contraseña',
+            confirmButtonColor: "#a44200"
           })
     }
 }
