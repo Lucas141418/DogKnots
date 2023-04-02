@@ -61,7 +61,7 @@ $(document).ready(function() {
   
     // revisar que avatar tenga un archivo
     if (avatar.value === "") {
-      avatarError.innerHTML = "La imagen es requerida";
+      //avatarError.innerHTML = "La imagen es requerida";
       avatarError.style.display = "block";
     } else {
       avatarError.style.display = "none";
@@ -78,7 +78,7 @@ $(document).ready(function() {
     }
   
     if (cedula.value === "" || cedula.value === null) {
-      cedulaError.innerHTML = "La cedula es requerida";
+      // cedulaError.innerHTML = "La cedula es requerida";
       // cedulaError.style.display = "block";
       errors.push("La cedula es requerida");
     } else {
@@ -132,7 +132,7 @@ $(document).ready(function() {
   
     // validar nacimiento
     if (nacimiento.value === "" || nacimiento.value === null) {
-      nacimientoError.innerHTML = "La fecha de nacimiento es requerida";
+      // nacimientoError.innerHTML = "La fecha de nacimiento es requerida";
       nacimientoError.style.display = "block";
     } else {
       nacimientoError.style.display = "none";
@@ -140,7 +140,7 @@ $(document).ready(function() {
   
     // validar unidad select es distinto de 0
     if (unidad.value === "0") {
-      unidadError.innerHTML = "La unidad es requerida";
+      // unidadError.innerHTML = "La unidad es requerida";
       unidadError.style.display = "block";
     } else {
       unidadError.style.display = "none";
