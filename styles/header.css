@@ -5,6 +5,14 @@
   --clr-primary-hover: #9c94c9;
   --clr-primary-dark: #9c94c9;
   --clr-gray300: #e1e5ee;
+  --clr-accents: #a44200;
+  --color1: #ffffff;
+  --color2: #000000;
+  --color3: #a6a6a6;
+  --color4: #d58936;
+  --color5: #a44200;
+  --color6: #69140e;
+  --color7: #3c1518;
 }
 
 /* border radius */
@@ -12,43 +20,28 @@ S :root {
   --radius: 0.2rem;
 }
 
-/* *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans';
-  }
-
-  p{
-    font-weight: 300;
-  }
-  
-  body{
-    background: #f1f4ff;
-    min-height: 100vh;
-    width: 100%;
-  } */
-
 .nav {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: white;
-  box-shadow: 0 0 10px var(--clr-gray300);
+  background-color: var(--color6);
+  /* box-shadow: 0 0 10px var(--clr-gray300); */
+  box-shadow: 0 0 10px #965b56;
 }
 
 .nav__list {
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 5fr;
+  width: 100%;
   align-items: center;
-  margin: 0 2rem;
+  justify-items: center;
 }
 
 .nav__list-logo {
   list-style: none;
-  margin-right: auto;
   cursor: pointer;
+  max-height: 4rem;
 }
 
 .nav__list-item {
@@ -57,6 +50,7 @@ S :root {
   position: relative;
   padding: 1.5rem 1rem;
   cursor: pointer;
+  color: white;
 }
 
 .nav__list-item::after {
@@ -67,7 +61,7 @@ S :root {
   position: absolute;
   left: 1rem;
   bottom: 0.8rem;
-  background-color: var(--clr-primary);
+  background-color: white;
   transition: width 200ms ease-in;
 }
 
@@ -98,6 +92,7 @@ S :root {
   visibility: hidden;
   transition: opacity 200ms ease-in-out;
   border-radius: 8px;
+  color: #000000;
 }
 
 .nav__list-item-drop li {
@@ -114,17 +109,19 @@ S :root {
   width: 40px;
   border-radius: 50%;
   cursor: pointer;
-  margin: 0% 5% 0% 60%;
+  justify-self: end;
+  margin-right: 2rem;
 }
 
 .sub-menu-wrap {
   position: absolute;
   top: 100%;
-  right: 5%;
+  right: 0;
   width: 320px;
   max-height: 0px;
   overflow: hidden;
   transition: max-height 400ms;
+  background-color: #f7f7f7;
 }
 
 .sub-menu-wrap.open-menu {
@@ -132,9 +129,9 @@ S :root {
 }
 
 .sub-menu {
-  background: #fff;
   padding: 20px;
   margin: 10px;
+  background-color: #f7f7f7;
 }
 
 .user-info {
@@ -192,4 +189,8 @@ S :root {
 
 .sub-menu-link:hover p {
   font-weight: 600;
+}
+
+.header-paragraph {
+  font-weight: 300;
 }

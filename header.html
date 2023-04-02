@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header</title>
+  </head>
+  <body>
+    <!-- inicio del header -->
+    <nav class="nav">
+      <ul class="nav__list">
+        <a href="#">
+          <img src="assets/logoAbajo.png" alt="logo" class="nav__list-logo" />
+        </a>
+
+        <li class="nav__list-item">
+          Administración
+          <ul class="nav__list-item-drop">
+            <li>Usuarios</li>
+            <li>Unidades</li>
+            <li>Activos</li>
+          </ul>
+        </li>
+        <li class="nav__list-item">
+          Registros
+          <ul class="nav__list-item-drop">
+            <li>Bitácora</li>
+            <li>Reportería</li>
+          </ul>
+        </li>
+        <li class="nav__list-item">
+          Traslados
+          <ul class="nav__list-item-drop">
+            <li>Creación de solicitud</li>
+            <li>Solicitudes pendientes</li>
+          </ul>
+        </li>
+        <img
+          src="./assets/userBlanco.png"
+          alt="user-pic"
+          class="user-pic"
+          id="userPic"
+        />
+        <!--Inicio del Sub menu para el usuario-->
+        <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu">
+            <div class="user-info">
+              <img src="./assets/user.png" alt="user-pic" />
+              <h3>Bryan Jara</h3>
+            </div>
+            <hr />
+            <a href="#" class="sub-menu-link">
+              <img src="./assets/settings.png" />
+              <p class="header-paragraph">Editar perfil</p>
+              <span>></span>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <img src="./assets/settings.png" />
+              <p class="header-paragraph">Ajustes</p>
+              <span>></span>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <img src="./assets/settings.png" />
+              <p class="header-paragraph">Salir</p>
+              <span>></span>
+            </a>
+          </div>
+        </div>
+
+        <!--Fin del Sub menu para el usuario-->
+      </ul>
+    </nav>
+
+    <!-- fin del header -->
+  </body>
+</html>
