@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/verActivos.css">
-    <title>Ver y Modificar activos</title>
+    <title>Ver activos</title>
 </head>
 <body>
     <!--Inicio del header -->
@@ -85,25 +85,27 @@
 
                 <div class="bts-section">
 
-                    <button  id="btnActives" > <i class="fa-solid fa-building"></i> Ver activos</button>
-                    <button  id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar activos</button>
-                    <button  id="btnEdit">  <i class="fa-solid fa-pen-to-square"></i>   Editar activos</button>
-                    
+                    <!-- <button  id="btnActives" > <i class="fa-solid fa-building"></i> Ver activos</button> -->
+                    <a href="registrarActivos.html"> <button  id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar activos</button>
+                    </a>
+                    <a href="editarActivos.html"> <button  id="btnEdit">  <i class="fa-solid fa-pen-to-square"></i>   Editar activos</button>
+                    </a>
+                   
 
                 </div>
             </aside>
 
 
-            <section>
+            <section class="main-container">
                 <div id="filter">
     
                     <div class="checkboxes-options">
                         <p class="paragraph">Estado</p>
     
                         <div class="checkboxes">
-                            <label> En uso <input type="radio" name="rol" id="used"></label>
-                            <label>	Desuso <input type="radio" name="rol" id="disuse" ></label>
-                            <label> Dañado <input type="radio" name="rol"  id="damage"></label>
+                            <label> Unidad <input type="radio" name="rol" id="used"></label>
+                            <label>	Bodega <input type="radio" name="rol" id="disuse" ></label>
+                            <label> Donación <input type="radio" name="rol"  id="damage"></label>
                         </div>
                         
                         
@@ -115,34 +117,7 @@
                     </div>
     
     
-                    <div class="checkboxes-options">
-    
-                        
-                        <label for="">Origen</label>
-    
-                          <select>
-                            <option value="sedeCentral">Sede Central</option>
-                            <option value="bodega">Bodega</option>
-                            <option value="donaciones">Donaciones</option>
-                            <option value="alajuela">Alajuela</option>
-                            <option value="sanJose">San José</option>
-                            <option value="puntarenas">Puntarenas</option>
-                            <option value="heredia">Heredia</option>
-                          </select>
-    
-                          <label for="">Destino</label>
-    
-                            <select>
-                              <option value="sedeCentral">Sede Central</option>
-                              <option value="bodega">Bodega</option>
-                              <option value="donaciones">Donaciones</option>
-                              <option value="alajuela">Alajuela</option>
-                              <option value="sanJose">San José</option>
-                              <option value="puntarenas">Puntarenas</option>
-                              <option value="heredia">Heredia</option>
-                            </select>
-                        
-                    </div>
+                    
     
                     
                     <div class="search-part">
@@ -159,105 +134,82 @@
                     
                     
                 </div>
-    
-    
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Id de solicitud</th>
-                            <th>Nombre de activo</th>
-                            <th>Id activo</th>
-                            <th>Descripción de traslado</th>
-                            <th>Estado</th>
-                            <th>Origen</th>
-                            <th>Destino</th>
-                            <th>Editar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>003</td>
-                            <td>Silla ergonómica</td>
-                            <td>003333</td>
-                            <td>Daño en pistón de aire</td>
-                            <td>En uso</td>
-                            <td>Unidad de San José</td>
-                            <td>Unidad bodega</td>
-                            <td><i class="fa-solid fa-pen-to-square"></i></td>
-                        </tr>
-                        <tr>
-                            <td>004</td>
-                            <td>Monitor Dell 21"</td>
-                            <td>000002</td>
-                            <td>Pixeles muertos</td>
-                            <td>En uso</td>
-                            <td>Unidad de Heredia</td>
-                            <td>Unidad de Guanacaste</td>
-                            <td><i class="fa-solid fa-pen-to-square"></i></td>
-
-                        </tr>
-                        <tr>
-                            <td>005</td>
-                            <td>Silla sala de conferencia</td>
-                            <td>000285</td>
-                            <td>Para donación</td>
-                            <td>En uso</td>
-                            <td>Unidad de Alajuela</td>
-                            <td>Unidad de bodega</td>
-                            <td><i class="fa-solid fa-pen-to-square"></i></td>
-
-                        </tr>
-                        <tr>
-                            <td>009</td>
-                            <td>Headset Jabra</td>
-                            <td>000893</td>
-                            <td>Micrófono con interferencia</td>
-                            <td>En uso</td>
-                            <td>Unidad de bodega</td>
-                            <td>Unidad de donaciones</td>
-                            <td><i class="fa-solid fa-pen-to-square"></i></td>
-
-                        </tr>
-                      
-                        
-                        <tr>
-                            <td>008</td>
-                            <td>Escritorio</td>
-                            <td>001532</td>
-                            <td>Se solicita en Alajuela</td>
-                            <td>En uso</td>
-                            <td>Unidad central</td>
-                            <td>Unidad de Alajuela</td>
-                            <td><i class="fa-solid fa-pen-to-square"></i></td>
-
-                        </tr>
-                        <tr>
-                            <td>001</td>
-                            <td>Laptop Dell</td>
-                            <td>000789</td>
-                            <td>Para donación</td>
-                            <td>En uso</td>
-                            <td>Unidad central</td>
-                            <td>Unidad de Limón</td>
-                            <td><i class="fa-solid fa-pen-to-square"></i></td>
-
-                        </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Teléfono</td>
-                            <td>000620</td>
-                            <td>Táctil daño</td>
-                            <td>Dañado</td>
-                            <td>Unidad central</td>
-                            <td>Unidad de Bodega</td>
-                            <td><i class="fa-solid fa-pen-to-square"></i></td>
-
-                        </tr>
-    
-                    </tbody>
-    
-                </table>
-    
+                <!-- table -->
+      <table >
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Id activo</th>
+            <th>Código ubicación</th>
+            <th>Ubicación</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Silla ergonómica</td>
+            <td>Marca ergomabe de color negro, ajuste en 4D en reposa brazos, ajuste en zona lumbar y cuello.</td>
+            <td>003333</td>
+            <td>proherpis1</td>
+            <td>Proveguard + Unidad de Heredia + piso 1</td>
+            <td>Unidad</td>
+          </tr>
+          <tr>
+            <td>Monitor Dell 21"</td>
+            <td>Color negro, brazo ajustable.</td> 
+            <td>000002</td>
+            <td>proalapis1</td>
+            <td>Proveguard + Unidad de Alajuela + piso 2</td>
+            <td>Unidad</td>
+          </tr>
+          <tr>
+            <td>Silla sala de conferencia</td>
+            <td>Color blanco, material plástico. Recomendada para mesas de más de 2 metros de largo.</td>
+            
+            <td>000285</td>
+            <td>procenpis1</td>
+            <td>Proveguard + Sede central + piso 1</td>
+            <td>Unidad</td>
+          </tr>
+          <tr>
+            <td>Headset Jabra</td>
+            <td>Inalámbrico, conexión por cable USB o Bluetooth</td>
+            
+            <td>000893</td>
+            <td>probodpis1</td>
+            <td>Proveguard + Bodega + piso 1</td>
+            <td>Bodega</td>
+          </tr>
+          <tr>
+            <td>Laptop Dell</td>
+            <td>Tamaño 15", color negro.</td>
+            
+            <td>000789</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Donación</td>
+          </tr>
+          <tr>
+            <td>Escritorio</td>
+            <td>Ergonómico, permite ajuste de altura de hasta 1,4 m. Sobre de madera color pino claro.</td>
+            
+            <td>001532</td>
+            <td>procentpis1</td>
+            <td>Proveguard + Sede central + piso 1</td>
+            <td>Unidad</td>
+          </tr>
+          <tr>
+            <td>Lámpara</td>
+            <td>Iluminaria para sala de juntas</td>
+            
+            <td>001532</td>
+            <td>probodpis1</td>
+            <td>Proveguard + Bodega + piso 1</td>
+            <td>Bodega</td>
+          </tr>
+        </tbody>
+      </table>
                
     
                 
