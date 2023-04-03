@@ -72,6 +72,7 @@ window.addEventListener('DOMContentLoaded', function () {
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Ubicación</th>
+                        <th>Señas</th>
                         <th>Fecha de Registro</th>
                     </tr>
                     </thead>
@@ -170,6 +171,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 <td>${dataElement.name}</td>
                 <td>${dataElement.desc}</td>
                 <td>${dataElement.loc}</td>
+                <td>${dataElement.addr}</td>
                 <td>${dataElement.created}</td>
             `;
             tableBody.appendChild(newElement);
@@ -200,78 +202,63 @@ window.addEventListener('DOMContentLoaded', function () {
 const tableData = [
     {
         id: '001',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
+        name: 'Unidad Central',
+        desc: 'Oficina Central',
+        loc: 'San Jose, San José, Mata Redonda',
+        addr: 'Costado Oeste de edificio de canal 7',
         created: '01/01/2023',
     },
     {
         id: '002',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
+        name: 'Unidad Heredia',
+        desc: 'Oficinas de Mantenimiento de equipos',
+        loc: 'Heredia, Belén, La Ribera',
+        addr: 'Costado Norte de La Gallito',
         created: '01/01/2023',
     },
     {
         id: '003',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
+        name: 'Unidad Guanacaste',
+        desc: 'Oficinas Mercado de turismo',
+        loc: 'Guanacaste, Carrillo, El Coco ',
+        addr: 'Frente a Restaurante Mar Azúl',
         created: '01/01/2023',
     },
     {
         id: '004',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
+        name: 'Unidad Puntarenas',
+        desc: 'Oficinas Aduaneras Pacífico',
+        loc: 'Puntarenas, Esparza, Caldera',
+        addr: '500m norte de Restaurante Tabaris',
         created: '01/01/2023',
     },
     {
         id: '005',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
+        name: 'Unidad Cartado',
+        desc: 'Oficinas de Distribucón',
+        loc: 'Cartado, La Unión, Tres Ríos',
+        addr: 'Costado oeste de Central Autobusera',
         created: '01/01/2023',
     },
     {
         id: '006',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
-        created: '01/01/2023',
+        name: 'Unidad Limón',
+        desc: 'Oficinas Aduaneras Caribe',
+        loc: 'Limón, Limón, Limón',
+        addr: 'Costado este del Colegio Universitario de Limón',
+        created: '03/02/2023',
     },
 
     {
-        id: '006',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
-        created: '01/01/2023',
+        id: '007',
+        name: 'Unidad Alajuela',
+        desc: 'Centro de Capacitaciones',
+        loc: 'Alajuela, Alajuela, Alajuela',
+        addr: 'Frente a entrada Principal de la UTN',
+        created: '03/02/2023',
     },
 
-    {
-        id: '006',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
-        created: '01/01/2023',
-    },
-
-    {
-        id: '006',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
-        created: '01/01/2023',
-    },
-
-    {
-        id: '006',
-        name: 'Name01',
-        desc: 'Test Data',
-        loc: 'San Jose',
-        created: '01/01/2023',
-    },
+   
 
 
 
