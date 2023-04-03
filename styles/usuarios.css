@@ -363,6 +363,11 @@ table {
     text-align: left;
     padding: 8px;
   }
+  table tr:hover td {
+    background-color: #ccc9bc;
+    /* nueva paleta */
+    background-color: #c3a19f;
+  }
   
   table tbody tr:nth-child(odd) {
    background-color: var(--color1);
