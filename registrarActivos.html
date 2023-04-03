@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/registrarActivos.css">
+    <title>Registrar activos</title>
+</head>
+<body>
+    <!--Inicio del header -->
+    <header>
+
+        <!--Inicio del nav -->
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <img src="assets/logo.jpg" alt="" id="logo">
+                    <span class="nav__list-logo">SICA</span>
+                      <li class="nav__list-item">Administración
+                        <ul class="nav__list-item-drop">
+                          <li>Usuarios</li>
+                          <li>Unidades</li>
+                          <li>Activos</li>
+                        </ul>
+                      </li>
+                      <li class="nav__list-item">Registros
+                        <ul class="nav__list-item-drop">
+                          <li>Bitácora</li>
+                          <li>Reportería</li>
+                        </ul>
+                      </li>
+                      <li class="nav__list-item">Traslados
+                        <ul class="nav__list-item-drop">
+                          <li>Creación de solicitud</li>
+                          <li>Solicitudes pendientes</li>
+                        </ul>
+                      </li>
+                      <img src="./assets/user.png" alt="user-pic" class="user-pic" id="userPic">
+            
+                      <!--Inicio del Sub menu para el usuario-->
+            
+                      <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <img src="./assets/user.png" alt="user-pic">
+                                <h3>Bryan Jara</h3>
+                            </div>
+                            <hr>
+                            <a href="#" class="sub-menu-link">
+                                <img src="./assets/settings.png">
+                                <p>Editar perfil</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <img src="./assets/settings.png">
+                                <p>Ajustes</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <img src="./assets/settings.png">
+                                <p>Salir</p>
+                                <span>></span>
+                            </a>
+                        </div>
+                      </div>
+                      
+                    
+                      <!--Fin del Sub menu para el usuario-->
+            
+                    </ul>
+                  </nav>
+        <!--Fin del nav -->
+        
+    </header>
+    <!--Fin del header -->
+
+    <main>
+
+
+      <aside>
+
+          <div class="aside-title">
+            <h2 id="mainTitle">Administración</h2>
+            <h2 id="secundaryTitle"> <i class="fa-solid fa-building-shield"></i> Activos</h2>
+          </div>
+
+          <div class="bts-section">
+
+            <button  id="btnActives" > <i class="fa-solid fa-building"></i> Ver activos</button>
+            <button  id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar activos</button>
+            <button  id="btnEdit">  <i class="fa-solid fa-pen-to-square"></i>   Editar activos</button>
+        
+           </div>
+      </aside>
+
+
+
+
+      <section>
+          <h1>Ingreso de información del activo</h1>
+    
+          <!-- form section -->
+          <form>
+
+            <div class="search-active">
+              <label for="detailActiveName">Activo</label>
+              <div class="field-container-text">
+                <input type="text" placeholder="Detalle de nombre del activo" id="detailActiveName">
+              </div>
+            </div>
+           
+
+            <div class="main-form">
+              <div class="side-part">
+                
+                <label for="">Clasificación</label>
+                <select>
+                  <option value="sedeCentral">Sede Central</option>
+                  <option value="bodega">Bodega</option>
+                  <option value="donaciones">Donaciones</option>
+                  <option value="alajuela">Alajuela</option>
+                  <option value="sanJose">San José</option>
+                  <option value="puntarenas">Puntarenas</option>
+                  <option value="heredia">Heredia</option>
+                </select>
+
+
+                <label for="">Estado</label>
+                <select>
+                  <option value="sedeCentral">Sede Central</option>
+                  <option value="bodega">Bodega</option>
+                  <option value="donaciones">Donaciones</option>
+                  <option value="alajuela">Alajuela</option>
+                  <option value="sanJose">San José</option>
+                  <option value="puntarenas">Puntarenas</option>
+                  <option value="heredia">Heredia</option>
+                </select>
+
+
+
+                <label for="">Subir fotos del activo</label>
+                <input type="file" accept="image/png, image,jpeg" src="" alt="Foto del activo">
+
+
+              </div>
+
+              <div class="side-part">
+
+                <label for="">Unidad de pertenencia</label>
+                <select>
+                  <option value="sedeCentral">Sede Central</option>
+                  <option value="bodega">Bodega</option>
+                  <option value="donaciones">Donaciones</option>
+                  <option value="alajuela">Alajuela</option>
+                  <option value="sanJose">San José</option>
+                  <option value="puntarenas">Puntarenas</option>
+                  <option value="heredia">Heredia</option>
+                </select>
+
+
+                <label for="creatioDate">Fecha de creación</label>
+                <input type="date">
+
+              </div>
+            </div>
+
+
+
+
+
+
+            
+            <div class="buttonsForm">
+              <button type="button" class="first-button">Cancelar</button>
+              <button type="submit" class="first-button">Guardar</button>
+            </div>
+
+
+          </form>
+        </section>
+        
+  
+         
+    </main>
+
+
+
+    
+</body>
+</html>

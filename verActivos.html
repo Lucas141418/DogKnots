@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/verActivos.css">
+    <title>Ver y Modificar activos</title>
+</head>
+<body>
+    <!--Inicio del header -->
+    <header>
+
+        <!--Inicio del nav -->
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <img src="assets/logo.jpg" alt="" id="logo">
+                    <span class="nav__list-logo">SICA</span>
+                      <li class="nav__list-item">Administración
+                        <ul class="nav__list-item-drop">
+                          <li>Usuarios</li>
+                          <li>Unidades</li>
+                          <li>Activos</li>
+                        </ul>
+                      </li>
+                      <li class="nav__list-item">Registros
+                        <ul class="nav__list-item-drop">
+                          <li>Bitácora</li>
+                          <li>Reportería</li>
+                        </ul>
+                      </li>
+                      <li class="nav__list-item">Traslados
+                        <ul class="nav__list-item-drop">
+                          <li>Creación de solicitud</li>
+                          <li>Solicitudes pendientes</li>
+                        </ul>
+                      </li>
+                      <img src="./assets/user.png" alt="user-pic" class="user-pic" id="userPic">
+            
+                      <!--Inicio del Sub menu para el usuario-->
+            
+                      <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <img src="./assets/user.png" alt="user-pic">
+                                <h3>Bryan Jara</h3>
+                            </div>
+                            <hr>
+                            <a href="#" class="sub-menu-link">
+                                <img src="./assets/settings.png">
+                                <p>Editar perfil</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <img src="./assets/settings.png">
+                                <p>Ajustes</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <img src="./assets/settings.png">
+                                <p>Salir</p>
+                                <span>></span>
+                            </a>
+                        </div>
+                      </div>
+                      
+                    
+                      <!--Fin del Sub menu para el usuario-->
+            
+                    </ul>
+                  </nav>
+        <!--Fin del nav -->
+        
+    </header>
+        <!--Fin del header -->
+
+        <main>
+            <aside>
+
+                <div class="aside-title">
+                    <h2 id="mainTitle">Administración</h2>
+                    <h2 id="secundaryTitle"> <i class="fa-solid fa-building-shield"></i> Activos</h2>
+                </div>
+
+                <div class="bts-section">
+
+                    <button  id="btnActives" > <i class="fa-solid fa-building"></i> Ver activos</button>
+                    <button  id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar activos</button>
+                    <button  id="btnEdit">  <i class="fa-solid fa-pen-to-square"></i>   Editar activos</button>
+                    
+
+                </div>
+            </aside>
+
+
+            <section>
+                <div id="filter">
+    
+                    <div class="checkboxes-options">
+                        <p class="paragraph">Estado</p>
+    
+                        <div class="checkboxes">
+                            <label> En uso <input type="radio" name="rol" id="used"></label>
+                            <label>	Desuso <input type="radio" name="rol" id="disuse" ></label>
+                            <label> Dañado <input type="radio" name="rol"  id="damage"></label>
+                        </div>
+                        
+                        
+                        <!-- <p class="paragraph">Valor</p>
+                        <div class="checkboxes">
+                            <label for="">valor <input type="checkbox"></label>
+                            <label for="">valor <input type="checkbox"></label>
+                        </div> -->
+                    </div>
+    
+    
+                    <div class="checkboxes-options">
+    
+                        
+                        <label for="">Origen</label>
+    
+                          <select>
+                            <option value="sedeCentral">Sede Central</option>
+                            <option value="bodega">Bodega</option>
+                            <option value="donaciones">Donaciones</option>
+                            <option value="alajuela">Alajuela</option>
+                            <option value="sanJose">San José</option>
+                            <option value="puntarenas">Puntarenas</option>
+                            <option value="heredia">Heredia</option>
+                          </select>
+    
+                          <label for="">Destino</label>
+    
+                            <select>
+                              <option value="sedeCentral">Sede Central</option>
+                              <option value="bodega">Bodega</option>
+                              <option value="donaciones">Donaciones</option>
+                              <option value="alajuela">Alajuela</option>
+                              <option value="sanJose">San José</option>
+                              <option value="puntarenas">Puntarenas</option>
+                              <option value="heredia">Heredia</option>
+                            </select>
+                        
+                    </div>
+    
+                    
+                    <div class="search-part">
+                      <div class="field-container-text">
+                          <input type="text" placeholder="Nombre de activo" id="activeName">
+                          <button  class="first-button" type="submit"><i class="fa fa-search"></i>Buscar</button>
+                      </div>
+
+                      <div class="field-container-text">
+                        <input type="text" placeholder="Id del activo" id="activeId">
+                        <button  class="first-button" type="submit"><i class="fa fa-search"></i>Buscar</button>
+                      </div>
+                  </div>
+                    
+                    
+                </div>
+    
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id de solicitud</th>
+                            <th>Nombre de activo</th>
+                            <th>Id activo</th>
+                            <th>Descripción de traslado</th>
+                            <th>Estado</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>003</td>
+                            <td>Silla ergonómica</td>
+                            <td>003333</td>
+                            <td>Daño en pistón de aire</td>
+                            <td>En uso</td>
+                            <td>Unidad de San José</td>
+                            <td>Unidad bodega</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Monitor Dell 21"</td>
+                            <td>000002</td>
+                            <td>Pixeles muertos</td>
+                            <td>En uso</td>
+                            <td>Unidad de Heredia</td>
+                            <td>Unidad de Guanacaste</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
+                        </tr>
+                        <tr>
+                            <td>005</td>
+                            <td>Silla sala de conferencia</td>
+                            <td>000285</td>
+                            <td>Para donación</td>
+                            <td>En uso</td>
+                            <td>Unidad de Alajuela</td>
+                            <td>Unidad de bodega</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
+                        </tr>
+                        <tr>
+                            <td>009</td>
+                            <td>Headset Jabra</td>
+                            <td>000893</td>
+                            <td>Micrófono con interferencia</td>
+                            <td>En uso</td>
+                            <td>Unidad de bodega</td>
+                            <td>Unidad de donaciones</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
+                        </tr>
+                      
+                        
+                        <tr>
+                            <td>008</td>
+                            <td>Escritorio</td>
+                            <td>001532</td>
+                            <td>Se solicita en Alajuela</td>
+                            <td>En uso</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Alajuela</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>Laptop Dell</td>
+                            <td>000789</td>
+                            <td>Para donación</td>
+                            <td>En uso</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Limón</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Teléfono</td>
+                            <td>000620</td>
+                            <td>Táctil daño</td>
+                            <td>Dañado</td>
+                            <td>Unidad central</td>
+                            <td>Unidad de Bodega</td>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+
+                        </tr>
+    
+                    </tbody>
+    
+                </table>
+    
+               
+    
+                
+            </section>
+    
+    
+
+
+        
+
+        </main>
+
+
+
+        <!-- Footer part -->
+
+    <footer class="footer">
+        <div class="container">
+         <div class="row">
+           <div class="footer-col">
+             <h1 class="logo">SICA</h4>
+           </div>
+           <div class="footer-col">
+             <h4>Registro</h4>
+             <ul class="ul-footer">
+               <li><a href="#">mi cuenta</a></li>
+               <li><a href="#">mi unidad</a></li>
+               <li><a href="#">registros de activos</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+             <h4>Reportería</h4>
+             <ul class="ul-footer">
+               <li><a href="#">ir a reportes</a></li>
+               <li><a href="#">movimientos por unidad</a></li>
+               <li><a href="#">movimientos por usuario</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+            <h4>perfiles</h4>
+            <ul class="ul-footer">
+              <li><a href="#">crear un perfil nuevo</a></li>
+              <li><a href="#">consulta de usuarios</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>solicitudes</h4>
+            <ul class="ul-footer">
+              <li><a href="#">crear una nueva solicitud</a></li>
+              <li><a href="#">consulta de solicitudes</a></li>
+            </ul>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
+            </div>
+        </div>
+     </footer>
+
+
+
+</body>
+<script src="scripts/header.js"></script>
+</html>
