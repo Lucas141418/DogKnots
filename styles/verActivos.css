@@ -194,7 +194,7 @@ main {
   /* Position */
   display: flex;
   flex-direction: row;
-  padding-top: 6%;
+  padding-top: 80px;
 
   /* size */
   width: 99%;
