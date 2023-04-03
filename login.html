@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/login.css">
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
+    <title>Inicio de Sesión</title>
+</head>
+<body>
+    <header>
+        <img src="assets/logoAbajo.png" alt="logo del sistema">
+    </header>
+    <main class="main-login">
+        
+        <div id="coverImg">
+            <img src="assets/animation_500_lfnj9d8q.gif" alt="">
+        </div>
+
+        <div id="login">
+
+            <h1>Iniciar Sesión</h1>
+
+            <form id="loginSection">
+                <div class="form-input">
+                    <i class="fa-solid fa-user fa-xl"></i>
+                    <label for="loginGmail">Correo</label>
+                    <input type="text" placeholder="example.email@gmail.com " id="loginGmail">
+                </div>
+
+                <div class="form-input">
+                    <i class="fa-solid fa-eye-slash fa-xl"></i>
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" placeholder="*********" id="loginPassword">
+                </div>
+                    <button type="submit" id="loginButton">Iniciar Sesión</button>
+            </form>
+
+
+            <div id="footerLogin">
+                <a type="button" id="signupButton" href="registro.html">Registrarse</a>
+                <a href="">Contraseña olvidada</a>
+            </div>
+
+        </div>
+
+
+    
+    </main>
+    
+</body>
+<script src="scripts/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>
