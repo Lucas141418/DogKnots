@@ -2,7 +2,6 @@ main{
     /* Position */
     display: flex;
     flex-direction: row;
-    padding-top: 4%;
    
     /* size */
     width: 100%;
@@ -151,6 +150,7 @@ section #filter{
 /* Table Section */
 
 table {
+    border: 1px solid #444;
     border-radius: 5px;
     height: 100%;
     width: 78vw;
@@ -178,6 +178,12 @@ table {
     text-align: left;
     padding: 8px;
   }
+
+   tr:hover td {
+    background-color: #ccc9bc;
+    /* nueva paleta */
+    background-color: #c3a19f;
+  }
   
   table tbody tr:nth-child(odd) {
    background-color: var(--color1);
@@ -186,7 +192,6 @@ table {
   table tbody tr:nth-child(even) {
     background-color: #f0e8e7;
   }
-
 
 /* Search BAr */
 /* Search  establecido por el equipo*/

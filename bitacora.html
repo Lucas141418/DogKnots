@@ -5,64 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitácora</title>
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/bitacora.css">
 </head>
 <body>
-    <nav class="nav">
-        <ul class="nav__list">
-        <span class="nav__list-logo">SICA</span>
-          <li class="nav__list-item">Administración
-            <ul class="nav__list-item-drop">
-              <li>Usuarios</li>
-              <li>Unidades</li>
-              <li>Activos</li>
-            </ul>
-          </li>
-          <li class="nav__list-item">Registros
-            <ul class="nav__list-item-drop">
-              <li>Bitácora</li>
-              <li>Reportería</li>
-            </ul>
-          </li>
-          <li class="nav__list-item">Traslados
-            <ul class="nav__list-item-drop">
-              <li>Creación de solicitud</li>
-              <li>Solicitudes pendientes</li>
-            </ul>
-          </li>
-          <img src="./assets/userCuadrado.jpg" alt="user-pic" class="user-pic" id="userPic">
+    <header>
+      <nav class="nav">
+          <ul class="nav__list">
+          <span class="nav__list-logo">SICA</span>
+            <li class="nav__list-item">Administración
+              <ul class="nav__list-item-drop">
+                <li>Usuarios</li>
+                <li>Unidades</li>
+                <li>Activos</li>
+              </ul>
+            </li>
+            <li class="nav__list-item">Registros
+              <ul class="nav__list-item-drop">
+                <li>Bitácora</li>
+                <li>Reportería</li>
+              </ul>
+            </li>
+            <li class="nav__list-item">Traslados
+              <ul class="nav__list-item-drop">
+                <li>Creación de solicitud</li>
+                <li>Solicitudes pendientes</li>
+              </ul>
+            </li>
+            <img src="./assets/userCuadrado.jpg" alt="user-pic" class="user-pic" id="userPic">
 
-          <!--Inicio del Sub menu para el usuario-->
+            <!--Inicio del Sub menu para el usuario-->
 
-          <div class="sub-menu-wrap" id="subMenu">
-            <div class="sub-menu">
-                <div class="user-info">
-                    <img src="./assets/userCuadrado.jpg" alt="user-pic">
-                    <h3>Bryan Jara</h3>
-                </div>
-                <hr>
-                <a href="#" class="sub-menu-link">
-                    <img src="./assets/settings.png">
-                    <p>Editar perfil</p>
-                    <span>></span>
-                </a>
-                <a href="#" class="sub-menu-link">
-                    <img src="./assets/settings.png">
-                    <p>Ajustes</p>
-                    <span>></span>
-                </a>
-                <a href="#" class="sub-menu-link">
-                    <img src="./assets/settings.png">
-                    <p>Salir</p>
-                    <span>></span>
-                </a>
-            </div>
-        </div>
-          <!--Fin del Sub menu para el usuario-->
-        </ul>
-      </nav>
+            <div class="sub-menu-wrap" id="subMenu">
+              <div class="sub-menu">
+                  <div class="user-info">
+                      <img src="./assets/userCuadrado.jpg" alt="user-pic">
+                      <h3>Bryan Jara</h3>
+                  </div>
+                  <hr>
+                  <a href="#" class="sub-menu-link">
+                      <img src="./assets/settings.png">
+                      <p>Editar perfil</p>
+                      <span>></span>
+                  </a>
+                  <a href="#" class="sub-menu-link">
+                      <img src="./assets/settings.png">
+                      <p>Ajustes</p>
+                      <span>></span>
+                  </a>
+                  <a href="#" class="sub-menu-link">
+                      <img src="./assets/settings.png">
+                      <p>Salir</p>
+                      <span>></span>
+                  </a>
+              </div>
+          </div>
+            <!--Fin del Sub menu para el usuario-->
+          </ul>
+        </nav>
+      </header>>
 
       <main>
 
@@ -73,7 +76,7 @@
         <aside>
             <div class="aside-title">
                 <h2 id="mainTitle">Registros</h2>
-                <h2 id="secundaryTitle"> <i class="fa-solid fa-clipboard"></i> Bitácora </h2>
+                <h2 id="secundaryTitle"> <i class="fa-regular fa-clipboard"></i> Bitácora </h2>
             </div>
             <div class="btsSection">
                 <button  id="btnTraslados">  <i class="fa-solid fa-truck"></i> Historial de traslados </button>
@@ -258,5 +261,6 @@
      <!-- inicio del footer -->
 
       <script src="./scripts/header.js"></script>
+      
 </body>
 </html>
