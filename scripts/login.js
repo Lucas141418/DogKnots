@@ -1,6 +1,7 @@
 // entries
 let email;
 
+
 const logIn = document.getElementById("loginSection");
 const  gmailExpression =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -14,22 +15,29 @@ logIn.addEventListener("submit", validation)
 
 
 function validation(e) {
+    e.preventDefault();
     email = document.getElementById("loginGmail")
     password = document.getElementById("loginPassword")
-    e.preventDefault();
 
-    if (!email.value.match(gmailExpression) &&  password.value === ""){
+    if (email.value === "" && password.value === "" ){
         Swal.fire({
             icon: 'warning',
-            title: ' Falta el correo y contraseña',
+            title: ' Falta correo y contraseña',
             confirmButtonColor: "#a44200",
             
           })
-    }else if(password.value === ""){
+    }else if(!email.value.match(gmailExpression)){
         Swal.fire({
             icon: 'warning',
-            title: ' Falta la contraseña',
+            title: ' Formato de correo no valido',
             confirmButtonColor: "#a44200"
           })
+    } else if(password.value === ""){
+        Swal.fire({
+            icon: 'warning',
+            title: ' Falta contraseña',
+            confirmButtonColor: "#a44200"
+          })
+
     }
 }

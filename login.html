@@ -9,13 +9,12 @@
     <title>Inicio de Sesión</title>
 </head>
 <body>
-    <header>
-        <img src="assets/logoAbajo.png" alt="logo del sistema">
-    </header>
+    
     <main class="main-login">
         
-        <div id="coverImg">
-            <img src="assets/animation_500_lfnj9d8q.gif" alt="">
+        <div class="coverImg">
+            <img  id="imgGif" src="assets/animation_500_lfnj9d8q.gif" alt="">
+            <img id="imgSica" src="assets/logoAbajo.png" alt="logo del sistema">
         </div>
 
         <div id="login">
@@ -34,13 +33,13 @@
                     <label for="loginPassword">Contraseña</label>
                     <input type="password" placeholder="*********" id="loginPassword">
                 </div>
-                    <button type="submit" id="loginButton">Iniciar Sesión</button>
+                    <button type="submit" id="loginButton"> <a href="homepage.html">Iniciar Sesión</a> </button>
             </form>
 
 
             <div id="footerLogin">
-                <a type="button" id="signupButton" href="registro.html">Registrarse</a>
-                <a href="">Contraseña olvidada</a>
+                <!-- <a type="button" id="signupButton" href="registro.html">Registrarse</a> -->
+                <button type="button" id="forgottenPassword" class="signupButton">Contraseña olvidada</button>
             </div>
 
         </div>

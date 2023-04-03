@@ -57,8 +57,12 @@ img{
 }
 
 /* main-.main-login img part */
-.main-login #coverImg{
+.main-login .coverImg{
     margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
     
     /*size*/
     height: 40em;
@@ -66,13 +70,17 @@ img{
     border-radius: 6px;
     /* border: 5px solid #0C0909; */
 }
-.main-login #coverImg img{
+.main-login .coverImg img{
     /* sytle */
     border-radius: 6px;
     /*size*/
     width: 100%;
     height: 100%;
 }
+.main-login .coverImg #imgSica{
+    width: 100px;
+}
+
 /* login part */
 .main-login #login{
     /* position */
@@ -181,16 +189,20 @@ transition: all 0.5s ;
 .main-login #footerLogin a:hover{
     color: white;
 }
-.main-login #login #signupButton{
+.main-login #login .signupButton{
     /* font */
     font-size: 20px;
     /* body */
     border: none;
     background-color: transparent;
 }
-.main-login #login #signupButton:hover{
+.main-login #login .signupButton:hover{
     cursor: pointer;
     color: var(--color1);
+}
+button a{
+    text-decoration: none;
+    color: black;
 }
 
 
