@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="/assets/sica-icon.png" />
+    <link rel="stylesheet" href="styles/reporteria.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <title>Reporteria</title>
+</head>
+<body>
+
+<!--Inicio del header -->
+<header>
+  <!-- inicio del header -->
+<nav class="nav">
+<ul class="nav__list">
+  <a href="#">
+    <img src="assets/logoAbajo.png" alt="logo" class="nav__list-logo" />
+  </a>
+  <li class="nav__list-item">
+    Administración
+    <ul class="nav__list-item-drop">
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="unidades.html">Unidades</a></li>
+      <li><a href="verActivos.html">Activos</a></li>
+    </ul>
+  </li>
+  <li class="nav__list-item">
+    Registros
+    <ul class="nav__list-item-drop">
+      <li><a href="bitacora.html">Bitácora</a></li>
+      <li><a href="reporteria.html">Reportería</a></li>
+    </ul>
+  </li>
+  <li class="nav__list-item">
+    Traslados
+    <ul class="nav__list-item-drop">
+      <li><a href="registroTraslado.html">Creación de solicitud de traslado</a></li>
+      <li><a href="traslados.html">Solicitudes pendientes</a></li>
+    </ul>
+  </li>
+  <img
+    src="./assets/userBlanco.png"
+    alt="user-pic"
+    class="user-pic"
+    id="userPic"
+  />
+  <!--Inicio del Sub menu para el usuario-->
+  <div class="sub-menu-wrap" id="subMenu">
+    <div class="sub-menu">
+      <div class="user-info">
+        <img src="./assets/bryan.png" alt="user-pic" />
+        <h3>Bryan Jara Miranda</h3>
+      </div>
+      <hr />
+      <a href="miPerfil.html" class="sub-menu-link">
+        <img src="./assets/settings.png" />
+        <p class="header-paragraph">Editar perfil</p>
+        <span>></span>
+      </a>
+      <a href="login.html" class="sub-menu-link">
+        <img src="./assets/settings.png" />
+        <p class="header-paragraph">Salir</p>
+        <span>></span>
+      </a>
+    </div>
+  </div>
+  <!--Fin del Sub menu para el usuario-->
+</ul>
+</nav>
+<!-- fin del header -->
+</header>
+<!--Fin del header -->
+    <main>
+        <aside>
+
+            <div class="aside-title">
+                <h2 id="mainTitle">Registros</h2>
+                <h2 id="secundaryTitle"> <i class="fa-solid fa-clipboard"></i> Reportería</h2>
+            </div>
+
+            <div class="btsSection">
+
+                <button  id="btnUsers" > <i class="fa-solid fa-user"></i>  Usuarios</button>
+                <button  id="btnUnits">  <i class="fa-solid fa-building"></i>   Unidades</button>
+                <button  id="btnAssets">  <i class="fa-solid fa-box"></i>   Activos</button>
+                <button  id="btnLogbook"><i class="fa-solid fa-book"></i>  Bitacora</button>
+                <button  id="btnWarehouses">  <i class="fa-solid fa-truck"></i>  Bodega</button>
+                <button  id="btnDonations">  <i class="fa-solid fa-hand-holding-heart"></i>  Donaciones</button>
+
+            </div>
+        </aside>
+
+        <section>
+
+          <form id="filter">
+
+            <div class="filter-options">
+              <label for="userUnity">Unidad</label>
+              <select id="userUnity">
+                  <option value="SanJose">San José</option>
+                  <option value="Alajuela">Alajuela</option>
+                  <option value="Cartago">Cartago</option>
+                  <option value="Heredia">Heredia</option>
+                  <option value="Guanacaste">Guanacaste</option>
+                  <option value="Puntarenas">Puntarenas</option>
+                  <option value="Limon">Limón</option>
+              </select>
+            </div>
+  
+            <div class="filter-options">
+              <label for="userName">Nombre de activo </label>
+              <input type="text" name="userName" class="search-bar" id="userName">
+              <label for="phonenumberUser">Teléfono </label>
+              <input type="text" name="phonenumberUser" class="search-bar" id="phonenumberUser">
+            </div>
+  
+            <div class="filter-options">
+              <label for="gmailUser">Correo electrónico</label>
+              <input type="text" name="gmailUser" class="search-bar" id="gmailUser">
+              <label for="idUser">Cédula</label>
+              <input type="text" name="idUser" class="search-bar" id="idUser">
+            </div>
+  
+            <div class="filter-options">
+              <label for="birthdayUser">Fecha de traslado</label>
+              <input type="date" name="birthdayUser" id="birthdayUser">
+            </div>
+
+            <button type="submit" id="filterBtn"><i class="fa fa-search"></i>Buscar</button>
+            
+          </form>
+           
+
+
+          <table>
+              <thead>
+                  <tr>
+                        <th>Usuario</th>
+                        <th>Rol</th>
+                        <th>Identificación</th>
+                        <th>Correo electrónico</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Unidad</th>
+                  </tr>
+              </thead>
+              <tbody>
+                    <tr>
+                        <td>Alejandra Torres Ramírez</td>
+                        <td>Encargado de inventario</td>
+                        <td>111847253</td>
+                        <td>alejandra.torres@proveguar.ac.cr</td>
+                        <td>12/04/88</td>
+                        <td>Guanacaste</td>
+                    </tr>
+                    <tr>
+                        <td>José Rodríguez García</td>
+                        <td>Proveduria</td>
+                        <td>123789610</td>
+                        <td>jose.rodriguez@proveguar.ac.cr</td>
+                        <td>22/11/95</td>
+                        <td>San José</td>
+                    </tr>
+                    <tr>
+                        <td>Andrea Ruiz López</td>
+                        <td>Encargado de inventario</td>
+                        <td>158302479</td>
+                        <td>andrea.ruiz@proveguar.ac.cr</td>
+                        <td>07/08/83</td>
+                        <td>Puntarenas</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>David Pérez Hernández</td>
+                        <td>Jefatura</td>
+                        <td>198765432</td>
+                        <td>david.perez@proveguar.ac.cr</td>
+                        <td>03/05/92</td>
+                        <td>Cartago</td>
+                    </tr>
+                  
+                    
+                    <tr>
+                        <td>Sandra González Ortiz</td>
+                        <td>Jefatura</td>
+                        <td>176594820</td>
+                        <td>sandra.gonzalez@proveguar.ac.cr</td>
+                        <td>19/07/87</td>
+                        <td>Cartago</td>
+                    </tr>
+                    <tr>
+                        <td>Oscar Martínez Jiménez</td>
+                        <td>Proveduria</td>
+                        <td>127684539</td>
+                        <td>oscar.martinez@proveguar.ac.cr</td>
+                        <td>02/02/91</td>
+                        <td>Alajuela</td>
+                    </tr>
+                    <tr>
+                        <td>Natalia Castro Ruiz</td>
+                        <td>Encargado de inventario</td>
+                        <td>102938475</td>
+                        <td>natalia.castro@proveguar.ac.cr</td>
+                        <td>15/09/94</td>
+                        <td>Heredia</td>
+                    </tr>
+
+              </tbody>
+
+          </table>
+
+           
+
+            
+        </section>
+
+
+
+
+    </main>
+
+    <!-- Footer part -->
+
+    <footer class="footer">
+      <div class="container">
+       <div class="row">
+         <div class="footer-col">
+           <h1 class="logo">SICA</h4>
+         </div>
+         <div class="footer-col">
+           <h4>Registro</h4>
+           <ul>
+             <li><a href="#">Mi cuenta</a></li>
+             <li><a href="#">Mi unidad</a></li>
+             <li><a href="#">Registros de activos</a></li>
+           </ul>
+         </div>
+         <div class="footer-col">
+           <h4>Reportería</h4>
+           <ul>
+             <li><a href="#">Ir a reportes</a></li>
+             <li><a href="#">Movimientos por unidad</a></li>
+             <li><a href="#">Movimientos por usuario</a></li>
+           </ul>
+         </div>
+         <div class="footer-col">
+          <h4>Perfiles</h4>
+          <ul>
+            <li><a href="#">Crear un perfil nuevo</a></li>
+            <li><a href="#">Consulta de usuarios</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solicitudes</h4>
+          <ul>
+            <li><a href="#">Crear una nueva solicitud</a></li>
+            <li><a href="#">Consulta de solicitudes</a></li>
+          </ul>
+        </div>
+      </div>
+      <br><br><br>
+      <div class="row">
+          <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
+          </div>
+      </div>
+   </footer>
+
+    
+</body>
+<script src="scripts/reporteria.js"></script>
+<script src="scripts/header.js"></script>
+</html>

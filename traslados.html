@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Traslados</title>
+    <link rel="icon" href="/assets/sica-icon.png" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/traslados.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body>
+    <!-- header section -->
+
+   <nav class="nav">
+    <ul class="nav__list">
+      <a href="/homepage.html">
+        <img src="assets/logoAbajo.png" alt="logo" class="nav__list-logo" />
+      </a>
+      <li class="nav__list-item">
+        Administración
+        <ul class="nav__list-item-drop">
+          <li><a href="usuarios.html">Usuarios</a></li>
+          <li><a href="unidades.html">Unidades</a></li>
+          <li><a href="verActivos.html">Activos</a></li>
+        </ul>
+      </li>
+      <li class="nav__list-item">
+        Registros
+        <ul class="nav__list-item-drop">
+          <li><a href="bitacora.html">Bitácora</a></li>
+          <li><a href="reporteria.html">Reportería</a></li>
+        </ul>
+      </li>
+      <li class="nav__list-item">
+        Traslados
+        <ul class="nav__list-item-drop">
+          <li><a href="registroTraslado.html">Creación de solicitud de traslado</a></li>
+          <li><a href="traslados.html">Solicitudes pendientes</a></li>
+        </ul>
+      </li>
+      <img
+        src="./assets/userBlanco.png"
+        alt="user-pic"
+        class="user-pic"
+        id="userPic"
+      />
+      <!--Inicio del Sub menu para el usuario-->
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="user-info">
+            <img src="./assets/bryan.png" alt="user-pic" />
+            <h3>Bryan Jara Miranda</h3>
+          </div>
+          <hr />
+          <a href="miPerfil.html" class="sub-menu-link">
+            <img src="./assets/settings.png" />
+            <p class="header-paragraph">Editar perfil</p>
+            <span>></span>
+          </a>
+          <a href="login.html" class="sub-menu-link">
+            <img src="./assets/settings.png" />
+            <p class="header-paragraph">Salir</p>
+            <span>></span>
+          </a>
+        </div>
+      </div>
+      <!--Fin del Sub menu para el usuario-->
+    </ul>
+  </nav>
+
+
+    <main class="mainContainer">
+      <h1 class="h1Element">Traslados</h1>
+
+       <div class="selected-item-image-container">
+        <img
+        src="https://media.nidux.net/pull/2000/2000/3259/122317-product-63eaaa5ac14a2-63-het-5008-ma-3.jpg"
+        alt="silla"
+        class="selected-image"
+      />
+      <img
+      src="https://media.nidux.net/pull/2000/2000/3259/122317-product-63eaaa5ac14a2-63-het-5008-ma-3.jpg"
+      alt="silla"
+      class="selected-image"
+    />
+      </div> 
+     
+
+      <div class="selectedItemContainer">
+        <table class="transferAtributtesTable">
+          <tbody>
+            <tr>
+              <td>Id de solicitud:</td>
+              <td>003</td>
+              <td>Motivo:</td>
+              <td>Daño</td>
+            </tr>
+            <tr>
+              <td>Nombre de activo:</td>
+              <td>Silla ergonómica</td>
+              <td>Origen:</td>
+              <td>Unidad de San José</td>
+            </tr>
+            <tr>
+              <td>Id activo:</td>
+              <td>003333</td>
+              <td>Destino:</td>
+              <td>Unidad de bodega</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="buttonsAcceptDeclineContainer">
+          <button class="red-button">Aceptar</button>
+          <button class="white-red-button">Rechazar</button>
+        </div>
+        <div class="registerTransferButtonContainer">
+          <a href="registroTraslado.html"><button class="red-button">Registrar solicitud</button></a>
+          
+        </div>
+      </div>
+
+      <!-- filters -->
+
+      <div class="filter-container">
+        <hr />
+        <h2 class="h2Element">Filtros</h2>
+        <label class="reason">Motivo</label>
+        <label for="disuse" id="checkbox1"
+          ><input type="checkbox" name="reason" id="disuse" value="Desuso" />
+          Desuso
+        </label>
+
+        <label for="damage" id="checkbox2"
+          ><input type="checkbox" name="reason" id="damage" value="Daño" />
+          Daño
+        </label>
+
+        <label id="origin" for="origin">Origen</label>
+        <select id="origin" class="">
+          <option value="" disabled selected hidden>Unidad de origen</option>
+          <option value="warehouse">Bodega</option>
+          <option value="unitHeredia">Heredia</option>
+          <option value="unitSanJosé">San José</option>
+        </select>
+
+        <label id="destination" for="destination">Destino</label>
+        <select id="destination" class="">
+          <option value="" disabled selected hidden>Unidad de destino</option>
+          <option value="warehouse">Bodega</option>
+          <option value="unitHeredia">Heredia</option>
+          <option value="unitSanJosé">San José</option>
+        </select>
+
+        <label for="assetName">Nombre de activo</label>
+        <input
+          type="text"
+          id="assetName"
+          name="assetName"
+          placeholder="Ej: Silla de oficina"
+        />
+
+        <label for="assetId">Id de activo</label>
+        <input
+          type="text"
+          id="assetId"
+          name="assetId"
+          placeholder="Ej: 000000"
+        />
+        <div class="search-button-container"><button id="search-button"
+          class="red-button">Buscar</button>
+        </div>
+      </div>
+
+      <!-- table -->
+      <table class="transferListTable">
+        <thead>
+          <tr>
+            <th>Id de solicitud</th>
+            <th>Nombre de activo</th>
+            <th>Id activo</th>
+            <th>Motivo</th>
+            <th>Origen</th>
+            <th>Destino</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>003</td>
+            <td>Silla ergonómica</td>
+            <td>003333</td>
+            <td>Daño</td>
+            <td>Unidad de San José</td>
+            <td>Unidad de bodega</td>
+          </tr>
+          <tr>
+            <td>004</td>
+            <td>Monitor Dell 21"</td>
+            <td>000002</td>
+            <td>Daño</td>
+            <td>Heredia</td>
+            <td>Guanacaste</td>
+          </tr>
+          <tr>
+            <td>005</td>
+            <td>Silla sala de conferencia</td>
+            <td>000285</td>
+            <td>Desuso</td>
+            <td>Alajuela</td>
+            <td>Bodega</td>
+          </tr>
+          <tr>
+            <td>009</td>
+            <td>Headset Jabra</td>
+            <td>000893</td>
+            <td>Daño</td>
+            <td>Bodega</td>
+            <td>Donaciones</td>
+          </tr>
+          <tr>
+            <td>008</td>
+            <td>Laptop Dell</td>
+            <td>000789</td>
+            <td>Desuso</td>
+            <td>Unidad central</td>
+            <td>Limón</td>
+          </tr>
+          <tr>
+            <td>001</td>
+            <td>Escritorio</td>
+            <td>001532</td>
+            <td>Desuso</td>
+            <td>Unidad central</td>
+            <td>Alajuela</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h1 class="logo">SICA</h4>
+            </div>
+            <div class="footer-col">
+              <h4>Registro</h4>
+              <ul>
+                <li><a href="./login.html">Mi cuenta</a></li>
+                <li><a href="./unidades.html">Mi unidad</a></li>
+                <li><a href="./registrarActivos.html">Registros de activos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Reportería</h4>
+              <ul>
+                <li><a href="./reporteria.html">Ir a reportes</a></li>
+                <li><a href="./bitacora.html">Movimientos por unidad</a></li>
+                <li><a href="./bitacora.html">Movimientos por usuario</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+             <h4>Perfiles</h4>
+             <ul >
+               <li><a href="./registro.html">Crear un perfil nuevo</a></li>
+               <li><a href="./usuarios.html">Consulta de usuarios</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+             <h4>Solicitudes</h4>
+             <ul >
+               <li><a href="./registroTraslado.html">Crear una nueva solicitud</a></li>
+               <li><a href="./traslados.html">Consulta de solicitudes</a></li>
+             </ul>
+           </div>
+         </div>
+         <br><br><br>
+         <div class="row">
+             <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
+             </div>
+         </div>
+    </footer>
+
+  </body>
+  <script src="./scripts/header.js"></script>
+</html>
