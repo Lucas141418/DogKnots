@@ -1,29 +1,44 @@
 // entries
 let emailFlag = true;
-let passwordFlag = true
+let passwordFlag = true;
 
 const logIn = document.getElementById("loginSection");
-const signupDiv = document.getElementById("signUp")
+const signupForm = document.getElementById("signUp")
 const signupBtn = document.getElementById("signupButton")
 const main = document.querySelector("main")
-const cancelBtn = document.getElementById("cancelBtn")
+const closeBtn = document.getElementById("closeSingup")
 const  gmailExpression =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 
 
 
 // Proccess
-cancelBtn.addEventListener('click', () => {
-    signupDiv.style.display = 'none'
+closeBtn.addEventListener('click', () => {
+    signupForm.style.display = 'none'
     main.style.filter = 'none'
 })
 signupBtn.addEventListener("click", () => {
-    signupDiv.style.display = 'block'
+    signupForm.style.display = 'flex'
     main.style.filter = "blur(5px)"
-
-
-    
 })
+
+signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+})
+
+signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("JHOLa")
+
+})
+if(window.getComputedStyle(signupForm).display === 'flex'){
+    
+} else {
+    
+}
+
+
 logIn.addEventListener("submit", validation);
 
 
