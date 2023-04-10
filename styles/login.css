@@ -127,13 +127,14 @@ img{
     /* size */
     width: 450px;
     height: 45px;
-    /* padding: 5px 10px; */
+    padding: 5px 10px;
+    font-size: 20px !important;
     /* style */
     border: #1c0c0c 3px solid;
     border-radius: 20px;
     font-size: 16px;
     color: var(--color2);
-    outline-color: white;
+    outline-color:none;
     /* background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);; */
     background: transparent
 
@@ -147,7 +148,8 @@ img{
 
 .main-login form input::placeholder{
     color: var(--color2);
-    font-size: 16px;
+    opacity: 0.5;
+    font-size: 20px;
     padding-left: 5px;
 }
 
@@ -166,8 +168,7 @@ img{
     transform: translate(-50%, -50%);
 
     /* size */
-    height: 55%;
-    width: 35%;
+    max-width: 65%;
     /* style */
     background-color: var(--color1);
     border-radius:6px ;
@@ -191,7 +192,7 @@ img{
 
     /* size */
 
-    width: 95%;
+   width: 95%;
     height: 100%;
     opacity: 0;
     animation-name: show;
@@ -242,6 +243,7 @@ img{
 
 #signupForm label {
     display: block;
+    margin: 20px;
 
     font-size: 20px;
 }
@@ -251,12 +253,29 @@ img{
     width: 75%;
     height: 35px;
     padding: 5px;
+    
 
     border: 2px solid #000000;
     border-width: 0px;
     box-shadow: 0 1px 0 #9095a0;
     outline: none;
     font-size: 20px;
+}
+
+
+
+.password-div i{
+    cursor: pointer;
+    position: absolute;
+    right: 90px;
+    bottom: 282px;
+}
+.password-div2 i{
+    cursor: pointer;
+
+    position: absolute;
+    right: 200px;
+    bottom: 148px;
 }
 
 #signupForm input::placeholder{
@@ -272,7 +291,7 @@ img{
     font-weight: bold;
     background-color: #69140e;
     border: none;
-    margin-top: 20px;
+    margin-top: 50px;
     border-radius: 6px;
     padding: 10px 20px;
     cursor: pointer;
