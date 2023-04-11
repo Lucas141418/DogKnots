@@ -14,18 +14,60 @@
   </head>
   <body>
     <div id="signUp">
-  
+      
       <h1> Registrarse</h1>
+      <button id="closeSingup" type="button"><i class="fa-solid fa-x fa-2xl"></i></button>
+    
   
       <form  id="signupForm">
-        <label for="signupEmail">Correo:</label>
-        <input type="email" id="signupEmail" placeholder="example.email@gmail.com">
-  
-        <label for="signupPassword"></label>
-        <input type="password"  id="signupPassword" placeholder="*********">
-  
-        <button type="submit">Registrarse</button>
-        <button type="button" id="cancelBtn">Cancelar</button>
+        <div id="signupSides">
+          <div class="signup-side">
+
+            <label for="singupName">Nombre</label>
+            <input type="text" " id="singupName">
+
+            <label for="singupSecondName">Segundo apellido</label>
+            <input type="text" id="singupSecondName">
+            
+            <label for="singupId">Cédula</label>
+            <input type="number"  id="singupId"> 
+            
+            <label for="signupEmail">Correo:</label>
+            <input type="email" id="signupEmail" placeholder="ejemplo.email@gmail.com">
+
+          </div>
+          
+
+          <div class="signup-side">
+            <label for="singupFirstName">Primer apellido</label>
+            <input type="text"  id="singupFirstName">
+            
+            
+            
+            <label for="singupPhone">Teléfono</label>
+            <input type="number" id="singupPhone">
+
+            <label for="singupBirth">Fecha de nacimiento</label>
+            <input type="date" id="singupBirth">
+
+            <div class="password-div">
+              <label for="signupPassword">Contraseña</label>
+              <input type="password"  id="signupPassword" placeholder="*********">
+              <button type="button" id="showSignUpPass"><i class="fa-solid fa-eye-slash"></i></button>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="password-div2">
+          <label for="signupPassword2">Confirmación de Contraseña </label>
+          <input type="password"  id="signupPassword2" placeholder="*********">
+          <button type="button" id="showSignUpPass2"><i class="fa-solid fa-eye-slash"></i></button>
+        </div>
+
+        <div id="btnSection">
+          <button type="submit" class="singup-btn">Registrarse</button>
+        </div>
       </form>
   
   
@@ -45,17 +87,17 @@
         <form id="loginSection">
 
           <div class="form-login">
-            <i class="fa-solid fa-user fa-xl"></i>
+            <i class="fa-solid fa-singup fa-xl"></i>
             <label for="loginGmail">Correo</label>
             <input
               type="text"
-              placeholder="example.email@gmail.com "
+              placeholder="ejemplo.email@gmail.com "
               id="loginGmail"
             />
           </div>
 
           <div class="form-login">
-            <i class="fa-solid fa-eye-slash fa-xl"></i>
+            <button type="button" id="showPassword"><i class="fa-solid fa-eye-slash fa-xl"></i></button>
             <label for="loginPassword">Contraseña</label>
             <input type="password" placeholder="*********" id="loginPassword" />
           </div>
