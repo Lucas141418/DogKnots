@@ -136,7 +136,7 @@ img{
     color: var(--color2);
     outline-color:none;
     /* background: linear-gradient(to right, #FFFBEB 1%, #45425A 99%);; */
-    background: transparent
+    background-color: rgb(243, 240, 240, 0.9);
 
 }
 .form-login i{
