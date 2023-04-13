@@ -34,9 +34,9 @@ main{
   flex-direction: column;
   align-content: center;
   align-items: center;
-  padding-top: 90px;
+  padding: 90px 0px;
   /* size */
-  height: 78vh;
+  min-height: 80vh;
   /* style */
 }
 
@@ -74,7 +74,7 @@ main .mainSection{
   align-content: center;
   /* size */
   width: 95%;
-  height: 70%;
+  min-height: 50vh;
   /* style */
   border-radius: 6px;
   background-color: rgb(166, 166, 166, .3);
@@ -93,6 +93,7 @@ main .mainSection{
   margin:1cm;
   /* size */
   width: 20%;
+  min-height: 10vh;
 
   /* style */
   background-color: var(--color1);
@@ -116,8 +117,8 @@ main .mainSection{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 15%;
+  min-width: 100%;
+  min-height: 5vh;
   /* size */
   /* style */
   border-radius: 6px;
@@ -143,6 +144,7 @@ main .mainSection{
 
 /* slider part */
 .card .slider{
+
   border: 5px solid var(--color7);
 
   /* position */
@@ -150,8 +152,8 @@ main .mainSection{
   display: flex;
   align-items: center;
   /*size*/
-  height:25% ;
-  width:  30%;
+  min-height: 10vh ;
+  width:  35%;
   border-radius: 25px;
   overflow: hidden;    
 
@@ -168,6 +170,7 @@ main .mainSection{
   flex-direction: column;
   flex-shrink: 0.6;
   flex-grow: 0;
+  min-height: 15vh;
   max-width: 100%;
   /* animation part */
   transform: translate3d(0,0,0);
@@ -183,7 +186,7 @@ main .mainSection{
 .imgSlider img{
   margin: 0px 15px;
   height: 100%;
-  height: 100%;
+  min-height: 10vh;
   
   /* border-radius: 36px; */
 }
@@ -244,3 +247,77 @@ main .mainSection{
 
 }
 
+@media screen and (max-width: 768px) {
+  main {
+    padding: 50px 0px;
+  }
+
+  .paragraph {
+    font-size: 100%;
+  }
+
+  main .upperSection {
+    gap: 15px;
+    margin: 20px 0px;
+  }
+
+  main .upperSection h1 {
+    font-size: 200%;
+  }
+
+  main .mainSection {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .mainSection .card {
+    min-height: 40vh;
+    width: 90%;
+  }
+  .card .slider{
+    height: 13vh;
+    min-width: 5vh;
+  }
+  .slider .imgSlider{
+    min-width: 100%;
+    min-height: 1vh;
+    
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  main {
+    padding: 50px 0px;
+  }
+
+  .paragraph {
+    font-size: 100%;
+  }
+
+  main .upperSection {
+    gap: 15px;
+    margin: 20px 0px;
+  }
+
+  main .upperSection h1 {
+    font-size: 200%;
+  }
+
+  main .mainSection {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .mainSection .card {
+    min-height: 40vh;
+    width: 90%;
+  }
+  .card .slider{
+    min-height: 13vh;
+    min-width: 5vh;
+  }
+  .slider .imgSlider{
+    min-width: 100%;
+    min-height: 1vh;
+    
+  }
+}
