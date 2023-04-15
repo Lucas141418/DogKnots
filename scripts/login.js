@@ -1,4 +1,4 @@
-// entries
+window.onload = function(){// entries
 let emailFlag = true;
 let passwordFlag = true;
 
@@ -73,7 +73,7 @@ showSignUpPassword2.addEventListener("click", () => {
 
 
 
-signupForm.addEventListener("submit", function validationSignUp(e){
+signupForm.addEventListener("submit", async function validationSignUp(e){
     e.preventDefault();
     singupName = document.getElementById("singupName")
     singupId = document.getElementById("singupId")
@@ -86,11 +86,7 @@ signupForm.addEventListener("submit", function validationSignUp(e){
     signupPassword2 = document.getElementById("signupPassword2")
     const birthDate = new Date(singupBirth.value)
 
-  
-
-
     
-
     
     if(singupName.value.trim() === "" || singupFirstName.value.trim() === "" || singupSecondName.value.trim() === "" ){
         Swal.fire({
@@ -129,8 +125,25 @@ signupForm.addEventListener("submit", function validationSignUp(e){
             icon: 'warning',
             title: ' Falta fecha de nacimiento o fecha no valida',
             confirmButtonColor: "#a44200",
-        })
-
+        }) 
+    } else{
+        await registerUser(
+            singupName.value,
+            singupId.value,
+            singupFirstName.value,
+            signupEmail.value,
+            singupSecondName.value,
+            singupPhone.value,
+            singupBirth.value,
+            signupPassword.value
+        )
+        Swal.fire({
+            icon: 'success',
+            title: "Registro exitoso de usuario exitoso",
+            text: `Bienvenido ${singupName.value} ${singupFirstName.value}`,
+            confirmButtonColor: "#a44200",
+            
+    })
     }
     
     
@@ -176,4 +189,4 @@ function validationLogIn(e) {
 }
 
 
-
+}
