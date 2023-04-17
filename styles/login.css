@@ -365,13 +365,53 @@ button a{
     color: black;
 }
 
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    main {
+      padding: 50px 0px;
+    }
+  
+    .paragraph {
+      font-size: 100%;
+    }
+  
+    main .upperSection {
+      gap: 15px;
+      margin: 20px 0px;
+    }
+  
+    main .upperSection h1 {
+      font-size: 200%;
+    }
+  
+    main .mainSection {
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  
+    .mainSection .card {
+      min-height: 40vh;
+      width: 90%;
+    }
+    .card .slider{
+      min-height: 13vh;
+      min-width: 5vh;
+    }
+    .slider .imgSlider{
+      min-width: 100%;
+      min-height: 1vh;
+      
+    }
+  }
+  
 
 /* -----Responsive Part */
 @media screen and (max-width: 780px){
 
     .main-login{
+        padding: 50px 0px;
 
-
+        flex-direction: column;
+        margin: 0;
         width: 90%;
 
     }
@@ -382,8 +422,6 @@ button a{
         display: none;
     }
     .main-login #login{
-        display: flex;
-
         width: 100%;
         border: 10px;
     }
@@ -392,7 +430,124 @@ button a{
         width:100%;
 
     }
+    #login h1{
+        font-size: 32px;
+      }
+
+      #login{
+        font-size: 18px;
+      }
+   
+      #login .form-login input{
+        width: 100%;
+        font-size: 14px;
+      }
+      #loginButton{
+        max-width: 60%;
+        font-size: 20px;
+      }
+      /* Pop out responsive */
+        #signUp{
+            min-width: 75%;
+            max-height: 66vh;
+        }
+        #signupForm  {
+            max-width: 100%;
+            /* height: 20vh; */
+
+        }
+        #signupSides{
+            width: 100%;
+        }
+     
+        
+    
 
    
-   
 }
+@media screen and (max-width: 600px){
+    #signUp{
+        flex-direction: column;
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 50px 0px;
+  }
+
+  .paragraph {
+    font-size: 100%;
+  }
+
+  main .upperSection {
+    gap: 15px;
+    margin: 20px 0px;
+  }
+
+  main .upperSection h1 {
+    font-size: 200%;
+  }
+
+  main .mainSection {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .mainSection .card {
+    min-height: 40vh;
+    width: 90%;
+  }
+  .card .slider{
+    height: 13vh;
+    min-width: 5vh;
+  }
+  .slider .imgSlider{
+    min-width: 100%;
+    min-height: 1vh;
+    
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  main {
+    padding: 50px 0px;
+  }
+
+  .paragraph {
+    font-size: 100%;
+  }
+
+  main .upperSection {
+    gap: 15px;
+    margin: 20px 0px;
+  }
+
+  main .upperSection h1 {
+    font-size: 200%;
+  }
+
+  main .mainSection {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .mainSection .card {
+    min-height: 40vh;
+    width: 90%;
+  }
+  .card .slider{
+    min-height: 13vh;
+    min-width: 5vh;
+  }
+  .slider .imgSlider{
+    min-width: 100%;
+    min-height: 1vh;
+    
+  }
+}
+
+
+
