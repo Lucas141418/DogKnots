@@ -29,7 +29,6 @@ signupBtn.addEventListener("click", () => {
     main.style.filter = "blur(5px)"
 })
 showPasswordBtn.addEventListener("click", () => {
-    chargeUser()
     if(loginPassword.type == "password"){
         loginPassword.type = 'text'
     } else{
@@ -103,7 +102,7 @@ signupForm.addEventListener("submit", async function validationSignUp(e){
             title: ' Falta número de teléfono o número no valido',
             confirmButtonColor: "#a44200",
         })
-    } else if (singupId.value.length !== 9 || singupId.value === ""){
+    } else if (singupId.value.length !== 9 || singupId.value === "" || !numberExpression.test(singupId.value)){
         Swal.fire({
             icon: 'warning',
             title: ' Falta número de cédula o cédula no valida',
@@ -154,7 +153,6 @@ logIn.addEventListener("submit", validationLogIn);
 
 
 
-
 function validationLogIn(e) {
     e.preventDefault();
     email = document.getElementById("loginGmail")
@@ -181,6 +179,9 @@ function validationLogIn(e) {
             title: ' Falta contraseña',
             confirmButtonColor: "#a44200"
           })
+
+    }else{
+        chargeUser(email.value, password.value)
 
     }
 }

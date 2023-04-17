@@ -19,7 +19,8 @@ const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEma
             },
             body: JSON.stringify(user),
         });
-        console.log(res);
+
+        console.log(res)
     } catch (error) {
         console.error(error);
     }
@@ -27,27 +28,34 @@ const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEma
 
 
 
-    const chargeUser = async () => {
+    const chargeUser = async (pEmail, pPassword) => {
 
         try{
             const response = await fetch("http://localhost:3000/login");
 
             const data = await response.json();
 
-            // const user = {
-            //     _id: data._id,
-            //     name: data.name,
-            //     lastName: data.lastName,
-            //     secondLastName: data.secondLastName,
-            //     email: data.email,
-            // }
-            // console.log(user);
-
-            data.forEach(users => {
-                console.log(users.email)
-                console.log(users.password)
-                
+            const check = data.find(check => check.email === pEmail); 
+            if(!check){
+                Swal.fire({
+                    icon: 'warning',
+                    title: ' El correo no existe, por favor registrarse!',
+                    confirmButtonColor: "#a44200",
+                })
+            }
+           else if(check.password === pPassword){
+            Swal.fire({
+                icon: 'success',
+                title: ' All good!',
+                confirmButtonColor: "#a44200",
             });
+           } else{
+            Swal.fire({
+                icon: 'warning',
+                title: ' Contraseña incorrecta',
+                confirmButtonColor: "#a44200",
+            });
+           }
 
         } catch(error){
             console.error(error);
