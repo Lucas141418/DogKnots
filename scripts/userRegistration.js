@@ -24,3 +24,37 @@ const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEma
         console.error(error);
     }
 }
+
+
+
+    const chargeUser = async () => {
+
+        try{
+            const response = await fetch("http://localhost:3000/login");
+
+            const data = await response.json();
+
+            // const user = {
+            //     _id: data._id,
+            //     name: data.name,
+            //     lastName: data.lastName,
+            //     secondLastName: data.secondLastName,
+            //     email: data.email,
+            // }
+            // console.log(user);
+
+            data.forEach(users => {
+                console.log(users.email)
+                console.log(users.password)
+                
+            });
+
+        } catch(error){
+            console.error(error);
+        }
+
+        
+
+        
+
+    };

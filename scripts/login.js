@@ -11,9 +11,10 @@ const showPasswordBtn = document.getElementById("showPassword")
 const showSignUpPassword = document.getElementById("showSignUpPass")
 const showSignUpPassword2 = document.getElementById("showSignUpPass2")
 const loginPassword = document.getElementById("loginPassword")
+const test = document.getElementById("test")
 const currentDate = new Date()
 const gmailExpression =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-const phoneRegex = /^\d{7,14}$/
+const numberExpression = /^[0-9]+$/;
 
 
 
@@ -28,6 +29,7 @@ signupBtn.addEventListener("click", () => {
     main.style.filter = "blur(5px)"
 })
 showPasswordBtn.addEventListener("click", () => {
+    chargeUser()
     if(loginPassword.type == "password"){
         loginPassword.type = 'text'
     } else{
@@ -87,7 +89,6 @@ signupForm.addEventListener("submit", async function validationSignUp(e){
     const birthDate = new Date(singupBirth.value)
 
     
-    
     if(singupName.value.trim() === "" || singupFirstName.value.trim() === "" || singupSecondName.value.trim() === "" ){
         Swal.fire({
             icon: 'warning',
@@ -95,7 +96,8 @@ signupForm.addEventListener("submit", async function validationSignUp(e){
             confirmButtonColor: "#a44200",
                 
         })
-    } else if(singupPhone.value === "" || singupPhone.value.length !== 8){
+    } 
+    else if(singupPhone.value === "" || singupPhone.value.length !== 8 || !numberExpression.test(singupPhone.value) ){
         Swal.fire({
             icon: 'warning',
             title: ' Falta número de teléfono o número no valido',
@@ -127,16 +129,7 @@ signupForm.addEventListener("submit", async function validationSignUp(e){
             confirmButtonColor: "#a44200",
         }) 
     } else{
-        await registerUser(
-            singupName.value,
-            singupId.value,
-            singupFirstName.value,
-            signupEmail.value,
-            singupSecondName.value,
-            singupPhone.value,
-            singupBirth.value,
-            signupPassword.value
-        )
+        await registerUser(singupName.value, singupId.value, singupFirstName.value,signupEmail.value, singupSecondName.value, singupPhone.value,singupBirth.value,signupPassword.value)
         Swal.fire({
             icon: 'success',
             title: "Registro exitoso de usuario exitoso",
@@ -144,6 +137,8 @@ signupForm.addEventListener("submit", async function validationSignUp(e){
             confirmButtonColor: "#a44200",
             
     })
+        signupForm.style.display = 'none'
+        main.style.filter = 'none'
     }
     
     
@@ -153,7 +148,7 @@ signupForm.addEventListener("submit", async function validationSignUp(e){
 
 
 
-
+// Cambios test
 
 logIn.addEventListener("submit", validationLogIn);
 
@@ -164,6 +159,8 @@ function validationLogIn(e) {
     e.preventDefault();
     email = document.getElementById("loginGmail")
     password = document.getElementById("loginPassword")
+
+
 
     if (email.value === "" && password.value === "" ){
         Swal.fire({
