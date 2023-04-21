@@ -14,16 +14,6 @@ let headerTable = null;
 // sideBar
 
 
-
-
-
-
-// const th = document.getElementById('th1');
-// const th2 = document.getElementById('th2');
-// const th3 = document.getElementById('th3');
-// const th4 = document.getElementById('th4');
-// const th5 = document.getElementById('th5');
-// const th6 = document.getElementById('th6');
 document.addEventListener('DOMContentLoaded', () => {
     headerTable = table.tHead.insertRow(0);
 
