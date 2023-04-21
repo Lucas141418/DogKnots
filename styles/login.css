@@ -153,37 +153,35 @@ img{
     padding-left: 5px;
 }
 
-/* sign up part */
+/* Pop out part */
 
- #signUp{
-    /* position */
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    /* flex-wrap: wrap; */
-    position: fixed;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
-    /* size */
-    max-width: 65%;
-    /* style */
-    background-color: var(--color1);
-    border-radius:6px ;
-    padding: 20px;
-    box-shadow: 0px 10px 150px var(--color2);
-    transition: 200ms;
+.pop-out{ 
+  /* position */
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    
-   
+  /* size */
+  min-width: 70%;
+  /* style */
+  background-color: var(--color1);
+  border-radius:6px ;
+  padding: 20px;
+  box-shadow: 0px 10px 150px var(--color2);
+  transition: 200ms;
 }
 
 #signupForm{
     /* Position */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     align-items: center;
     justify-content: space-evenly;
@@ -192,17 +190,103 @@ img{
 
     /* size */
 
-   width: 95%;
-    height: 100%;
+    min-width: 95%;
+    min-height: 100%;
     opacity: 0;
     animation-name: show;
     animation-duration: 0.5s;
     animation-delay: 0.2s;
     animation-fill-mode: forwards;
 
-    
 
 }
+#passwordForm{
+  /* Position */
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-evenly;
+  
+  padding: 20px;
+
+  /* size */
+
+  width: 20cm;
+  height: 100%;
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 0.5s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+
+  
+
+}
+
+.register-picture{
+  border: 1px solid #dee1e6ff;
+  min-width: 18%;
+  min-height: 50vh;
+
+  margin-right: 20px;
+  text-align: center;
+  padding: 20px;
+
+}
+.register-picture .input-picture{
+  display: flex;
+  flex-direction: column;
+  
+
+}
+
+.upload-image-container {
+  border: 1px solid #dee1e6ff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.upload-image-container input[type="file"]{
+  max-width: 65%;
+}
+.register-picture img{
+  width: 40px;
+}
+#avatar-image{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+ 
+.file-upload {
+  display: inline-block;
+  border-radius: 0.5rem;
+  width: 140px;
+
+  background-color: #69140e;
+  color: white;
+  font-size: 16px;
+  padding: 5px 15px;
+  margin-top: 15px;
+
+
+  cursor: pointer;
+}
+
+.file-upload:hover {
+  border: 2px solid #69140e;
+  border-radius: 0.5rem;
+  background-color: #f0e8e7;
+  color: #69140e;
+}
+
 
 @keyframes show {
     0% {
@@ -214,7 +298,7 @@ img{
       transform: rotateX(0deg);
     }
   }
-#closeSingup{
+#closeSingup, #closePasswordBtn{
     position: absolute;
     border: none;
     background: none;
@@ -227,42 +311,60 @@ img{
 
 
 #signupSides{
+    border: 1px solid #dee1e6ff;
+    justify-content: center;
+    align-items: center;
+
     width: 95%;
-    height: 100%;
+    min-height: 55vh;
     display: flex;
     flex-direction: row;
 }
 .signup-side{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100%;
-
+    gap: 15px;
 }
 
-#signupForm label {
+#signupForm label{
     display: block;
-    margin: 20px;
-
     font-size: 20px;
 }
+#passwordForm label  {
+  display: block;
+  margin: 20px;
 
-#signupForm input {
+  font-size: 20px;
+}
+#signupForm .signup-side > input{
     display: block;
-    width: 75%;
-    height: 35px;
+    min-height: 35px;
+    min-width: 30vh;
     padding: 5px;
     
 
-    border: 2px solid #000000;
-    border-width: 0px;
+    border: 1px solid #dee1e6ff;
+
     box-shadow: 0 1px 0 #9095a0;
-    outline: none;
     font-size: 20px;
 }
 
+#passwordForm input {
+  display: block;
+  width: 75%;
+  height: 35px;
+  padding: 5px;
+  
 
+  border: 2px solid #000000;
+  border-width: 0px;
+  box-shadow: 0 1px 0 #9095a0;
+  outline: none;
+  font-size: 20px;
+}
 
 .password-div i{
     cursor: pointer;
@@ -278,11 +380,11 @@ img{
     bottom: 148px;
 }
 
-#signupForm input::placeholder{
+#signupForm, #passwordForm input::placeholder{
     font-size: 16px;
 }
   
-#signupForm .singup-btn{
+#signupForm .popOut-btn, #passwordForm .popOut-btn{
     /* Position */
 
     /* Size */
@@ -299,7 +401,7 @@ img{
 
 }
       
-#signupForm .singup-btn:hover {
+#signupForm .popOut-btn:hover, #passwordForm .popOut-btn:hover {
     border: 2px solid #69140e;
     font-size: 18px;
     font-weight: bold;
@@ -349,14 +451,14 @@ transition: all 0.5s ;
 .main-login #footerLogin a:hover{
     color: white;
 }
-.main-login #login #signupButton{
+.main-login #login .bottom-buttons{
     /* font */
     font-size: 20px;
     /* body */
     border: none;
     background-color: transparent;
 }
-.main-login #login #signupButton:hover{
+.main-login #login .bottom-buttons:hover{
     cursor: pointer;
     color: var(--color1);
 }
