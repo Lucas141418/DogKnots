@@ -7,14 +7,13 @@ const btnWareHouses = document.getElementById("btnWarehouses")
 const btnDonations = document.getElementById("btnDonations")
 const table = document.getElementById("table")
 const thead = document.querySelector("thead")
-const tbody = document.getElementsByTagName("tbody")
 let headerTable = null;
 
 
 // sideBar
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',  async () => {
     headerTable = table.tHead.insertRow(0);
 
   const th1 = document.createElement("th");
@@ -46,11 +45,53 @@ document.addEventListener('DOMContentLoaded', () => {
   headerTable.appendChild(th5);
   headerTable.appendChild(th6);
   headerTable.appendChild(th7);
+
+
+  const users = await logBookUsers()
+
+  users.forEach(user => {
+    const tbody = document.querySelector("#table tbody")
+    console.log(tbody)
+
+    const tr = document.createElement("tr");
+
+    const userId = document.createElement("td");
+    userId.textContent = user.identification;
+
+    const userName = document.createElement("td");
+    userName.textContent = user.name;
+    
+    // const userLastName = document.createElement("td");
+    // userLastName.textContent = user.lastName;
+
+    const userEmail = document.createElement("td");
+    userEmail.textContent = user.email;
+
+    const userNumber = document.createElement("td");
+    userNumber.textContent = user.number;
+
+    const userBirth = document.createElement("td");
+    userBirth.textContent = user.birthDay;
+
+
+
+    tbody.appendChild(tr);
+    tr.appendChild(userId);
+    tr.appendChild(userName);
+    // tr.appendChild(userLastName);
+    tr.appendChild(userEmail);
+    tr.appendChild(userNumber);
+    tr.appendChild(userBirth);
+
+    
+  });
     
 
 })
 
-btnUsers.addEventListener('click', () => {
+btnUsers.addEventListener('click', async () => {
+  const tbody = document.querySelector("#table tbody")
+  tbody.innerHTML = ""
   if (headerTable !== null) {
     headerTable.remove();
   }
@@ -86,9 +127,54 @@ btnUsers.addEventListener('click', () => {
   headerTable.appendChild(th5);
   headerTable.appendChild(th6);
   headerTable.appendChild(th7);
+
+
+  const users = await logBookUsers()
+
+  users.forEach(user => {
+    const tbody = document.querySelector("#table tbody")
+    console.log(tbody)
+
+    const tr = document.createElement("tr");
+
+    const userId = document.createElement("td");
+    userId.textContent = user.identification;
+
+    const userName = document.createElement("td");
+    userName.textContent = user.name;
+    
+    // const userLastName = document.createElement("td");
+    // userLastName.textContent = user.lastName;
+
+    const userEmail = document.createElement("td");
+    userEmail.textContent = user.email;
+
+    const userNumber = document.createElement("td");
+    userNumber.textContent = user.number;
+
+    const userBirth = document.createElement("td");
+    userBirth.textContent = user.birthDay;
+
+
+
+    tbody.appendChild(tr);
+    tr.appendChild(userId);
+    tr.appendChild(userName);
+    // tr.appendChild(userLastName);
+    tr.appendChild(userEmail);
+    tr.appendChild(userNumber);
+    tr.appendChild(userBirth);
+
+    
+  });
+
+  
 });
 
 btnUnits.addEventListener("click", () => {
+  const tbody = document.querySelector("#table tbody")
+  tbody.innerHTML = ""
+
     if (headerTable !== null) {
         headerTable.remove();
       }
@@ -120,6 +206,8 @@ btnUnits.addEventListener("click", () => {
 
 
 btnAssets.addEventListener('click', () => {
+  const tbody = document.querySelector("#table tbody")
+  tbody.innerHTML = ""
     if (headerTable !== null) {
         headerTable.remove();
       }
@@ -158,6 +246,8 @@ btnAssets.addEventListener('click', () => {
   
 })
 btnLogBook.addEventListener('click', () => {
+    const tbody = document.querySelector("#table tbody")
+    tbody.innerHTML = ""
     if (headerTable !== null) {
         headerTable.remove();
       }
@@ -195,6 +285,8 @@ btnLogBook.addEventListener('click', () => {
 })
 
 btnWareHouses.addEventListener('click', () => {
+    const tbody = document.querySelector("#table tbody")
+    tbody.innerHTML = ""
     if (headerTable !== null) {
         headerTable.remove();
       }
@@ -233,6 +325,8 @@ btnWareHouses.addEventListener('click', () => {
 })
 
 btnDonations.addEventListener('click', () => {
+    const tbody = document.querySelector("#table tbody")
+    tbody.innerHTML = ""
     if (headerTable !== null) {
         headerTable.remove();
       }
