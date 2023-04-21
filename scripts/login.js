@@ -1,6 +1,5 @@
-window.onload = function(){// entries
-let emailFlag = true;
-let passwordFlag = true;
+window.onload = function(){
+// entries
 
 // div
 const signupPopOut = document.getElementById("signUp")
@@ -21,6 +20,11 @@ const showPasswordBtn = document.getElementById("showPassword")
 // main
 const main = document.querySelector("main")
 
+
+const avatar = document.getElementById("userImage");
+const avatarImage = document.getElementById("avatar-image");
+
+
 const currentDate = new Date()
 const gmailExpression =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const numberExpression = /^[0-9]+$/;
@@ -30,6 +34,27 @@ const numberExpression = /^[0-9]+$/;
 
 // Proccess
 
+
+
+// // cloudinary
+// let cloudinaryWidget = cloudinary.createUploadWidget(
+//     // widget
+//     {
+//     cloud_name: "ddaosepx4",
+//     api_key: "875673795349599",
+//     api_secret: "h1DJn_yNL5hiBsgKWiihqDKlX_U"
+//     },
+//     (error, result) => {
+//         if(result.event === "success"){
+//             console.log("Done! Here is the image info: ", result.info);
+//             avatarImage.src = result.info.secure_url
+//         } 
+//     }
+// );
+
+
+
+// Shows pop outs and passwords
 closeBtn.addEventListener('click', () => {
     signupPopOut.style.display = 'none'
     main.style.filter = 'none'
@@ -59,42 +84,16 @@ showPasswordBtn.addEventListener("click", () => {
     }
 })
 
+avatar.accept = "image/*"
+
+avatar.addEventListener("change", function (e) {
+    avatarImage.src = URL.createObjectURL(e.target.files[0]);
+  });
 
 
 
-// showSignUpPassword.addEventListener('click', () => {
-//     showPass1 = document.getElementById("signupPassword")
-//     showPass2 = document.getElementById("signupPassword2")
 
-
-//     if(showPass1.type == 'password' || showPass2.type == 'password'){
-//         showPass1.type = "text"
-//         showPass2.type = 'text'
-//     }else{
-//         showPass1.type = "password"
-//         showPass2.type = "password"
-
-//     }
-
-// })
-
-// showSignUpPassword2.addEventListener("click", () => {
-//     showPass1 = document.getElementById("signupPassword")
-//     showPass2 = document.getElementById("signupPassword2")
-
-
-//     if(showPass1.type == 'password' || showPass2.type == 'password'){
-//         showPass1.type = "text"
-//         showPass2.type = 'text'
-//     }else{
-//         showPass1.type = "password"
-//         showPass2.type = "password"
-
-//     }
-
-// })
-
-
+// Event for recovering the password
 passwordRecoveryPopOut.addEventListener('submit',  async function recoveryPasswordF(e){
     e.preventDefault();
     email = document.getElementById("passwordEmail")
@@ -106,7 +105,7 @@ passwordRecoveryPopOut.addEventListener('submit',  async function recoveryPasswo
 })
 
 
-
+// Event for pop out of sign up of the user
 signupPopOut.addEventListener("submit", async function validationSignUp(e){
     
     e.preventDefault();
@@ -117,11 +116,19 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
     singupSecondName = document.getElementById("singupSecondName")
     singupPhone = document.getElementById("singupPhone")
     singupBirth = document.getElementById("singupBirth")
+
+    signupImage = document.getElementById("userImage")
+
     signupPassword = document.getElementById("signupPassword")
     signupPassword2 = document.getElementById("signupPassword2")
     const birthDate = new Date(singupBirth.value)
 
+
+
     
+    
+
+
     if(singupName.value.trim() === "" || singupFirstName.value.trim() === "" || singupSecondName.value.trim() === "" ){
         Swal.fire({
             icon: 'warning',
@@ -129,8 +136,13 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
             confirmButtonColor: "#a44200",
                 
         })
-    } 
-    else if(singupPhone.value === "" || singupPhone.value.length !== 8 || !numberExpression.test(singupPhone.value) ){
+    } else if(signupImage.value === ""){
+        Swal.fire({
+            icon: 'warning',
+            title: ' Falta imagen de perfil',
+            confirmButtonColor: "#a44200",
+        })
+    }else if(singupPhone.value === "" || singupPhone.value.length !== 8 || !numberExpression.test(singupPhone.value) ){
         Swal.fire({
             icon: 'warning',
             title: ' Falta número de teléfono o número no valido',
@@ -148,23 +160,15 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
             title: ' Falta Correo electrónico  o correo no valido',
             confirmButtonColor: "#a44200",
         })
-    // }else if(signupPassword2.value !== signupPassword.value || signupPassword.value === "" || signupPassword2.value === "" ){
-    //     Swal.fire({
-    //         icon: 'warning',
-    //         title: ' Faltan contraseñas o las contraseñas no coinciden',
-    //         confirmButtonColor: "#a44200",
-    //     })
-
     } else if(await validatioDB(signupEmail.value, singupId.value) === false){
-    } 
-    else if( birthDate > currentDate  || singupBirth.value ===""){
+
+    } else if( birthDate > currentDate  || singupBirth.value ===""){
         Swal.fire({
             icon: 'warning',
             title: ' Falta fecha de nacimiento o fecha no valida',
             confirmButtonColor: "#a44200",
         }) 
-    } 
-    else{
+    } else{
     Swal.fire({
         title: 'Registrando usuario',
         html: 'Por favor espere...',
@@ -190,7 +194,6 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
 
 
 
-// Cambios test
 
 logIn.addEventListener("submit", validationLogIn);
 
