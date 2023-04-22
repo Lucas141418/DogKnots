@@ -101,6 +101,14 @@ passwordRecoveryPopOut.addEventListener('submit',  async function recoveryPasswo
     console.log(emailValue)
 
     await recoveryPassword(emailValue)
+    // Swal.fire({
+    //     title: 'Enviando correo',
+    //     html: 'Por favor espere...',
+    //     timer: 1500,
+    //     timerProgressBar: true,
+    //   })
+    // signupPopOut.style.display = 'none'
+    // main.style.filter = 'none'
 
 })
 
@@ -195,42 +203,35 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
 
 
 
-logIn.addEventListener("submit", validationLogIn);
-
-
-
-function validationLogIn(e) {
-    e.preventDefault();
+logIn.addEventListener('submit', async function validationLogIn(e){
+    e.preventDefault()
     email = document.getElementById("loginGmail")
     password = document.getElementById("loginPassword")
-
-
 
     if (email.value === "" && password.value === "" ){
         Swal.fire({
             icon: 'warning',
             title: ' Falta correo y contraseña',
             confirmButtonColor: "#a44200",
-            
-          })
-    }else if(!email.value.match(gmailExpression)){
+                    
+        })
+     } else if(!email.value.match(gmailExpression)){
         Swal.fire({
             icon: 'warning',
             title: ' Formato de correo no valido',
             confirmButtonColor: "#a44200"
-          })
+        })
     } else if(password.value === ""){
         Swal.fire({
             icon: 'warning',
             title: ' Falta contraseña',
             confirmButtonColor: "#a44200"
-          })
-
-    }else{
-        chargeUser(email.value, password.value)
-
+        })
+    } else{ 
+        await loginUser(email.value, password.value)
     }
-}
 
 
+})
 }
+
