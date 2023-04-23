@@ -1,4 +1,5 @@
-const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEmail, pSignupSecondName, pSignupPhone, pSignupBirth, pSignupPassword) => {
+
+const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEmail, pSignupSecondName, pSignupPhone, pSignupBirth, pSignupPicture) => {
     const user = {
         identification: pSignupId,
         name: pSignupName,
@@ -7,6 +8,7 @@ const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEma
         email: pSignupEmail,
         number: pSignupPhone,
         birthDay: pSignupBirth,
+        // picture: pSignupPicture,
     };
 
     try {
@@ -29,10 +31,10 @@ const validatioDB = async (pEmail, pIdentification) => {
     try{
         let validation = true;
         const response = await fetch("http://localhost:3000/login");
-        const data = await response.json();
+        const user = await response.json();
 
-        const checkEmailDB =  data.find(checkEmailDB => checkEmailDB.email === pEmail); // funcion de comparacion
-        const checkIdentificationDB =  data.find(checkIdentificationDB => checkIdentificationDB.identification === pIdentification);
+        const checkEmailDB =  user.find(checkEmailDB => checkEmailDB.email === pEmail); // funcion de comparacion
+        const checkIdentificationDB =  user.find(checkIdentificationDB => checkIdentificationDB.identification === pIdentification);
 
         if(checkEmailDB){
             Swal.fire({
@@ -62,28 +64,37 @@ const validatioDB = async (pEmail, pIdentification) => {
 
 
 
-    const chargeUser = async (pEmail, pPassword) => {
+    const loginUser = async (pEmail, pPassword) => {
+        const user = ({email: pEmail, password: pPassword})
 
         try{
-            const response = await fetch("http://localhost:3000/login");
-
+            const response = await fetch("http://localhost:3000/loginUser",{
+                method: "POST",
+                mode: 'cors',
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user)
+            });
             const data = await response.json();
 
-            const check = data.find(check => check.email === pEmail); 
-            console.log(check) //quitar esto
-            if(!check){
+
+            if(data.error === "User not found"){
                 Swal.fire({
                     icon: 'warning',
                     title: ' El correo no existe, por favor registrarse!',
                     confirmButtonColor: "#a44200",
                 })
             }
-           else if(check.password === pPassword){
+           else if(data.password === user.password){
             Swal.fire({
                 icon: 'success',
                 title: ' All good!',
                 confirmButtonColor: "#a44200",
+
             });
+            // window.location.href = "../../homepage.html";
+
            } else{
             Swal.fire({
                 icon: 'warning',
@@ -93,7 +104,7 @@ const validatioDB = async (pEmail, pIdentification) => {
            }
 
         } catch(error){
-            console.error(error);
+            console.log(error);
         }
 
         
@@ -101,9 +112,6 @@ const validatioDB = async (pEmail, pIdentification) => {
         
 
     };
-
-
-
 
 const recoveryPassword = async (pEmail) => {
 
@@ -121,13 +129,22 @@ const recoveryPassword = async (pEmail) => {
             },
             body: JSON.stringify(userUpdate),
         })
-        .then(res => res.json())
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
+        
+        const data = await response.json();
 
+        if(data.error === "User not found"){
+            Swal.fire({
+                icon: 'warning',
+                title: ' El correo no está registrado',
+                confirmButtonColor: "#a44200",
+            })
+        }
+
+
+    }
 
         
-    } catch(error){
+     catch(error){
         console.error(error);
     }
 
@@ -135,18 +152,3 @@ const recoveryPassword = async (pEmail) => {
       
 
 }
-
-
-const logBookUsers = async () => {
-
-    try{
-        const response = await fetch("http://localhost:3000/login");
-
-        const dataUsers  = await response.json();
-        console.log(dataUsers);
-        return dataUsers;
-    } catch(error){
-        console.error(error);
-    }
-}
-
