@@ -21,8 +21,7 @@ const showPasswordBtn = document.getElementById("showPassword")
 const main = document.querySelector("main")
 
 
-const avatar = document.getElementById("userImage");
-const avatarImage = document.getElementById("avatar-image");
+
 
 
 const currentDate = new Date()
@@ -36,21 +35,7 @@ const numberExpression = /^[0-9]+$/;
 
 
 
-// // cloudinary
-// let cloudinaryWidget = cloudinary.createUploadWidget(
-//     // widget
-//     {
-//     cloud_name: "ddaosepx4",
-//     api_key: "875673795349599",
-//     api_secret: "h1DJn_yNL5hiBsgKWiihqDKlX_U"
-//     },
-//     (error, result) => {
-//         if(result.event === "success"){
-//             console.log("Done! Here is the image info: ", result.info);
-//             avatarImage.src = result.info.secure_url
-//         } 
-//     }
-// );
+
 
 
 
@@ -84,11 +69,7 @@ showPasswordBtn.addEventListener("click", () => {
     }
 })
 
-avatar.accept = "image/*"
 
-avatar.addEventListener("change", function (e) {
-    avatarImage.src = URL.createObjectURL(e.target.files[0]);
-  });
 
 
 
@@ -100,15 +81,17 @@ passwordRecoveryPopOut.addEventListener('submit',  async function recoveryPasswo
     const emailValue = email.value
     console.log(emailValue)
 
+
+    if(emailValue !== ""){
+        Swal.fire({
+            title: 'Enviando correo',
+            html: 'Por favor espere...',
+            timer: 1500,
+            timerProgressBar: true,
+        })
+    }
+   
     await recoveryPassword(emailValue)
-    // Swal.fire({
-    //     title: 'Enviando correo',
-    //     html: 'Por favor espere...',
-    //     timer: 1500,
-    //     timerProgressBar: true,
-    //   })
-    // signupPopOut.style.display = 'none'
-    // main.style.filter = 'none'
 
 })
 
@@ -125,7 +108,8 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
     singupPhone = document.getElementById("singupPhone")
     singupBirth = document.getElementById("singupBirth")
 
-    signupImage = document.getElementById("userImage")
+    signupImage = document.getElementById("uploadPhoto")
+    signupImageBtn = document.getElementById("userImageBtn")
 
     signupPassword = document.getElementById("signupPassword")
     signupPassword2 = document.getElementById("signupPassword2")
@@ -133,8 +117,30 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
 
 
 
+    signupImageBtn.addEventListener("change", function (e) {
+        signupImage.src = URL.createObjectURL(e.target.files[0]);
+    });
+
+    // // cloudinary
+    let cloudinaryWidget = cloudinary.createUploadWidget(
+    {
+      cloudName: "drf1snroe",
+      uploadPreset: "sica_system",
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log("Done! Here is the image info: ", result.info);
+        signupImage.src = result.info.secure_url;
+      }
+    });
+
+    signupImageBtn.addEventListener("click", () => {
+        cloudinaryWidget.open()
+    }, false)
     
-    
+
+
+
 
 
     if(singupName.value.trim() === "" || singupFirstName.value.trim() === "" || singupSecondName.value.trim() === "" ){
@@ -144,7 +150,7 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
             confirmButtonColor: "#a44200",
                 
         })
-    } else if(signupImage.value === ""){
+    } else if(signupImage.src === "" || signupImage.src.includes("assets/avatar-big.png")  ){
         Swal.fire({
             icon: 'warning',
             title: ' Falta imagen de perfil',
@@ -183,7 +189,8 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
         timer: 1500,
         timerProgressBar: true,
       })
-        await registerUser(singupName.value, singupId.value, singupFirstName.value,signupEmail.value, singupSecondName.value, singupPhone.value,singupBirth.value)
+        
+        await registerUser(singupName.value, singupId.value, singupFirstName.value,signupEmail.value, singupSecondName.value, singupPhone.value,singupBirth.value, signupImage.src )
         Swal.fire({
             icon: 'success',
             title: "Registro exitoso de usuario exitoso",

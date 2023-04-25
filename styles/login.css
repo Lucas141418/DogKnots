@@ -257,7 +257,7 @@ img{
 .register-picture img{
   width: 40px;
 }
-#avatar-image{
+#uploadPhoto{
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -411,6 +411,23 @@ img{
 }
 
 /* buttons part */
+.imgBtn{
+  background-color: #69140e;
+  color: white;
+  border-radius: 0.5rem;
+  
+  font-size: 16px;
+  margin: 0;
+  padding: 5px;
+}
+
+.imgBtn:hover{
+  border: 2px solid #69140e;
+  border-radius: 0.5rem;
+  background-color: #f0e8e7;
+  color: #69140e;
+}
+
 
 #loginButton{
 margin-top: 15px;
@@ -470,6 +487,9 @@ button a{
     main {
       padding: 50px 0px;
     }
+    .main-login{
+      padding: 0px;
+    }
   
     .paragraph {
       font-size: 100%;
@@ -509,11 +529,10 @@ button a{
 @media screen and (max-width: 780px){
 
     .main-login{
-        padding: 50px 0px;
-
-        flex-direction: column;
-        margin: 0;
-        width: 90%;
+      padding: 0;
+      flex-direction: column;
+      margin: 0;
+      width: 90%;
 
     }
     .cover-img {
@@ -523,6 +542,8 @@ button a{
         display: none;
     }
     .main-login #login{
+        border-radius: 6px;
+
         width: 100%;
         border: 10px;
     }
