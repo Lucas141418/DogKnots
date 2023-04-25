@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/assets/sica-icon.png" />
     <link rel="stylesheet" href="styles/login.css" />
-    <script
-    src="https://upload-widget.cloudinary.com/global/all.js"
-    type="text/javascript"
-  ></script>
+    
     <script
       src="https://kit.fontawesome.com/8a7bbacc96.js"
       crossorigin="anonymous"
@@ -27,7 +24,7 @@
 
         <div class="register-picture">
       
-          <img src="assets/avatar-big.png" alt="" id="avatar-image"/>
+              <img src="assets/avatar-big.png" alt="uploadLogo" id="uploadPhoto"/>
           
           <div class="input-picture">
     
@@ -37,11 +34,11 @@
     
             <div class="upload-image-container">
 
-              <img src="assets/cloudUpIcon.png" alt="uploadLogo"/>
+              <img src="assets/cloudUpIcon.png" alt="uploadLogo" />
     
               <p>Formatos admitidos: .png, .jpg</p>
 
-              <input type="file" alt="imagen de perfil" id="userImage" />
+              <button type="click" id="userImageBtn" class="imgBtn">Elegir imagen</button>
                
             </div>
             
@@ -173,6 +170,10 @@
   </body>
   <script src=""></script>
   <script src="scripts/API/userRegistration.js"></script>
+  <script
+    src="https://upload-widget.cloudinary.com/global/all.js"
+    type="text/javascript"
+  ></script>
   <script src="scripts/login.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

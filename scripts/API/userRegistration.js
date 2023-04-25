@@ -1,5 +1,5 @@
 
-const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEmail, pSignupSecondName, pSignupPhone, pSignupBirth, pSignupPicture) => {
+const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEmail, pSignupSecondName, pSignupPhone, pSignupBirth, pSignupPhoto) => {
     const user = {
         identification: pSignupId,
         name: pSignupName,
@@ -8,7 +8,7 @@ const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEma
         email: pSignupEmail,
         number: pSignupPhone,
         birthDay: pSignupBirth,
-        // picture: pSignupPicture,
+        photo: pSignupPhoto,
     };
 
     try {
@@ -139,7 +139,6 @@ const recoveryPassword = async (pEmail) => {
                 confirmButtonColor: "#a44200",
             })
         }
-
 
     }
 
