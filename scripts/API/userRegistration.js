@@ -1,4 +1,3 @@
-
 const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEmail, pSignupSecondName, pSignupPhone, pSignupBirth, pSignupPhoto) => {
     const user = {
         identification: pSignupId,
@@ -87,14 +86,7 @@ const validatioDB = async (pEmail, pIdentification) => {
                 })
             }
            else if(data.password === user.password){
-            Swal.fire({
-                icon: 'success',
-                title: ' All good!',
-                confirmButtonColor: "#a44200",
-
-            });
-            // window.location.href = "../../homepage.html";
-
+            window.location.href = "homepage.html";
            } else{
             Swal.fire({
                 icon: 'warning',
