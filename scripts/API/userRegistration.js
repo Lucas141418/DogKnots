@@ -86,7 +86,15 @@ const validatioDB = async (pEmail, pIdentification) => {
                 })
             }
            else if(data.password === user.password){
-            window.location.href = "homepage.html";
+            console.log("data",data.name );
+            // window.location.href = "homepage.html";
+            sessionStorage.setItem("connected",   true);
+            sessionStorage.setItem("aproved", data.approved);
+            sessionStorage.setItem("role", data.role);
+            sessionStorage.setItem("name", data.name + " " + data.lastName + " " + data.secondLastName);
+            console.log("photo", data.photo)
+            sessionStorage.setItem("photo", data.photo);
+            
            } else{
             Swal.fire({
                 icon: 'warning',
