@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/bitacora.css">
+    <link rel="stylesheet" href="./styles/grid.css">
 </head>
 <body>
   <header>
@@ -88,18 +89,14 @@
                 <h2 id="secundaryTitle"> <i class="fa-solid fa-clipboard"></i> Bitácora </h2>
             </div>
             <div class="btsSection">
-                <button  id="btnTraslados">  <i class="fa-solid fa-truck"></i> Historial de traslados </button>
-                <button  id="btnRegistros">  <i class="fa-solid fa-clipboard"></i>  Historial de registros</button>
+                <button id="btnTraslados"><i class="fa-solid fa-truck"></i> Historial de traslados </button>
+                <button id="btnRegistros"><i class="fa-solid fa-clipboard"></i>  Historial de registros</button>
             </div>
         </aside>
 
     <!-- Este es el fin del sidebar menu -->
-
-
     <section>
-
       <form id="filter">
-
         <div class="filter-options">
           <label for="userUnity">Unidad</label>
           <select id="userUnity">
@@ -112,103 +109,27 @@
               <option value="Limon">Limón</option>
           </select>
         </div>
-
         <div class="filter-options">
           <label for="userName">Nombre de activo </label>
           <input type="text" name="userName" class="search-bar" id="userName">
           <label for="phonenumberUser">Teléfono </label>
           <input type="text" name="phonenumberUser" class="search-bar" id="phonenumberUser">
         </div>
-
         <div class="filter-options">
           <label for="gmailUser">Correo electrónico</label>
           <input type="text" name="gmailUser" class="search-bar" id="gmailUser">
           <label for="idUser">Cédula</label>
           <input type="text" name="idUser" class="search-bar" id="idUser">
         </div>
-
         <div class="filter-options">
           <label for="birthdayUser">Fecha de traslado</label>
           <input type="date" name="birthdayUser" id="birthdayUser">
         </div>
-
         <button type="submit" id="filterBtn"><i class="fa fa-search"></i>Buscar</button>
-        
       </form>  
-
-        <table>
-            <thead>
-                <tr>
-                    <th>ID solicitud</th>
-                    <th>Nombre Activo</th>
-                    <th>ID Activo</th>
-                    <th>Motivo</th>
-                    <th>Origen</th>
-                    <th>Destino</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td>003</td>
-                  <td>Silla ergonómica</td>
-                  <td>003333</td>
-                  <td>Daño</td>
-                  <td>Unidad de San José</td>
-                  <td>Unidad de bodega</td>
-                </tr>
-                <tr>
-                  <td>004</td>
-                  <td>Monitor Dell 21"</td>
-                  <td>000002</td>
-                  <td>Daño</td>
-                  <td>Unidad de Heredia</td>
-                  <td>Unidad de Guanacaste</td>
-                </tr>
-                <tr>
-                  <td>005</td>
-                  <td>Silla sala de conferencias</td>
-                  <td>000285</td>
-                  <td>Desuso</td>
-                  <td>Unidad de Alajuela</td>
-                  <td>Unidad de Puntarenas</td>
-                </tr>
-                <tr>
-                    <td>009</td>
-                    <td>Headset Jabra</td>
-                    <td>000893</td>
-                    <td>Daño</td>
-                    <td>Unidad de Limón</td>
-                    <td>Unidad de donaciones</td>
-                </tr>
-                <tr>
-                    <td>008</td>
-                    <td>Laptop Dell</td>
-                    <td>000789</td>
-                    <td>Desuso</td>
-                    <td>Unidad Central</td>
-                    <td>Unidad Limón</td>
-                </tr>
-                <tr>
-                    <td>001</td>
-                    <td>Escritorio</td>
-                    <td>001532</td>
-                    <td>Desuso</td>
-                    <td>Unidad Central</td>
-                    <td>Unidad Alajuela</td>
-                </tr>
-                <tr>
-                    <td>098</td>
-                    <td>Lampara</td>
-                    <td>005655</td>
-                    <td>Daño</td>
-                    <td>Unidad de Alajuela</td>
-                    <td>Unidad Central</td>
-                </tr>
-            </tbody>
-        </table>
+        <table id="traslados"></table>
+        <table id="registros"></table>
     </section>
-        
-
     </main>
 
     <!-- inicio del footer -->
@@ -237,14 +158,14 @@
             </div>
             <div class="footer-col">
              <h4>Perfiles</h4>
-             <ul >
+             <ul>
                <li><a href="./registro.html">Crear un perfil nuevo</a></li>
                <li><a href="./usuarios.html">Consulta de usuarios</a></li>
              </ul>
            </div>
            <div class="footer-col">
              <h4>Solicitudes</h4>
-             <ul >
+             <ul>
                <li><a href="./registroTraslado.html">Crear una nueva solicitud</a></li>
                <li><a href="./traslados.html">Consulta de solicitudes</a></li>
              </ul>
@@ -257,8 +178,8 @@
          </div>
     </footer>
 
-     <!-- inicio del footer -->
-
+     <!-- fin del footer -->
+      <script src="./scripts/bitacora.js"></script>
       <script src="./scripts/header.js"></script>
 </body>
 </html>
