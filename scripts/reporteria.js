@@ -10,6 +10,9 @@ const thead = document.querySelector("thead")
 let headerTable = null;
 
 
+
+
+
 // sideBar
 
 
@@ -175,6 +178,9 @@ filterDiv3.appendChild(filterInput5)
 
   headerTable = table.tHead.insertRow(0);
 
+  const th = document.createElement("th");
+  th.textContent = "Foto";
+
   const th1 = document.createElement("th");
   th1.textContent =  "Identificación";
   
@@ -200,6 +206,7 @@ filterDiv3.appendChild(filterInput5)
   th8.textContent = "Fecha de registro"
   
   // Agregar los nuevos elementos "th" a la fila de encabezado
+  headerTable.appendChild(th)
   headerTable.appendChild(th1);
   headerTable.appendChild(th2);
   headerTable.appendChild(th3);
@@ -217,6 +224,12 @@ filterDiv3.appendChild(filterInput5)
     console.log(tbody)
 
     const tr = document.createElement("tr");
+
+
+    const userImg = document.createElement("img")
+    userImg.setAttribute("src", user.photo)
+    userImg.classList.add("img-User")
+    userImg.setAttribute("alt", "User Photo")
 
     const userId = document.createElement("td");
     userId.textContent = user.identification;
@@ -248,6 +261,7 @@ filterDiv3.appendChild(filterInput5)
 
 
     tbody.appendChild(tr);
+    tr.appendChild(userImg);
     tr.appendChild(userId);
     tr.appendChild(userName);
     // tr.appendChild(userLastName);
@@ -426,6 +440,72 @@ filterDiv3.appendChild(filterInput5)
 
 
 
+// filter part
+const formFilter = document.querySelector("#filter")
+formFilter.addEventListener('submit', async (e) => {
+  e.preventDefault()
+   const user = logBookUserFilterName(filterInput1.value)
+   console.log(user)
+  //  user.forEach(user => {
+  //   const tbody = document.querySelector("#table tbody")
+  //   console.log(tbody)
+
+  //   const tr = document.createElement("tr");
+
+
+  //   const userImg = document.createElement("img")
+  //   userImg.setAttribute("src", user.photo)
+  //   userImg.classList.add("img-User")
+  //   userImg.setAttribute("alt", "User Photo")
+
+  //   const userId = document.createElement("td");
+  //   userId.textContent = user.identification;
+
+  //   const userName = document.createElement("td");
+  //   userName.textContent = user.name + "  " + user.lastName + "  " + user.secondLastName;
+
+  //   const userEmail = document.createElement("td");
+  //   userEmail.textContent = user.email;
+
+  //   const userNumber = document.createElement("td");
+  //   userNumber.textContent = user.number;
+
+  //   const userBirth = document.createElement("td");
+  //   userBirth.textContent = user.birthDay;
+
+  //   const userUnit = document.createElement("td");
+  //   userUnit.textContent = "Unidad";
+
+  //   const userAproved  = document.createElement("td");
+  //   userAproved.textContent = "Aprobado por";
+
+  //   const userCreatedAt = document.createElement("td")
+  //   userCreatedAt.textContent = user.createdAt
+
+
+    
+
+
+
+  //   tbody.appendChild(tr);
+  //   tr.appendChild(userImg);
+  //   tr.appendChild(userId);
+  //   tr.appendChild(userName);
+  //   // tr.appendChild(userLastName);
+  //   tr.appendChild(userEmail);
+  //   tr.appendChild(userNumber);
+  //   tr.appendChild(userBirth);
+  //   tr.appendChild(userUnit);
+  //   tr.appendChild(userAproved);
+  //   tr.appendChild(userCreatedAt);
+
+
+  //  })
+
+})
+
+
+
   // Table header DOM 
   const tbody = document.querySelector("#table tbody")
   tbody.innerHTML = ""
@@ -434,6 +514,9 @@ filterDiv3.appendChild(filterInput5)
   }
 
   headerTable = table.tHead.insertRow(0);
+
+  const th = document.createElement("th");
+  th.textContent = "Foto";
 
   const th1 = document.createElement("th");
   th1.textContent =  "Identificación";
@@ -460,6 +543,7 @@ filterDiv3.appendChild(filterInput5)
   th8.textContent = "Fecha de registro"
   
   // Add elements to the table header
+  headerTable.appendChild(th);
   headerTable.appendChild(th1);
   headerTable.appendChild(th2);
   headerTable.appendChild(th3);
@@ -478,9 +562,18 @@ filterDiv3.appendChild(filterInput5)
 
     const tr = document.createElement("tr");
 
+
+
+    const userImg = document.createElement("img")
+    userImg.setAttribute("src", user.photo)
+    userImg.classList.add("img-User")
+    userImg.setAttribute("alt", "User Photo")
+
     const userId = document.createElement("td");
     userId.textContent = user.identification;
 
+
+    
     const userName = document.createElement("td");
     userName.textContent = user.name + "  " + user.lastName + "  " + user.secondLastName;
     
@@ -496,17 +589,20 @@ filterDiv3.appendChild(filterInput5)
     userBirth.textContent = user.birthDay;
 
     const userUnit = document.createElement("td");
-    userUnit.textContent = "Unidad";
+    userUnit.textContent = user.approved;
 
     const userAproved  = document.createElement("td");
-    userAproved.textContent = "Aprobado por";
+    userAproved.textContent = user.password;
 
     const userCreatedAt = document.createElement("td")
     userCreatedAt.textContent = user.createdAt
 
 
 
+
+
     tbody.appendChild(tr);
+    tr.appendChild(userImg);
     tr.appendChild(userId);
     tr.appendChild(userName);
     tr.appendChild(userEmail);
