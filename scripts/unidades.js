@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", function () {
   unitsBtn.addEventListener("click", () => {
     initUnitsInformation();
     initTable();
-    this.localStorage.setItem('currentAction', 'read');
+    this.localStorage.setItem('currentAction', 'read');     //localStorage==> almacenamiento en el navegador, 
   });
 
   registerUnitsBtn.addEventListener("click", () => {
@@ -17,32 +17,59 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   editUnitsBtn.addEventListener("click", () => {
-    this.localStorage.setItem('currentAction', 'update');
-    initUnitForm();
+    const selectedItem = this.localStorage.getItem('selectedItem');
+    if (selectedItem) {
+      this.localStorage.setItem('currentAction', 'update');
+      initUnitForm();
+    }else{
+      swal("Seleccione un elemento a editar", {
+        icon: "info",
+        button: "OK",
+      }).then(()=>{
+        initUnitsInformation();
+        initTable();
+        this.localStorage.setItem('currentAction', 'read');
+        this.localStorage.removeItem('selectedItem');
+      });
+
+    }
   });
 
   deleteUnitsBtn.addEventListener("click", () => {
-    const selectedId = JSON.parse(this.localStorage.getItem('selectedItem'))._id;
-    swal({
-      title: "Eliminando",
-      text: `Desea eliminar el elemento ${String(selectedId).padStart(3,'0')}`,
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if(willDelete){
-        axios({
-          method: 'delete',
-          url: `http://localhost:3000/unidades/${selectedId}`
-        }).then(()=>{
-          window.location.href = "unidades.html";
-          initUnitsInformation();
-          initTable();
-          this.localStorage.setItem('currentAction', 'read');
-          this.localStorage.removeItem('selectedItem');
-        })
-      }
-    });
+    const selectedItem = this.localStorage.getItem('selectedItem');
+    if (selectedItem) {
+      const selectedId = JSON.parse(selectedItem)._id; //JSON.parse pasa de string a objeto
+      swal({                                                                        //libreria para crear alerta 
+        title: "Eliminando",
+        text: `Desea eliminar el elemento ${String(selectedId).padStart(3, '0')}`,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          axios({
+            method: 'delete',
+            url: `http://localhost:3000/unidades/${selectedId}`
+          }).then(() => {
+            window.location.href = "unidades.html";
+            initUnitsInformation();
+            initTable();
+            this.localStorage.setItem('currentAction', 'read');
+            this.localStorage.removeItem('selectedItem'); //para que no se seleccione nningun item
+          })
+        }
+      });
+    }else{
+      swal("Seleccione un elemento a eliminar", {
+        icon: "info",
+        button: "OK",
+      }).then(()=>{
+        initUnitsInformation();
+        initTable();
+        this.localStorage.setItem('currentAction', 'read');
+        this.localStorage.removeItem('selectedItem');
+      });
+    }
   });
 
 
@@ -107,12 +134,16 @@ window.addEventListener("DOMContentLoaded", function () {
             `;
     unitInfoContent.innerHTML = units;
     mainContentContainer.innerHTML = unitInfoContent.outerHTML;
+
+    setTimeout(() => {
+      FilterHandler();
+    }, 0);
   };
 
   const initUnitForm = () => {
     this.localStorage.setItem("CurrentSection", "UnitForm");
     const unitForm = document.createElement("div");
-    unitForm.classList.toggle("unit-form");
+    unitForm.classList.add("unit-form");
     const units_form = /*html*/ `  
             <form class= "unit-register">
 
@@ -163,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
                 <div class="unit-date-register">
                 <label for="unit-date">Fecha de registro</label>
-                <label id= "unit-date">${moment().format('DD/MM/YYYY')}</label>
+                <label id= "unit-date">${moment().format('DD/MM/YYYY --- HH:mm')}</label>
                 </div>
 
                 <div class="button-cancel-register">
@@ -221,21 +252,48 @@ window.addEventListener("DOMContentLoaded", function () {
         unitDate.innerHTML = parsedSelectedItem.registerDate;
 
         const dataId = parsedSelectedItem._id;
-        unitId.innerHTML = String(dataId + 1).padStart(3, '0');
+        unitId.innerHTML = String(dataId).padStart(3, '0');
         SaveButtonHandler()
       }
     }
+
+    const cancelBtn = document.querySelector('.button-cancel-register');
+    cancelBtn.addEventListener('click', () => {
+      initUnitsInformation();
+      initTable();
+      this.localStorage.setItem('currentAction', 'read');
+      this.localStorage.removeItem('selectedItem');
+      this.localStorage.removeItem('selectedItem');
+    })
   };
 
-  const initTable = () => {
+  const initTable = (query) => {
     const tableBody = document.querySelector(".transferListTable tbody");
-    axios({
+    tableBody.innerHTML = '';
+    let url = 'http://localhost:3000/unidades';
+    if(query){
+      const queryKeys = Object.keys(query);
+      let urlQuery = '?';
+      queryKeys.forEach((key, index) => {
+        if(index !== 0 && index !== queryKeys.length){
+          urlQuery += '&';
+        }
+        urlQuery += `${key}=${query[key]}`;
+      });
+      url += urlQuery;
+    }
+    axios({      // promesa
       method: 'get',
-      url: 'http://localhost:3000/unidades'
+      url
     })
       .then(function (response) {
+        console.log(response)
         response.data.forEach((dataElement) => {
           const newElement = document.createElement("tr");
+          const selectedItem = localStorage.getItem('selectedItem');
+          if (selectedItem && dataElement._id === JSON.parse(selectedItem)._id) {
+            newElement.classList.add('selected');
+          }
           newElement.innerHTML = /*html*/ `
                     <td>${String(dataElement._id).padStart(3, '0')}</td>
                     <td>${dataElement.name}</td>
@@ -246,7 +304,13 @@ window.addEventListener("DOMContentLoaded", function () {
                 `;
           tableBody.appendChild(newElement);
           newElement.addEventListener('click', () => {
+            console.log(dataElement);
             localStorage.setItem('selectedItem', JSON.stringify(dataElement));
+            const selected = document.querySelector('tr.selected');
+            if (selected) {
+              selected.classList.remove('selected');
+            }
+            newElement.classList.add('selected');
           })
         });
       });
@@ -346,7 +410,6 @@ window.addEventListener("DOMContentLoaded", function () {
               icon: "success",
               button: "OK",
             }).then((value) => {
-              window.location.href = "unidades.html";
               initUnitsInformation();
               initTable();
               this.localStorage.setItem('currentAction', 'read');
@@ -359,7 +422,6 @@ window.addEventListener("DOMContentLoaded", function () {
               icon: "success",
               button: "OK",
             }).then((value) => {
-              window.location.href = "unidades.html";
               initUnitsInformation();
               initTable();
               this.localStorage.setItem('currentAction', 'read');
@@ -372,6 +434,31 @@ window.addEventListener("DOMContentLoaded", function () {
 
       }
       errors = [];
+    })
+  }
+
+  const FilterHandler = () => {
+    const filterButton = document.querySelector('.search-btn');
+    const nameFilter = document.querySelector('#search-for-name');
+    const idFilter = document.querySelector('#search-for-id');
+    const provinceFilter = document.querySelector('#search-for-province');
+    const dateFilter = document.querySelector('#search-for-register-date');
+    filterButton.addEventListener('click',(e)=>{
+      e.preventDefault();
+      const query = {};
+      if(nameFilter.value){
+        query['name'] = nameFilter.value
+      }
+      if(idFilter.value){
+        query['_id'] = idFilter.value
+      }
+      if(provinceFilter.value){
+        query['province'] = provinceFilter.value
+      }
+      if(dateFilter.value){
+        query['registerDate'] = moment(dateFilter.value).format('DD/MM/YYYY');
+      }
+      initTable(query);
     })
   }
 });

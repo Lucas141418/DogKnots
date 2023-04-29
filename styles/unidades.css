@@ -66,12 +66,7 @@ main {
   display: flex;
   width: 25%;
   flex-direction: column;
-  position: fixed;
-  top: 10vh;
-  bottom: 0rem;
   box-shadow: 22px -5px 10px -17px rgba(200, 200, 200, 0.7);
-  overflow-y: auto;
-  overflow-x: hidden;
   z-index: 1;
 }
 
@@ -126,7 +121,6 @@ main {
 
 .unit-information,
 .unit-form {
-  margin-left: 25%;
   display: flex;
   padding: 5rem 10rem;
   flex-direction: column;
@@ -211,7 +205,11 @@ table td {
   padding: 20px;
 }
 
-.transferListTable tr:hover td {
+table td:hover {
+  cursor: pointer;
+}
+
+.transferListTable tr:hover td, .transferListTable tr.selected td {
   background-color: #ccc9bc;
   background-color: #c3a19f;
 }
@@ -681,7 +679,6 @@ body {
 
   .unit-information,
   .unit-form {
-    margin-left: 20%;
     width: 80%;
   }
 
@@ -700,7 +697,6 @@ body {
 
   .unit-information,
   .unit-form {
-    margin-left: 15%;
     width: 85%;
   }
 
