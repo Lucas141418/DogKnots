@@ -89,7 +89,7 @@
 
           <a href="usuarios.html"><button  id="btnUsers" > <i class="fa-solid fa-user"></i> Ver Usuarios</button></a>
           <a href="registro.html"> <button  id="btnUnits">  <i class="fa-solid fa-user-plus"></i> Agregar usuario</button></a>
-          <a href="/editarUsuarios.html"><button  id="btnAssets">  <i class="fa-solid fa-user-pen"></i> Editar usuario</button></a>
+          <a href="editarUsuarios.html"><button  id="btnAssets">  <i class="fa-solid fa-user-pen"></i> Editar usuario</button></a>
 
         </div>
     </aside>
@@ -199,6 +199,35 @@
                       </select>
                       <span class="error-message" id="unidad-error"></span>
                     </label>
+                    <label for="role">
+                      Role
+                      <select name="role" id="role">
+                        <option value="" disabled selected hidden>Role</option>
+                        <option value="jefatura">Jefatura</option>
+                        <option value="proveeduria">Proveeduría</option>
+                        <option value="encargado">Encargado de Unidad</option>
+                      </select>
+                      <span class="error-message" id="role-error"></span>
+                    </label>
+                    <label for="status">
+                      Estado
+                      <select name="status" id="statusMode">
+                        <option value="" disabled selected hidden>Estado</option>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                      </select>
+                      <span class="error-message" id="status-error"></span>
+                    </label>
+                    <label for="password">
+                      Contraseña
+                      <input
+                          type="password"
+                          name="password"
+                          id="password"
+                          placeholder="Ej: Su5nL0ve58rd"
+                      />
+                      <span class="error-message" id="password-error"></span>
+                  </label>
                   </div>
                   <div class="buttonsContainer">
                     <button type="button" id="cancel" class="white-red-button">Cancelar</button>
