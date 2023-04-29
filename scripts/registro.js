@@ -10,15 +10,16 @@ $(document).ready(function () {
   const telefono = document.getElementById("telefono");
   const email = document.getElementById("email");
   const nacimiento = document.getElementById("nacimiento");
+  const role = document.getElementById("role");
+  const statusMode = document.getElementById("statusMode");
+  const password = document.getElementById("password");
   const unidad = document.getElementById("unidad");
   const submit = document.getElementById("save");
   const avatarError = document.getElementById("avatar-error");
   const nameError = document.getElementById("name-error");
   const cedulaError = document.getElementById("cedula-error");
   const primerapellidosError = document.getElementById("primerapellidos-error");
-  const segundoapellidosError = document.getElementById(
-    "segundoapellidos-error"
-  );
+  const segundoapellidosError = document.getElementById("segundoapellidos-error");
   const telefonoError = document.getElementById("telefono-error");
   const emailError = document.getElementById("email-error");
   const nacimientoError = document.getElementById("nacimiento-error");
@@ -52,6 +53,9 @@ $(document).ready(function () {
     email.value = "";
     nacimiento.value = "";
     unidad.value = "";
+    role.value = "";
+    statusMode.value = "";
+    password.value = "";
   });
 
   // validar formulario de registro cuando se haga submit
@@ -81,6 +85,10 @@ $(document).ready(function () {
 
     if (segundoapellidos.value === "" || segundoapellidos.value === null) {
       errors.push("El segundo apellido es requerido. ");
+    }
+
+    if (role.value === "" || role.value === null) {
+      errors.push("El role es requerido. ");
     }
 
     if (telefono.value === "" || telefono.value === null) {
@@ -121,15 +129,16 @@ $(document).ready(function () {
         button: "OK",
       });
     } else {
-      swal({
-        title: "Registro exitoso",
-        text: "El usuario se ha registrado correctamente",
-        icon: "success",
-        button: "OK",
-      }).then((value) => {
-        window.location.href = "usuarios.html";
-      });
-    }
+  //    swal({
+  //      title: "Registro exitoso",
+  //      text: "El usuario se ha registrado correctamente",
+  //      icon: "success",
+  //      button: "OK",
+  //    }).then((value) => {
+  //      window.location.href = "usuarios.html";
+  //    });
+      registerUser();
+     }
 
     // si no hay errores enviar a pagina usuarios
     if (
@@ -142,7 +151,52 @@ $(document).ready(function () {
       nacimientoError.style.display === "none" &&
       unidadError.style.display === "none"
     ) {
-      window.location.href = "usuarios.html";
+      // use registerUser
+      // registerUser();
     }
   });
+
+  async function registerUser() {
+    console.log("Registrando usuario");
+
+    try {
+      const response = await fetch("http://localhost:3000/users/", {
+
+        method: "POST",
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify({
+          cedula: cedula.value,
+          nombre: name.value,
+          primerApellido: primerapellidos.value,
+          segundoApellido: segundoapellidos.value,
+          correo: email.value,
+          telefono: telefono.value,
+          fechaNacimiento: nacimiento.value,
+          unidad: unidad.value,
+          status: statusMode.value,
+          role: role.value,
+          password: password.value,
+        }),
+      }); 
+
+      const data = await response.json();
+      console.log(data);
+
+      console.log("Usuario registrado");
+
+      swal({
+        title: "Registro exitoso",
+        text: "El usuario se ha registrado correctamente",
+        icon: "success",
+        button: "OK",
+      })
+
+    } catch (error) {
+      console.error(error);  
+
+      swal("Hay errores en el formulario", error, "error", {
+        button: "OK",
+      });
+    }
+  }
 });
