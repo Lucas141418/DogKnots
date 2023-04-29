@@ -193,8 +193,9 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
         await registerUser(singupName.value, singupId.value, singupFirstName.value,signupEmail.value, singupSecondName.value, singupPhone.value,singupBirth.value, signupImage.src )
         Swal.fire({
             icon: 'success',
-            title: "Registro exitoso de usuario exitoso",
-            text: `Bienvenido ${singupName.value} ${singupFirstName.value} ${singupSecondName.value}`,
+            title: "Registro de usuario exitoso",
+            text: `Bienvenido ${singupName.value} ${singupFirstName.value} ${singupSecondName.value}. Tu solicitud de registro se encuentra pendiente, cuando sea aprobada se le notificará por correo electrónico.`,
+            confirmButtonText: `Aceptar`,
             confirmButtonColor: "#a44200",
             
     })
