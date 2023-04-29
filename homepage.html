@@ -52,8 +52,12 @@
         <div class="sub-menu-wrap" id="subMenu">
           <div class="sub-menu">
             <div class="user-info">
-              <img src="./assets/bryan.png" alt="user-pic" />
-              <h3>Bryan Jara Miranda</h3>
+              <img src="./assets/bryan.png" alt="user-pic" id="dropDownPhoto" />
+              <div style="display: flex; flex-direction: column;">
+                <h3 id="userName">Bryan Jara Miranda</h3>
+                <h5 id="userRole"></h5>
+              </div>
+              
             </div>
             <hr />
             <a href="miPerfil.html" class="sub-menu-link">
@@ -61,11 +65,11 @@
               <p class="header-paragraph">Editar perfil</p>
               <span>></span>
             </a>
-            <a href="login.html" class="sub-menu-link">
+            <button  class="sub-menu-link" id="logoutSession">
               <img src="./assets/settings.png" />
               <p class="header-paragraph">Salir</p>
               <span>></span>
-            </a>
+            </button>
           </div>
         </div>
         <!--Fin del Sub menu para el usuario-->
@@ -83,7 +87,6 @@
         </div>
 
         <div class="mainSection">
-
 
             <div class="card">
                 <div class="title">
@@ -110,17 +113,10 @@
                 <div class="hyperlinkSection">
 
                     <div class="links">
-                        <a href="verActivos.html"> Ver activos</a>
-                        <a href="registrarActivos.html">Registrar activos</a>
-                        <a href="editarActivos.html" >Editar activos</a>
+                        <a href="verActivos.html"> <i class="fa-solid fa-cart-shopping"></i>Ver activos</a>
+                        <a href="registrarActivos.html"> <i  class="fa-sharp fa-solid fa-cart-plus"></i>Registrar activos</a>
                     </div>
 
-                    <div class="icons">
-                        <a href="verActivos.html" class="fa-solid fa-cart-shopping"></a> 
-                        <a href="registrarActivos.html" class="fa-sharp fa-solid fa-cart-plus"></a> 
-                        <a href="editarActivos.html" class="fa-solid fa-pen-to-square"></a> 
-                    </div>
-                    
                 </div>
 
             </div>
@@ -149,17 +145,11 @@
                 <div class="hyperlinkSection">
                     
                     <div class="links">
-                        <a href="unidades.html">Ver unidades</a>
-                        <a href="unidades.html">Registrar unidades</a>
-                        <a href="unidades.html">Editar unidades</a>
+                        <a href="unidades.html"> <i  class="fa-solid fa-house"></i>Ver unidades</a>
+                        <a href="unidades.html"> <i  class="fa-solid fa-house-medical"></i>Registrar unidades</a>
                     </div>
 
-                    <div class="icons">
-                        <a href="unidades.html" class="fa-solid fa-house"></a> 
-                        <a href="unidades.html" class="fa-solid fa-house-medical"></a>
-                        <a href="unidades.html" class="fa-solid fa-pen-to-square"></a>
-                    </div>
-
+                  
                 </div>
             </div>
 
@@ -189,17 +179,11 @@
                 <div class="hyperlinkSection">
 
                     <div class="links">
-                        <a href="usuarios.html">Ver usuarios</a>
-                        <a href="registro.html">Registrar usuarios</a>
-                        <a href="editarUsuarios.html">Editar usuarios</a>
+                        <a href="usuarios.html"> <i class="fa-solid fa-user"></i>Ver usuarios</a>
+                        <a href="registro.html"> <i href="registro.html" class="fa-solid fa-user-plus"></i>Registrar usuarios</a>
                     </div>
 
-                    <div class="icons">
-                        <a href="usuarios.html" class="fa-solid fa-user"></a>
-                        <a href="registro.html" class="fa-solid fa-user-plus"></a>
-                        <a href="editarUsuarios.html" class="fa-solid fa-user-pen"></a>
-                        
-                    </div>
+                    
 
                 </div>
 
@@ -212,7 +196,6 @@
     </main>
 
   
-
      <footer class="footer">
       <div class="container">
           <div class="row">
@@ -262,5 +245,7 @@
 
     
 </body>
+<script src="scripts/API/userRegistration.js"></script>
+<script src="scripts/homepage.js"></script>
 <script src="scripts/header.js"></script>
 </html>

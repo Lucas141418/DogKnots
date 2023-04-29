@@ -190,6 +190,10 @@ main .mainSection{
   
   /* border-radius: 36px; */
 }
+
+.hide{
+  display: none !important; 
+}
 /* autoanimation part */
 @keyframes slider{
   33%{
@@ -209,7 +213,7 @@ main .mainSection{
 .mainSection .hyperlinkSection{
   /* Position */
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: center;
   align-items: baseline;
   gap: 20px;
@@ -218,7 +222,7 @@ main .mainSection{
 }
 .hyperlinkSection .links{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
   color: black;
 

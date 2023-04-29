@@ -1,4 +1,3 @@
-
 const registerUser = async (pSignupName, pSignupId, pSignupFirstName, pSignupEmail, pSignupSecondName, pSignupPhone, pSignupBirth, pSignupPhoto) => {
     const user = {
         identification: pSignupId,
@@ -87,14 +86,14 @@ const validatioDB = async (pEmail, pIdentification) => {
                 })
             }
            else if(data.password === user.password){
-            Swal.fire({
-                icon: 'success',
-                title: ' All good!',
-                confirmButtonColor: "#a44200",
-
-            });
-            // window.location.href = "../../homepage.html";
-
+            console.log("data",data.name );
+            window.location.href = "homepage.html";
+            sessionStorage.setItem("connected",   true);
+            sessionStorage.setItem("aproved", data.approved);
+            sessionStorage.setItem("role", data.role);
+            sessionStorage.setItem("name", data.name + " " + data.lastName + " " + data.secondLastName);
+            sessionStorage.setItem("photo", data.photo);
+            
            } else{
             Swal.fire({
                 icon: 'warning',
