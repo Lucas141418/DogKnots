@@ -122,93 +122,90 @@
             </div>
             <div class="register-block">
               <div>
-                <form id="register" class="register-form" action="#">
-                  <div class="form-group">
-                    <label>
-                      Nombre
-                      <input
-                        type="text"
-                        name="nombre"
-                        id="nombre"
-                        placeholder="Ej: María"
-                        value="José"
-                      />
-                      <span class="error-message" id="name-error"></span>
-                    </label>
-                    <label for="cedula">
-                      Cédula de identidad
-                      <input
-                        type="text"
-                        name="cedula"
-                        id="cedula"
-                        placeholder="Ej: 102340567"
-                        value="104780356"
-                      />
-                      <span class="error-message" id="cedula-error"></span>
-                    </label>
-                    <label>
-                      Primer apellido
-                      <input
-                        type="text"
-                        name="primerapellidos"
-                        id="primerapellidos"
-                        placeholder="Ej: Rodríguez"
-                        value="Hernández"
-                      />
-                      <span
-                        class="error-message"
-                        id="primerapellidos-error"
-                      ></span>
-                    </label>
-                    <label>
-                      Segundo apellido
-                      <input
-                        type="text"
-                        name="segundoapellidos"
-                        id="segundoapellidos"
-                        placeholder="Ej: Vega"
-                        value="Gómez"
-                      />
-                      <span
-                        class="error-message"
-                        id="segundoapellidos-error"
-                      ></span>
-                    </label>
-                    <label>
-                      Teléfono
-                      <input type="text" name="telefono" id="telefono" placeholder="Ej: 12345678" value="89865542"/>
-                      <span class="error-message" id="telefono-error"></span>
-                    </label>
-                    <label>
-                      Correo electrónico
-                      <input type="email" name="email" id="email" placeholder="Ej: maria.rodriguez@proveguard.cr" value="jose.hernandez@proveguard.cr"/>
-                      <span class="error-message" id="email-error"></span>
-                    </label>
-                    <label for="nacimiento">
-                      Fecha de nacimiento
-                      <input type="date" name="nacimiento" id="nacimiento" value="1989-03-06"/>
-                      <span class="error-message" id="nacimiento-error"></span>
-                    </label>
-                    <label>
-                      Unidad a la que pertenece
-                      <select name="unidad" id="unidad">
-                        <option value="" disabled hidden>Unidad a la que pertenece</option>
-                        <option selected value="1">San José</option>
-                        <option value="2">Alajuela</option>
-                        <option value="3">Cartago</option>
-                        <option value="4">Heredia</option>
-                        <option value="5">Puntarenas</option>
-                        <option value="6">Limón</option>
-                        <option value="7">Guanacaste</option>
-                      </select>
-                      <span class="error-message" id="unidad-error"></span>
-                    </label>
-                  </div>
-                  <div class="buttonsContainer">
-                    <button type="button" id="cancel" class="white-red-button">Cancelar</button>
-                    <button type="button" id="save" class="red-button">Actualizar información</button>
-                  </div>
-                </form>
+              <form id="editarUsuario" class="register-form" action="#">
+                <div class="form-group">
+                  <label>
+                    Nombre
+                    <input type="text" name="nombre" id="nombre" placeholder="Ej: María" value="José" />
+                    <span class="error-message" id="name-error"></span>
+                  </label>
+                  <label for="cedula">
+                    Cédula de identidad
+                    <input type="text" name="cedula" id="cedula" placeholder="Ej: 102340567" value="104780356" />
+                    <span class="error-message" id="cedula-error"></span>
+                  </label>
+                  <label>
+                    Primer apellido
+                    <input type="text" name="primerapellidos" id="primerApellido" placeholder="Ej: Rodríguez"
+                      value="Hernández" />
+                    <span class="error-message" id="primerapellidos-error"></span>
+                  </label>
+                  <label>
+                    Segundo apellido
+                    <input type="text" name="segundoapellidos" id="segundoApellido" placeholder="Ej: Vega"
+                      value="Gómez" />
+                    <span class="error-message" id="segundoapellidos-error"></span>
+                  </label>
+                  <label>
+                    Teléfono
+                    <input type="text" name="telefono" id="telefono" placeholder="Ej: 12345678" value="89865542" />
+                    <span class="error-message" id="telefono-error"></span>
+                  </label>
+                  <label>
+                    Correo electrónico
+                    <input type="email" name="email" id="correo" placeholder="Ej: maria.rodriguez@proveguard.cr"
+                      value="jose.hernandez@proveguard.cr" />
+                    <span class="error-message" id="email-error"></span>
+                  </label>
+                  <label for="nacimiento">
+                    Fecha de nacimiento
+                    <input type="date" name="nacimiento" id="fechaNacimiento" value="1989-03-06" />
+                    <span class="error-message" id="nacimiento-error"></span>
+                  </label>
+                  <label>
+                    Unidad a la que pertenece
+                    <select name="unidad" id="unidad">
+                      <option value="" disabled hidden>Unidad a la que pertenece</option>
+                      <option selected value="1">San José</option>
+                      <option value="2">Alajuela</option>
+                      <option value="3">Cartago</option>
+                      <option value="4">Heredia</option>
+                      <option value="5">Puntarenas</option>
+                      <option value="6">Limón</option>
+                      <option value="7">Guanacaste</option>
+                    </select>
+                    <span class="error-message" id="unidad-error"></span>
+                  </label>
+                  <label for="role">
+                    Rol
+                    <select name="role" id="role">
+                      <option value="" disabled selected hidden>Role</option>
+                      <option value="jefatura">Jefatura</option>
+                      <option value="proveeduria">Proveeduría</option>
+                      <option value="encargado">Encargado de Unidad</option>
+                    </select>
+                    <span class="error-message" id="role-error"></span>
+                  </label>
+                  <label for="status">
+                    Estado
+                    <select name="status" id="status">
+                      <option value="" disabled selected hidden>Estado</option>
+                      <option value="activo">Activo</option>
+                      <option value="inactivo">Inactivo</option>
+                    </select>
+                    <span class="error-message" id="status-error"></span>
+                  </label>
+                  <label for="password">
+                    Contraseña
+                    <input type="password" name="password" id="password" placeholder="Ej: Su5nL0ve58rd" />
+                    <span class="error-message" id="password-error"></span>
+                  </label>
+                </div>
+                <div class="buttonsContainer">
+                  <button type="button" id="cancel" class="white-red-button">Cancelar</button>
+                  <button type="button" id="save" class="red-button">Actualizar información</button>
+                </div>
+              </form>
               </div>
             </div>
           </div>
