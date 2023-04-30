@@ -148,8 +148,8 @@
                       Primer apellido
                       <input
                         type="text"
-                        name="primerapellidos"
-                        id="primerapellidos"
+                        name="primerApellido"
+                        id="primerApellido"
                         placeholder="Ej: Rodríguez"
                       />
                       <span
@@ -161,8 +161,8 @@
                       Segundo apellido
                       <input
                         type="text"
-                        name="segundoapellidos"
-                        id="segundoapellidos"
+                        name="segundoApellido"
+                        id="segundoApellido"
                         placeholder="Ej: Vega"
                       />
                       <span
@@ -177,25 +177,25 @@
                     </label>
                     <label>
                       Correo electrónico
-                      <input type="email" name="email" id="email" placeholder="Ej: maria.rodriguez@proveguard.cr"/>
+                      <input type="email" name="correo" id="correo" placeholder="Ej: maria.rodriguez@proveguard.cr"/>
                       <span class="error-message" id="email-error"></span>
                     </label>
                     <label for="nacimiento">
                       Fecha de nacimiento
-                      <input type="date" name="nacimiento" id="nacimiento" />
+                      <input type="date" name="fechaNacimiento" id="fechaNacimiento" />
                       <span class="error-message" id="nacimiento-error"></span>
                     </label>
                     <label>
                       Unidad a la que pertenece
                       <select name="unidad" id="unidad">
                         <option value="" disabled selected hidden>Unidad a la que pertenece</option>
-                        <option value="1">San José</option>
-                        <option value="2">Alajuela</option>
-                        <option value="3">Cartago</option>
-                        <option value="4">Heredia</option>
-                        <option value="5">Puntarenas</option>
-                        <option value="6">Limón</option>
-                        <option value="7">Guanacaste</option>
+                        <option selected value="sanjose">San José</option>
+                        <option value="alajuela">Alajuela</option>
+                        <option value="cartago">Cartago</option>
+                        <option value="heredia">Heredia</option>
+                        <option value="puntarenas">Puntarenas</option>
+                        <option value="limon">Limón</option>
+                        <option value="guanacaste">Guanacaste</option>
                       </select>
                       <span class="error-message" id="unidad-error"></span>
                     </label>
@@ -211,7 +211,7 @@
                     </label>
                     <label for="status">
                       Estado
-                      <select name="status" id="statusMode">
+                      <select name="status" id="status">
                         <option value="" disabled selected hidden>Estado</option>
                         <option value="activo">Activo</option>
                         <option value="inactivo">Inactivo</option>
@@ -283,10 +283,7 @@
              <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
              </div>
          </div>
-    </footer>
-    
-
-    
+    </footer>   
 </body>
 <script src="scripts/usuarios.js"></script>
 <script src="scripts/header.js"></script>
