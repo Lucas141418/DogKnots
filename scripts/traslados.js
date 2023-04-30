@@ -69,7 +69,7 @@ function generatePaginationLinks(currentPage, totalPages) {
 const getPaginationData = async function (pageValue) {
   try {
     const paginationData = await fetch(
-      `http://localhost:8080/transfers/pagination?page=${pageValue}`
+      `http://localhost:3000/transfers/pagination?page=${pageValue}`
     );
     const transfers = paginationData.json();
     return transfers;
@@ -78,8 +78,10 @@ const getPaginationData = async function (pageValue) {
   }
 };
 
-function showPagination() {
+async function showPagination() {
   const pagination = document.getElementById("pagination");
+  let pageData = await getPaginationData(1);
+  showTable(pageData);
   pagination.addEventListener("click", async function (event) {
     event.preventDefault();
     selectedAnchor.classNamex;
@@ -89,7 +91,7 @@ function showPagination() {
 
       console.log(page);
     }
-    const pageData = await getPaginationData(page);
+    pageData = await getPaginationData(page);
     console.log(pageData);
     showTable(pageData);
   });
@@ -100,7 +102,7 @@ function showPagination() {
 //usando el window.onload que enseñó el profe
 
 window.onload = async function () {
-  //   const response = await fetch("http://localhost:8080/transfers");
+  //   const response = await fetch("http://localhost:3000/transfers");
   //   const json = await response.json();
   //   console.log(json);
   //   await showTable(json);

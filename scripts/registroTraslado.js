@@ -1,23 +1,3 @@
-//image 1
-// fileButton1.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   transferImageInput1.click();
-// });
-
-// transferImageInput1.addEventListener("change", function (e) {
-//   transferImageDisplay1.src = URL.createObjectURL(e.target.files[0]);
-// });
-
-//image 2
-// fileButton2.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   transferImageInput2.click();
-// });
-
-// transferImageInput2.addEventListener("change", function (e) {
-//   transferImageDisplay2.src = URL.createObjectURL(e.target.files[0]);
-// });
-
 //uploading the images:
 
 const reasonIsChecked = function () {
@@ -45,18 +25,50 @@ function errorMessage(array) {
 
 //funcion para validar la imagen
 
-//let observer = new MutationObserver(function () {});
+//validacion imagen:
+
+const imageVal1 = document.querySelector("#transferImageDisplay1");
+const imageVal2 = document.querySelector("#transferImageDisplay2");
+const config = { attributes: true };
+
+let imagen1Uploaded = false;
+let imagen2Uploaded = false;
+const observer1 = new MutationObserver((changes) => {
+  changes.forEach((change) => {
+    if (change.attributeName.includes("src")) {
+      imagen1Uploaded = true;
+    }
+  });
+});
+
+const observer2 = new MutationObserver((changes) => {
+  changes.forEach((change) => {
+    if (change.attributeName.includes("src")) {
+      imagen2Uploaded = true;
+    }
+  });
+});
+
+//poniendolo a observar
+observer1.observe(imageVal1, config);
+observer2.observe(imageVal2, config);
+// observer.disconnect();
 
 //funcion para validar
 
 function validation() {
   const errors = [];
-
-  const inputs = document.querySelectorAll("input, select, textarea, label");
-
+  let validationPassed = false;
+  const inputs = document.querySelectorAll(
+    "input, select, textarea, label, img"
+  );
+  console.log(imagen1Uploaded);
+  const quitandoClase = document.getElementById("transferImageDisplay1");
+  quitandoClase.classList.remove("error-image");
   if (inputs.length > 0) {
     inputs.forEach((element) => {
       element.classList.remove("error");
+      element.classList.remove("error-image");
     });
   }
 
@@ -96,17 +108,18 @@ function validation() {
     document.getElementsByClassName("radio-button")[1].classList.add("error");
   }
 
-  //validacion imagen:
+  //validando imagenes
 
-  const imageVal1 = document.querySelector("#transferImageDisplay1");
-
-  if (
-    document.querySelector("#transferImageDisplay1").src ===
-    "assets/image-placeholder.png"
-  ) {
+  if (!imagen1Uploaded) {
     errors.push("Es requerido agregar la primera imagen. ");
     document
       .querySelector("#transferImageDisplay1")
+      .classList.add("error-image");
+  }
+  if (!imagen2Uploaded) {
+    errors.push("Es requerido agregar la seunda imagen. ");
+    document
+      .querySelector("#transferImageDisplay2")
       .classList.add("error-image");
   }
 
@@ -120,20 +133,10 @@ function validation() {
       confirmButtonText: "Aceptar",
     });
   } else {
-    try {
-      let requestBody = buildJason();
-      console.log(requestBody);
-      //sendData(requestBody);
-      alert(requestBody);
-      Swal.fire({
-        title: "Registro de traslado exitoso",
-        text: "El traslado se ha registrado correctamente.",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-      form.reset();
-    } catch (error) {}
+    validationPassed = true;
   }
+
+  return validationPassed;
 }
 
 //version 2
@@ -161,13 +164,19 @@ function buildJason() {
 async function sendData(bodyJson) {
   //sending the request
   try {
-    await fetch("http://localhost:8080/createTransfer", {
+    await fetch("http://localhost:3000/createTransfer", {
       method: "POST",
       // mode: "cors", // no-cors, *cors, same-origin
       headers: {
         "Content-Type": "application/json",
       },
       body: bodyJson,
+    });
+    Swal.fire({
+      title: "Registro de traslado exitoso",
+      text: "El traslado se ha registrado correctamente.",
+      icon: "success",
+      confirmButtonText: "OK",
     });
   } catch (error) {
     console.log(error);
@@ -208,20 +217,9 @@ window.onload = async function () {
   const transferImage1 = document.getElementById("transferImage1");
   const transferImage2 = document.getElementById("transferImage2");
 
-  //para obtener el valor del radio button
-  //version previa para obtener el valor
-  // const reason = document.querySelector(
-  //   "#radioButtonContainer input[type=radio]:checked"
-  // ).value;
-  //segunda version
+  //para subir imagenes
 
-  // const reason = document.querySelector(
-  //   "#radioButtonContainer input[type=radio]:checked"
-  // ).value;
-
-  //llamando funciones
-
-  let widget_cloudinary = cloudinary.createUploadWidget(
+  let widget_cloudinary1 = cloudinary.createUploadWidget(
     {
       cloudName: "dtpiw7z57",
       uploadPreset: "stev_preset",
@@ -237,19 +235,48 @@ window.onload = async function () {
   fileButton1.addEventListener(
     "click",
     () => {
-      widget_cloudinary.open();
+      widget_cloudinary1.open();
+    },
+    false
+  );
+
+  let widget_cloudinary2 = cloudinary.createUploadWidget(
+    {
+      cloudName: "dtpiw7z57",
+      uploadPreset: "stev_preset",
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log("Imagen subida con éxito", result.info);
+        transferImageDisplay2.src = result.info.secure_url;
+      }
+    }
+  );
+
+  fileButton2.addEventListener(
+    "click",
+    () => {
+      widget_cloudinary2.open();
     },
     false
   );
 
   //event of the submit button
 
-  submit.addEventListener("click", function (e) {
+  submit.addEventListener("click", async function (e) {
     e.preventDefault();
 
     console.log("hola");
     //obtener valor del radio button
 
     validation();
+    if (validation()) {
+      try {
+        let requestBody = buildJason();
+        console.log(requestBody);
+        await sendData(requestBody);
+        form.reset();
+      } catch (error) {}
+    }
   });
 };
