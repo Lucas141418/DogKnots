@@ -115,5 +115,3 @@ window.onload = async function () {
   showPagination();
   //   console.log(json);
 };
-
-// holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

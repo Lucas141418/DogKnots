@@ -2,17 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Registro de traslado</title>
+    <title>Registro traslado</title>
     <link rel="icon" href="/assets/sica-icon.png" />
+    <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/registroTraslado.css" />
+    <link rel="stylesheet" href="styles/registroTraslado.css">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
+
   <body>
-      <!-- inicio del header -->
+    <!-- header section -->
+
    <nav class="nav">
     <ul class="nav__list">
       <a href="/homepage.html">
@@ -70,169 +79,198 @@
     </ul>
   </nav>
 
-    
+
     <main class="main-container">
-      <h1 class="h1Element">Registro de traslado</h1>
-      <p class="formTitle">Ingreso de información del traslado</p>
 
-      <!-- form section -->
-      <form>
-        <div class="selected-item-image-container">
-          <label class="image-title">Fotos del activo</label>
-          <div class="images" i><img
-            src="assets/image-placeholder.png"
-            alt="silla"
-            class="selected-image"
-            id="transferImageDisplay1"
-          />
-          <img
-          src="assets/image-placeholder.png"
-          alt="silla"
-          class="selected-image"
-          id="transferImageDisplay2"
-        /></div>
-          
-        </div> 
+<!-- aside -->
+<aside>
 
-        <div class="formInputs1">
-          <label for="assetId">Id de activo: </label>
-          <input
-            type="text"
-            name="assetId"
-            id="assetId"
-            placeholder="Ej: 000001"
-          />
+  <div class="aside-title">
+      <h2 id="mainTitle">Administración</h2>
+      <h2 id="secundaryTitle"> <i class="fa-solid fa-computer"></i> Traslados</h2>
+  </div>
 
-          <label for="currentUnit">Unidad actual: </label
-          ><input
-            type="text"
-            name="currentUnit"
-            id="currentUnit"
-            placeholder="Ej: Unidad de Heredia"
-            maxlength="30"
-          />
-        </div>
+  <div class="bts-section">
+    
+    <!-- <a href="registroTraslado.html"> <button  id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar solicitud de traslado</button>
+    </a> -->
+    <a href="traslados.html"> <button  id="btnEdit">  <i class="fa-solid fa-pen-to-square"></i> Ver traslados pendientes</button>
+    </a>
+  </div>
+</aside>
 
-        <div class="formInputs2">
-          <label for="assetName">Nombre del activo: </label
-          ><input
-            type="text"
-            name="assetName"
-            id="assetName"
-            placeholder="Ej: Silla ergonómica"
-            maxlength="30"
-          />
-          <label for="destinationUnit">Unidad de destino: </label
-          ><input
-            type="text"
-            name="destinationUnit"
-            id="destinationUnit"
-            placeholder="Ej: Unidad de San José"
-            maxlength="30"
-          />
-        </div>
-        <div class="formInputs3">
-          <label for="justification">Justificación de traslado: </label>
-          <textarea
-            name="justification"
-            id="justification"
-            cols="30"
-            rows="10"
-            placeholder="Ej: Explique el porqué del traslado."
-          ></textarea>
-        </div>
+<div class="form-container">
 
-        <div class="formInputs4">
-          <div class="radio-button-container">
-            <p>Motivo de traslado:</p>
+<h1 class="h1Element">Registrar solicitud de traslado</h1>
+<!-- formulario -->
+<form id="">
+  <div class="selected-item-image-container">
+    <label class="image-title">Fotos del activo</label>
+    <div class="images">
+      <img
+      src="assets/image-placeholder.png"
+      alt="silla"
+      class="selected-image"
+      id="transferImageDisplay1"
+    />
+    <img
+    src="assets/image-placeholder.png"
+    alt="silla"
+    class="selected-image"
+    id="transferImageDisplay2"
+  /></div>
+    
+  </div> 
 
-            <label for="reason" id="radiobutton1" class="radio-button">
-              <input type="radio" name="reason" id="damage" value="Daño" />
-              Daño</label
-            >
+  <div class="formInputs1">
+    <label for="assetId">Id de activo: </label>
+    <input
+      type="text"
+      name="assetId"
+      id="assetId"
+      placeholder="Ej: 000001"
+    />
 
-            <label for="reason" id="radiobutton2" class="radio-button"
-              ><input type="radio" name="reason" id="disuse" value="Desuso" />
-              Desuso
-            </label>
-          </div>
-          <div class="buttonsContainer">
-            <button type="button" class="white-red-button">Cancelar</button>
-            <button type="button" id="saveTransferRequest" class="red-button">Guardar</button>
-          </div>
-        </div>
+    <label for="currentUnit"> Unidad de origen: </label>
+    <select id="currentUnit">
+      <option value="" >Seleccione una unidad</option>
+        <option value="SanJose" >San José</option>
+        <option value="Alajuela">Alajuela</option>
+        <option value="Cartago">Cartago</option>
+        <option value="Heredia">Heredia</option>
+        <option value="Guanacaste">Guanacaste</option>
+        <option value="Puntarenas">Puntarenas</option>
+        <option value="Limon">Limón</option>
+        <option value="Bodega">Bodega</option>
+        
+    </select>
+  </div>
 
-        <div class="formInputs5">
-          <label for="">Subir fotos del activo a trasladar</label>
-          <div class="upload-image-container">
-            <img
-              src="assets/cloudUpIcon.png"
-              alt="uploadLogo"
-              class="format-label"
-            />
-            <label class="admitted-format" >Formatos admitidos: PNG, JPG</label>
+  <div class="formInputs2">
+    <label for="assetName">Nombre del activo: </label
+    ><input
+      type="text"
+      name="assetName"
+      id="assetName"
+      placeholder="Ej: Silla ergonómica"
+      maxlength="30"
+    />
+    <label for="destinationUnit"> Unidad de destino: </label>
+    <select id="destinationUnit">
+      <option value="" >Seleccione una unidad</option>
+        <option value="SanJose" >San José</option>
+        <option value="Alajuela">Alajuela</option>
+        <option value="Cartago">Cartago</option>
+        <option value="Heredia">Heredia</option>
+        <option value="Guanacaste">Guanacaste</option>
+        <option value="Puntarenas">Puntarenas</option>
+        <option value="Limon">Limón</option>
+        <option value="Bodega">Bodega</option>
+        <option value="Donaciones">Donaciones</option>
+    </select>
+  </div>
+  <div class="formInputs3">
+    <label for="justification">Justificación de traslado: </label>
+    <textarea
+      name="justification"
+      id="justification"
+      cols="30"
+      rows="10"
+      placeholder="Ej: Explique el porqué del traslado."
+    ></textarea>
+  </div>
 
-            <div class="customFileButton">
-              <button type="button" id="fileButton1" class="red-button fileButton">Elegir imagen 1 </button>
-              <input accept=".png, .jpg" type="file" alt="imagen de traslado 1" id="transferImage1" class="transferImage1" aria-label="search"/>
-              <button type="button" id="fileButton2" class="red-button fileButton">Elegir imagen 2</button>
-              <input accept=".png, .jpg" type="file" alt="imagen de traslado 2" id="transferImage2" class="transferImage2" aria-label="search"/>
-          
-            </div>
-        </div>
-      </form>
+  <div class="formInputs4">
+    <div class="radio-button-container" id="radioButtonContainer">
+      <p>Motivo de traslado:</p>
+
+      <label for="reason" id="radiobutton1" class="radio-button">
+        <input type="radio" name="reason" id="damage" value="Daño" />
+        Daño</label
+      >
+
+      <label for="reason" id="radiobutton2" class="radio-button"
+        ><input type="radio" name="reason" id="disuse" value="Desuso" />
+        Desuso
+      </label>
+    </div>
+    <div class="buttonsContainer">
+      <button type="button" class="white-red-button">Cancelar</button>
+      <button type="button" id="saveTransferRequest" class="red-button">Guardar</button>
+    </div>
+  </div>
+
+  <div class="formInputs5">
+    <label for="">Subir fotos del activo a trasladar</label>
+    <div class="upload-image-container">
+      <img
+        src="assets/cloudUpIcon.png"
+        alt="uploadLogo"
+        class="format-label"
+      />
+      <label class="admitted-format" >Formatos admitidos: PNG, JPG</label>
+
+      <div class="customFileButton">
+        <button type="button" id="fileButton1" class="red-button fileButton">Elegir imagen 1 </button>
+        <input accept=".png, .jpg" type="file" alt="imagen de traslado 1" id="transferImage1" class="transferImage1" aria-label="search"/>
+        <button type="button" id="fileButton2" class="red-button fileButton">Elegir imagen 2</button>
+        <input accept=".png, .jpg" type="file" alt="imagen de traslado 2" id="transferImage2" class="transferImage2" aria-label="search"/>
+    
+      </div>
+  </div>
+</form>
+</div>
+
+<!-- fin del formulario -->
     </main>
-
-    <!-- footer section -->
+    
     <footer class="footer">
       <div class="container">
-       <div class="row">
-         <div class="footer-col">
-           <h1 class="logo">SICA</h4>
+          <div class="row">
+            <div class="footer-col">
+              <h1 class="logo">SICA</h4>
+            </div>
+            <div class="footer-col">
+              <h4>Registro</h4>
+              <ul>
+                <li><a href="./login.html">Mi cuenta</a></li>
+                <li><a href="./unidades.html">Mi unidad</a></li>
+                <li><a href="./registrarActivos.html">Registros de activos</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Reportería</h4>
+              <ul>
+                <li><a href="./reporteria.html">Ir a reportes</a></li>
+                <li><a href="./bitacora.html">Movimientos por unidad</a></li>
+                <li><a href="./bitacora.html">Movimientos por usuario</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+             <h4>Perfiles</h4>
+             <ul >
+               <li><a href="./registro.html">Crear un perfil nuevo</a></li>
+               <li><a href="./usuarios.html">Consulta de usuarios</a></li>
+             </ul>
+           </div>
+           <div class="footer-col">
+             <h4>Solicitudes</h4>
+             <ul >
+               <li><a href="./registroTraslado.html">Crear una nueva solicitud</a></li>
+               <li><a href="./traslados.html">Consulta de solicitudes</a></li>
+             </ul>
+           </div>
          </div>
-         <div class="footer-col">
-           <h4>Registro</h4>
-           <ul>
-             <li><a href="#">Mi cuenta</a></li>
-             <li><a href="#">Mi unidad</a></li>
-             <li><a href="#">Registro de activos</a></li>
-           </ul>
+         <br><br><br>
+         <div class="row">
+             <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
+             </div>
          </div>
-         <div class="footer-col">
-           <h4>Reportería</h4>
-           <ul>
-             <li><a href="#">Ir a reportes</a></li>
-             <li><a href="#">Movimientos por unidad</a></li>
-             <li><a href="#">movimientos por usuario</a></li>
-           </ul>
-         </div>
-         <div class="footer-col">
-          <h4>perfiles</h4>
-          <ul>
-            <li><a href="#">crear un perfil nuevo</a></li>
-            <li><a href="#">consulta de usuarios</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>solicitudes</h4>
-          <ul>
-            <li><a href="#">crear una nueva solicitud</a></li>
-            <li><a href="#">consulta de solicitudes</a></li>
-          </ul>
-        </div>
-      </div>
-      <br>
-      <br>
-      <br>
-      <div class="row">
-          <p class="derechos">©2023 - Copyright  SICA - Todos los derechos reservados. | Desarrollado por Dogknots</p>
-          </div>
-      </div>
-   </footer>
+    </footer>
 
   </body>
   <script src="./scripts/header.js"></script>
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+  <!-- <script src="scripts/servicio-imagen.js"></script> -->
   <script src="scripts/registroTraslado.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>
