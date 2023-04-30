@@ -20,7 +20,7 @@ S :root {
 
 * {
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  /* font-size: 16px; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -31,55 +31,37 @@ html {
 }
 
 body {
-  height: 100%;
   width: 100%;
   /* min-height: 100vh; */
 }
 
-h1 {
-  font-size: 2.5rem;
+.h1Element {
+  color: #69140e;
+  margin-left: 20px;
 }
 
-h2 {
-  font-size: 2rem;
+.main-container-upper-part-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
-h3 {
-  font-size: 1.5rem;
-}
-h4 {
+.accept-transfer {
+  padding-left: 65%;
   font-size: 1.25rem;
 }
-p {
-  font-size: 1rem;
-}
-
-a:link,
-a:visited {
-  text-decoration: none;
-  color: #000000;
-}
-
-.h1Element {
-  grid-column: 2 / 4;
-  color: #69140e;
-  font-size: 2.5rem;
-}
-
-.h2Element {
-  margin-bottom: 25px;
-}
-.h4Element {
-  margin: 6px 15px;
-}
-
 .main-container {
   height: 100%;
-  margin-top: 4.375rem;
+  width: 100%;
+  margin-top: 5rem;
   /* padding: 0 1rem; */
   display: grid;
-  grid-template-columns: 1fr 4.5fr 0.5fr;
-  grid-template-rows: 1fr 0.35fr 4fr 1fr;
+  grid-template-columns: 1fr 5fr;
+}
+
+.form-container {
+  max-height: 100%;
+  display: grid;
+  grid-template-rows: 0.75fr 5fr;
 }
 
 .uploaded-image {
@@ -132,7 +114,7 @@ form div textarea {
 .formInputs5 {
   grid-column: 1;
   grid-row: 2;
-  width: 85%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   padding-bottom: 15px;
@@ -154,10 +136,15 @@ form div textarea {
 .selected-item-image-container {
   grid-column: 1;
   padding-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.25fr 5fr;
+  justify-items: center;
 }
 
 .image-title {
   margin-top: 10px;
+  text-align: center;
 }
 
 .images {
@@ -167,42 +154,41 @@ form div textarea {
   gap: 1rem;
   /* padding-left: 3.5rem; */
   padding-top: 0.49rem;
-  margin-left: 0;
-  max-height: 160px;
-  max-width: 160px;
+  align-self: start;
 }
 
 .selected-image {
-  max-height: 160px;
-  max-width: 160px;
+  height: 10rem;
+  max-width: 8rem;
   border: 1px solid #444;
   border-radius: 5px;
   object-fit: cover;
 }
 
 form {
-  grid-column: 2/3;
-  grid-row: 3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   border: 1px solid #dee1e6ff;
   border-radius: 5px;
   height: 100%;
+  margin-left: 15px;
 }
 
 /* textarea,
-input {
-  border: 1px solid #dee1e6ff;
-} */
+  input {
+    border: 1px solid #dee1e6ff;
+  } */
 
 label,
 p {
   font-weight: bold;
   width: 100%;
 }
-input:not([type="radio"]) {
+input:not([type="radio"]),
+select {
   width: 80%;
+  padding: 6px;
 }
 
 .format-label {
@@ -228,7 +214,7 @@ input:not([type="radio"]) {
   justify-content: flex-end;
   gap: 5px;
   /* align-self: end;
-  justify-self: end; */
+    justify-self: end; */
   margin: 15px 10px;
 }
 
@@ -236,10 +222,10 @@ button {
   border: none;
   border-radius: 6px;
   /* padding: 0 1rem; */
-  width: 75%;
-  height: 100%;
+  /* width: 75%; */
   cursor: pointer;
   padding: 0.5rem;
+  font-size: 16px;
 }
 
 .radio-button-container {
@@ -314,11 +300,11 @@ button {
 }
 
 /* .nav__list {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0 2rem;
-} */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 2rem;
+  } */
 
 .nav__list {
   display: grid;
@@ -491,7 +477,7 @@ button {
   justify-content: center;
   height: 3rem;
   gap: 0.3rem;
-  margin-left: 0;
+  margin: 0 3px;
 }
 
 .transferImage1,
@@ -504,7 +490,8 @@ button {
   cursor: pointer;
   padding: 5px 15px;
   display: block;
-  width: 140px;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   margin-top: 15px;
 }
@@ -519,4 +506,79 @@ button {
 
 .customFileButton #avatar {
   display: none;
+}
+
+/* aside */
+
+aside {
+  /* Position */
+  grid-column: 1;
+  grid-row: 1/4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: flex-start;
+  /* size */
+  height: 100%;
+  width: 100%;
+  /* style */
+  box-shadow: 10px -20px 20px var(--color3);
+}
+
+aside .aside-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 0px 8px 8px;
+
+  /* size */
+  width: 97%;
+  height: 20%;
+  /* sytle */
+  border-bottom: 2px solid black;
+}
+
+aside .bts-section {
+  /* Position */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* size */
+  width: 96.5%;
+  /* style */
+}
+
+.bts-section button {
+  text-align: start;
+  font-size: 18px;
+  padding-left: 20px;
+
+  /* size */
+  width: 104.5%;
+
+  /* sytle */
+  border: none;
+  background: none;
+  transition: all ease 300ms;
+}
+.bts-section button:hover {
+  transform: translateX(25px);
+  box-shadow: -30px 0px 20px var(--color3);
+  background-color: var(--color6);
+  color: var(--color1);
+  border-radius: 6px;
+}
+
+.error {
+  /* width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px; */
+  border: 1px solid rgba(237, 137, 137, 0.904);
+  background-color: #fbe8e8;
+}
+
+.error-image {
+  border: 1px solid rgba(237, 137, 137, 0.904);
 }
