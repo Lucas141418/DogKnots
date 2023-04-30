@@ -4,6 +4,23 @@ window.addEventListener("DOMContentLoaded", function () {
   const registerUnitsBtn = document.querySelector("#register-units-btn");
   const editUnitsBtn = document.querySelector("#edit-units-btn");
   const deleteUnitsBtn = document.querySelector("#delete-unit-btn");
+  const logoutBtn = document.querySelector('#logoutSession');
+
+  let connected = sessionStorage.getItem('connected');
+  console.log("It is connected : ", connected);
+
+  let name = sessionStorage.getItem('name');
+  console.log("The name is : ", name);
+
+  let role = sessionStorage.getItem('role');
+  console.log("the user role is : ", role);
+
+  logoutBtn.addEventListener('click', () => {
+    sessionStorage.clear();
+    window.location.href = 'login.html';
+  });
+
+
 
   unitsBtn.addEventListener("click", () => {
     initUnitsInformation();
@@ -255,8 +272,8 @@ window.addEventListener("DOMContentLoaded", function () {
         unitId.innerHTML = String(dataId).padStart(3, '0');
         
       }
-      SaveButtonHandler()
     }
+    SaveButtonHandler()
 
     const cancelBtn = document.querySelector('.button-cancel-register');
     cancelBtn.addEventListener('click', () => {
