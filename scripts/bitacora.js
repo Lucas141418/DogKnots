@@ -21,6 +21,7 @@ window.onload = async function mostrarTraslados(){
 async function mostrarRegistros(){
   var queryURL = "http://localhost:3000/activos";
 
+  
   try {
       const res = await fetch(queryURL, {
           method: "GET",
