@@ -55,12 +55,16 @@
         class="user-pic"
         id="userPic"
       />
-      <!--Inicio del Sub menu para el usuario-->
-      <div class="sub-menu-wrap" id="subMenu">
+       <!--Inicio del Sub menu para el usuario-->
+       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
           <div class="user-info">
-            <img src="./assets/bryan.png" alt="user-pic" />
-            <h3>Bryan Jara Miranda</h3>
+            <img src="./assets/bryan.png" alt="user-pic" id="dropDownPhoto" />
+            <div style="display: flex; flex-direction: column;">
+              <h3 id="userName">Bryan Jara Miranda</h3>
+              <h5 id="userRole"></h5>
+            </div>
+            
           </div>
           <hr />
           <a href="miPerfil.html" class="sub-menu-link">
@@ -68,11 +72,11 @@
             <p class="header-paragraph">Editar perfil</p>
             <span>></span>
           </a>
-          <a href="login.html" class="sub-menu-link">
+          <button  class="sub-menu-link" id="logoutSession">
             <img src="./assets/settings.png" />
             <p class="header-paragraph">Salir</p>
             <span>></span>
-          </a>
+          </button>
         </div>
       </div>
       <!--Fin del Sub menu para el usuario-->
@@ -153,7 +157,8 @@
     </footer>
 </body>
 
-<script src="scripts/header.js"></script>
+<script src="scripts/API/userRegistration.js"></script>
 <script src="./scripts/unidades.js"></script>
+<script src="scripts/header.js"></script>
 
 </html>
