@@ -1,16 +1,30 @@
 $(document).ready(function () {
+
+  const url = window.location.search;
+
+  console.log(url);
+  const urlParams = new URLSearchParams(url);
+  console.log(urlParams);
+
+  const id = urlParams.get('id');
+  console.log(id);
+
+  getUser(id);
+
   const form = document.getElementById("register");
   const fileButtonAvatar = document.getElementById("fileButtonAvatar");
   const avatar = document.getElementById("avatar");
   const avatarImage = document.getElementById("avatar-image");
-  const name = document.getElementById("nombre");
+  const nombre = document.getElementById("nombre");
   const cedula = document.getElementById("cedula");
-  const primerapellidos = document.getElementById("primerapellidos");
-  const segundoapellidos = document.getElementById("segundoapellidos");
+  const primerApellido = document.getElementById("primerApellido");
+  const segundoApellido = document.getElementById("segundoApellido");
   const telefono = document.getElementById("telefono");
-  const email = document.getElementById("email");
-  const nacimiento = document.getElementById("nacimiento");
+  const correo = document.getElementById("correo");
+  const fechaNacimiento = document.getElementById("fechaNacimiento");
   const unidad = document.getElementById("unidad");
+  const role = document.getElementById("role");
+  const status = document.getElementById("status");
   const submit = document.getElementById("save");
   const avatarError = document.getElementById("avatar-error");
   const nameError = document.getElementById("name-error");
@@ -25,13 +39,13 @@ $(document).ready(function () {
   const unidadError = document.getElementById("unidad-error");
 
   // campo avatar solo acepta imagenes jpg, png y jpeg
-  avatar.accept = "image/*";
+  //avatar.accept = "image/*";
 
   // click fileButtonAvatar para abrir file explorer
-  fileButtonAvatar.addEventListener("click", function (e) {
-    e.preventDefault();
-    avatar.click();
-  });
+  // fileButtonAvatar.addEventListener("click", function (e) {
+  //   e.preventDefault();
+  //   avatar.click();
+  // });
 
   // mostrar imagen de avatar cuando se seleccione un archivo
   avatar.addEventListener("change", function (e) {
@@ -39,12 +53,12 @@ $(document).ready(function () {
   });
 
   // evitar que nacimiento sea mayor a la fecha actual
-  nacimiento.max = new Date().toISOString().split("T")[0];
+  fechaNacimiento.max = new Date().toISOString().split("T")[0];
 
   // limpiar campos cuando se haga click en cancelar
   cancel.addEventListener("click", function (e) {
     e.preventDefault();
-    name.value = "";
+    nombre.value = "";
     cedula.value = "";
     primerapellidos.value = "";
     segundoapellidos.value = "";
@@ -67,7 +81,7 @@ $(document).ready(function () {
       avatarError.style.display = "none";
     }
 
-    if (name.value === "" || name.value === null) {
+    if (nombre.value === "" || nombre.value === null) {
       errors.push("El nombre es requerido. ");
     }
 
@@ -75,11 +89,11 @@ $(document).ready(function () {
       errors.push("La cédula es requerida. ");
     }
 
-    if (primerapellidos.value === "" || primerapellidos.value === null) {
+    if (primerApellido.value === "" || primerApellido.value === null) {
       errors.push("El primer apellido es requerido. ");
     }
 
-    if (segundoapellidos.value === "" || segundoapellidos.value === null) {
+    if (segundoApellido.value === "" || segundoApellido.value === null) {
       errors.push("El segundo apellido es requerido. ");
     }
 
@@ -90,11 +104,11 @@ $(document).ready(function () {
     }
 
     // validar email con regex
-    if (email.value === "" || email.value === null) {
+    if (correo.value === "" || correo.value === null) {
       errors.push("El correo electrónico es requerido. ");
     } else if (
-      email.value.trim() !== "" &&
-      !email.value.match(
+      correo.value.trim() !== "" &&
+      !correo.value.match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
     ) {
@@ -102,7 +116,7 @@ $(document).ready(function () {
     }
 
     // validar nacimiento
-    if (nacimiento.value === "" || nacimiento.value === null) {
+    if (fechaNacimiento.value === "" || fechaNacimiento.value === null) {
       errors.push("La fecha de nacimiento es requerida. ");
     }
 
@@ -117,12 +131,7 @@ $(document).ready(function () {
         button: "OK",
       });
     } else {
-      swal({
-        title: "Edición exitosa",
-        text: "Su información de usuario se ha editado correctamente",
-        icon: "success",
-        button: "OK",
-      });
+      editUser(id);
     }
 
     // si no hay errores enviar a pagina usuarios
@@ -136,7 +145,71 @@ $(document).ready(function () {
       nacimientoError.style.display === "none" &&
       unidadError.style.display === "none"
     ) {
-      window.location.href = "usuarios.html";
+    //  window.location.href = "usuarios.html";
     }
   });
+
+  async function getUser(id) {
+    try {
+      const api = `http://localhost:3000/users/${id}`;
+      const response = await fetch(api);
+      const data = await response.json();
+      console.log(data);
+
+
+      for (let key in data) {
+        if (document.getElementById(key)) {
+          document.getElementById(key).value = data[key];
+        }
+      }
+
+    } catch (error) {
+      console.log("server: " + error);
+    }
+  }
+
+  async function editUser(id) {
+    console.log("Editando usuario");
+
+    try {
+      const api = `http://localhost:3000/users/${id}`;
+      const response = await fetch(api, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          cedula: cedula.value,
+          nombre: nombre.value,
+          primerApellido: primerApellido.value,
+          segundoApellido: segundoApellido.value,
+          correo: correo.value,
+          telefono: telefono.value,
+          fechaNacimiento: fechaNacimiento.value,
+          unidad: unidad.value,
+          status: status.value,
+          role: role.value,
+          password: password.value,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      console.log("Usuario registrado");
+
+      swal({
+        title: "Registro exitoso",
+        text: "El usuario se ha registrado correctamente",
+        icon: "success",
+        button: "OK",
+      })
+
+    } catch (error) {
+      console.error(error);
+
+      // swal("Hay errores en el formulario", error, "error", {
+      //   button: "OK",
+      // });
+    }
+  }
+
 });
