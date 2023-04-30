@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
   const tableUsers = document.getElementById("table-users");
-  const tbody = tableUsers.getElementsByTagName("tbody")[0];
+  const tbody = document.getElementById("tbody");
   const loading = `<div id="loading">loading...</div>`;
   
   async function getUsers() {
@@ -47,7 +47,7 @@ $(document).ready(function () {
     } catch (error) {
       console.log(error);
       // remove loading message and show error message
-      tbody.innerHTML = `<tr><td colspan="10">Error: ${error.message}</td></tr>`;
+      //tbody.innerHTML = `<tr><td colspan="10">Error: ${error.message}</td></tr>`;
     }
   }
   

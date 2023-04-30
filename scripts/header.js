@@ -13,7 +13,6 @@ userNameL.textContent = userNameSession
 // Charge user role
 
 let roleSession = sessionStorage.getItem("role");
-
 userRole.textContent = roleSession.toUpperCase()
 
 
