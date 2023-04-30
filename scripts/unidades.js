@@ -253,8 +253,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
         const dataId = parsedSelectedItem._id;
         unitId.innerHTML = String(dataId).padStart(3, '0');
-        SaveButtonHandler()
+        
       }
+      SaveButtonHandler()
     }
 
     const cancelBtn = document.querySelector('.button-cancel-register');
