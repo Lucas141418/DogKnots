@@ -12,7 +12,7 @@ $(document).ready(function () {
       // add loading message while fetching data
       tbody.innerHTML = loading;
   
-      const res = await fetch("http://localhost:3000/users/");
+      const res = await fetch("http://localhost:3000/users");
       console.log(res);
   
       if (!res.ok) {
