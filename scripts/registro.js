@@ -3,23 +3,24 @@ $(document).ready(function () {
   const fileButtonAvatar = document.getElementById("fileButtonAvatar");
   const avatar = document.getElementById("avatar");
   const avatarImage = document.getElementById("avatar-image");
-  const name = document.getElementById("nombre");
+  const nombre = document.getElementById("nombre");
   const cedula = document.getElementById("cedula");
-  const primerapellidos = document.getElementById("primerapellidos");
-  const segundoapellidos = document.getElementById("segundoapellidos");
+  const primerApellido = document.getElementById("primerApellido");
+  const segundoApellido = document.getElementById("segundoApellido");
   const telefono = document.getElementById("telefono");
-  const email = document.getElementById("email");
-  const nacimiento = document.getElementById("nacimiento");
-  const role = document.getElementById("role");
-  const statusMode = document.getElementById("statusMode");
-  const password = document.getElementById("password");
+  const correo = document.getElementById("correo");
+  const fechaNacimiento = document.getElementById("fechaNacimiento");
   const unidad = document.getElementById("unidad");
+  const role = document.getElementById("role");
+  const status = document.getElementById("status");
   const submit = document.getElementById("save");
   const avatarError = document.getElementById("avatar-error");
   const nameError = document.getElementById("name-error");
   const cedulaError = document.getElementById("cedula-error");
   const primerapellidosError = document.getElementById("primerapellidos-error");
-  const segundoapellidosError = document.getElementById("segundoapellidos-error");
+  const segundoapellidosError = document.getElementById(
+    "segundoapellidos-error"
+  );
   const telefonoError = document.getElementById("telefono-error");
   const emailError = document.getElementById("email-error");
   const nacimientoError = document.getElementById("nacimiento-error");
@@ -40,21 +41,21 @@ $(document).ready(function () {
   });
 
   // evitar que nacimiento sea mayor a la fecha actual
-  nacimiento.max = new Date().toISOString().split("T")[0];
+  fechaNacimiento.max = new Date().toISOString().split("T")[0];
 
   // limpiar campos cuando se haga click en cancelar
   cancel.addEventListener("click", function (e) {
     e.preventDefault();
-    name.value = "";
+    nombre.value = "";
     cedula.value = "";
-    primerapellidos.value = "";
-    segundoapellidos.value = "";
+    primerApellido.value = "";
+    segundoApellido.value = "";
     telefono.value = "";
-    email.value = "";
-    nacimiento.value = "";
+    correo.value = "";
+    fechaNacimiento.value = "";
     unidad.value = "";
     role.value = "";
-    statusMode.value = "";
+    status.value = "";
     password.value = "";
   });
 
@@ -71,7 +72,7 @@ $(document).ready(function () {
       avatarError.style.display = "none";
     }
 
-    if (name.value === "" || name.value === null) {
+    if (nombre.value === "" || nombre.value === null) {
       errors.push("El nombre es requerido. ");
     }
 
@@ -79,11 +80,11 @@ $(document).ready(function () {
       errors.push("La cédula es requerida. ");
     }
 
-    if (primerapellidos.value === "" || primerapellidos.value === null) {
+    if (primerApellido.value === "" || primerApellido.value === null) {
       errors.push("El primer apellido es requerido. ");
     }
 
-    if (segundoapellidos.value === "" || segundoapellidos.value === null) {
+    if (segundoApellido.value === "" || segundoApellido.value === null) {
       errors.push("El segundo apellido es requerido. ");
     }
 
@@ -98,11 +99,11 @@ $(document).ready(function () {
     }
 
     // validar email con regex
-    if (email.value === "" || email.value === null) {
+    if (correo.value === "" || correo.value === null) {
       errors.push("El correo electrónico es requerido. ");
     } else if (
-      email.value.trim() !== "" &&
-      !email.value.match(
+      correo.value.trim() !== "" &&
+      !correo.value.match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
     ) {
@@ -110,7 +111,7 @@ $(document).ready(function () {
     }
 
     // validar nacimiento
-    if (nacimiento.value === "" || nacimiento.value === null) {
+    if (fechaNacimiento.value === "" || fechaNacimiento.value === null) {
       errors.push("La fecha de nacimiento es requerida. ");
     }
 
@@ -166,14 +167,14 @@ $(document).ready(function () {
         headers: {"content-type": "application/json"},
         body: JSON.stringify({
           cedula: cedula.value,
-          nombre: name.value,
-          primerApellido: primerapellidos.value,
-          segundoApellido: segundoapellidos.value,
-          correo: email.value,
+          nombre: nombre.value,
+          primerApellido: primerApellido.value,
+          segundoApellido: segundoApellido.value,
+          correo: correo.value,
           telefono: telefono.value,
-          fechaNacimiento: nacimiento.value,
+          fechaNacimiento: fechaNacimiento.value,
           unidad: unidad.value,
-          status: statusMode.value,
+          status: status.value,
           role: role.value,
           password: password.value,
         }),
