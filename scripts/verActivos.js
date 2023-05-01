@@ -77,4 +77,4 @@ window.onload = function(){
             table.innerHTML = search;
         }); 
     });
-    
+}
