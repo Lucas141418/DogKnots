@@ -24,7 +24,7 @@ main {
   /* Position */
   display: flex;
   flex-direction: row;
-  padding-top: 80px;
+  padding-top: 70px;
 
   /* size */
   width: 100%;
@@ -36,7 +36,7 @@ main {
 }
 
 /* asidebar section */
-main aside {
+main aside{
   /* Position */
   display: flex;
   flex-direction: column;
@@ -47,9 +47,11 @@ main aside {
   width: 18%;
   /* style */
   box-shadow: 10px -20px 20px var(--color3);
+
+
 }
 
-aside .aside-title {
+aside .aside-title{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,9 +62,11 @@ aside .aside-title {
   height: 20%;
   /* sytle */
   border-bottom: 2px solid black;
+  
 }
 
-aside .bts-section {
+aside .btsSection{
+
   /* Position */
   display: flex;
   flex-direction: column;
@@ -70,6 +74,7 @@ aside .bts-section {
   /* size */
   width: 96.5%;
   /* style */
+
 }
 
 .bts-section button {
@@ -185,6 +190,13 @@ table th {
   display: table-cell;
   padding: 8px;
   color: var(--color1);
+}
+
+#tablaActivos td:nth-child(1){
+  width: 10%;
+}
+#tablaActivos td img{
+  width: 100%;
 }
 
 table tr {
@@ -342,7 +354,7 @@ button {
 }
 
 .main-container {
-  display: grid;
+  /*display: grid;*/
   grid-template-rows: 1.5fr 5fr;
   height: 70%;
   gap: 2rem;
