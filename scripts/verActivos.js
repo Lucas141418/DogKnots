@@ -1,6 +1,6 @@
 //TABLA 
 async function verActivo() {
-    const res = await fetch('http://localhost:8080/activos', {
+    const res = await fetch('http://localhost:3000/activos', {
         method: "GET",
         mode: "cors",
         order:"DESC",
@@ -45,7 +45,7 @@ window.onload = function(){
 
     btn.addEventListener("click", async function buscarActivoFuct(e){
         e.preventDefault();
-        const req = await fetch('http://localhost:8080/activos', {
+        const req = await fetch('http://localhost:3000/activos', {
             method: "GET",
             mode: "cors",
             headers: {

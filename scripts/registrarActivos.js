@@ -9,7 +9,7 @@ const registerActive = async (activoNombre, activoDescrip, activoID, activoUbica
     };
 
     try {
-        const res = await fetch("http://localhost:8080/activos", {
+        const res = await fetch("http://localhost:3000/activos", {
             method: "POST",
             mode: "cors",
             headers: {
