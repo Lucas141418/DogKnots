@@ -264,8 +264,8 @@ hr {
 button {
   border: none;
   border-radius: 6px;
-  height: 35px;
-  width: 75px;
+  /* height: 35px;
+  width: 75px; */
   cursor: pointer;
 }
 
@@ -326,28 +326,12 @@ table td {
   background-color: #c3a19f;
 }
 
-table tbody tr:nth-child(even) {
-  /* background-color: #f8f9faff; */
-  /* background-color: #ffe7cc; */
-  /* background-color: #fffdf7; */
-  /* background-color: #fff3e6; */
-  /* background-color: #fffdf7; */
-
-  /* carito */
-  /* background-color: #f7f7f7; */
-  /* nueva paleta */
+.table-traslado-item:nth-child(even) {
   background-color: #f0e8e7;
 }
 
-table tbody tr:nth-child(odd) {
-  /* background-color: #fefeff; */
-  /* background-color: #fffbeb; */
-
-  /* background-color: #fff5eb; */
-  /* background-color: #fff1e0; */
+.table-traslado-item:nth-child(odd) {
   background-color: white;
-
-  /* carito */
 }
 
 .transferListTable {
@@ -479,6 +463,8 @@ ul {
   border-radius: 0.5rem;
   background-color: #69140e;
   color: white;
+  height: 35px;
+  width: 75px;
 }
 
 .first-button:hover {
@@ -511,4 +497,8 @@ ul {
   background-color: #69140e;
   color: #fff;
   cursor: pointer;
+}
+
+.selectedRow td {
+  background-color: #c3a19f;
 }

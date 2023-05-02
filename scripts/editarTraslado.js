@@ -1,4 +1,4 @@
-//uploading the images:
+//para poner en los inputs la data del tralado seleccionado previamente
 
 const reasonIsChecked = function () {
   let returnValue = false;
@@ -22,8 +22,6 @@ function errorMessage(array) {
 
   return stringMessage;
 }
-
-//funcion para validar la imagen
 
 //validacion imagen:
 
@@ -117,7 +115,7 @@ function validation() {
       .classList.add("error-image");
   }
   if (!imagen2Uploaded) {
-    errors.push("Es requerido agregar la segunda imagen. ");
+    errors.push("Es requerido agregar la seunda imagen. ");
     document
       .querySelector("#transferImageDisplay2")
       .classList.add("error-image");
@@ -154,7 +152,6 @@ function buildJason() {
     destinationUnit: `${destinationUnit.value}`,
     justification: `${justification.value}`,
     image1: `${document.querySelector("#transferImageDisplay1").src}`,
-    image2: `${document.querySelector("#transferImageDisplay2").src}`,
   };
 
   let body = JSON.stringify(json);
@@ -184,9 +181,46 @@ async function sendData(bodyJson) {
   }
 }
 
-//registrar traslado
+//de aca para abajo es lo valicion y hacer la  peticion
+
+//Traer traslado para mostrar sus propiedades en los campos
+
+async function getTransferbyId(id) {
+  const response = await fetch(`http://localhost:3000/transfer?id=${id}`);
+
+  const transferDataJson = await response.json();
+  console.log(transferDataJson);
+  return transferDataJson[0];
+}
+
+//funcion para asignar valores a los elementos del form
+
+function assignValues(transfer) {
+  document.getElementById("assetId").value = transfer.assetId;
+  document.getElementById("currentUnit").value = transfer.currentUnit;
+  document.getElementById("assetName").value = transfer.assetName;
+  document.getElementById("destinationUnit").value = transfer.destinationUnit;
+  document.getElementById("justification").value = transfer.justification;
+
+  document.getElementsByName("reason").forEach((element) => {
+    if (transfer.transferReason === element.value) {
+      element.checked = true;
+    }
+  });
+
+  document.getElementById("disuse").value = transfer.transferReason;
+  document.querySelector("#transferImageDisplay1").src = transfer.image1;
+  document.querySelector("#transferImageDisplay2").src = transfer.image2;
+}
 
 window.onload = async function () {
+  //to get the local storage persisted value
+
+  const selectedTransferId = localStorage.getItem("selectedTransferId");
+  const transfer = await getTransferbyId(selectedTransferId);
+  console.log("logueando el transfer en consola del onload", transfer);
+  assignValues(transfer);
+
   // images
   const transferImageDisplay1 = document.querySelector(
     "#transferImageDisplay1"
@@ -205,7 +239,6 @@ window.onload = async function () {
 
   //////////////////////
 
-  //validación de formulario
   const form = document.querySelector("form");
   const assetId = document.getElementById("assetId");
   const currentUnit = document.getElementById("currentUnit");
@@ -214,7 +247,7 @@ window.onload = async function () {
   const justification = document.getElementById("justification");
   const damageRadio = document.getElementById("damage");
   const disuseRadio = document.getElementById("disuse");
-  const submit = document.getElementById("saveTransferRequest");
+  const submit = document.getElementById("acceptTransferRequest");
   const transferImage1 = document.getElementById("transferImage1");
   const transferImage2 = document.getElementById("transferImage2");
 

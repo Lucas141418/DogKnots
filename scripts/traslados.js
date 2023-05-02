@@ -13,7 +13,7 @@ function showTable(json) {
   json.forEach((object) => {
     // Creo html para cada traslado (td)
     const tableInput = document.createElement("tr");
-    //tableInput.classList.add("table-traslado-item");
+    tableInput.classList.add("table-traslado-item");
 
     // Crea un td con cada propiedad del objeto
 
@@ -48,6 +48,38 @@ function showTable(json) {
     // Agregar tr al node table
     tableBody.appendChild(tableInput);
   });
+}
+
+function selectRow() {
+  const tableRows = document.querySelectorAll(".table-traslado-item");
+  tableRows.forEach((tableRow) => {
+    tableRow.addEventListener("click", () => {
+      tableRows.forEach((tableRow) => {
+        tableRow.classList.remove("selectedRow");
+      });
+      tableRow.classList.add("selectedRow");
+    });
+  });
+}
+
+//funcion para obtener el id del transfer seleccionado
+function selectTransfer() {
+  const selectedTranferRow = document.querySelector(".selectedRow");
+  console.log("loggeo del id en selectTransfer", selectedTranferRow);
+
+  if (selectedTranferRow === null || selectedTranferRow === undefined) {
+    Swal.fire({
+      title: "Importante!",
+      text: "Por favor seleccione el traslado a revisar",
+      icon: "warning",
+      confirmButtonText: "Aceptar",
+    });
+  } else {
+    const selectedTranferId = selectedTranferRow.children[0].innerText;
+    console.log(selectedTranferId);
+    localStorage.setItem("selectedTransferId", selectedTranferId);
+    window.location.href = "editarTraslado.html";
+  }
 }
 
 // seccion de paginacion
@@ -114,6 +146,14 @@ window.onload = async function () {
   generatePaginationLinks(currentPage, totalPages);
 
   //para probar si traigo la paginacion
-  showPagination();
-  //   console.log(json);
+  await showPagination();
+  selectRow();
+  //const editTransferBtn = document.getElementById("btnEdit");
+  const testBtn = document.getElementById("btnEdit");
+
+  //editTransferBtn.addEventListener("click", selectTransfer);
+  testBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    selectTransfer();
+  });
 };
