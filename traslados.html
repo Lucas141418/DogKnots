@@ -16,7 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <script src="https://kit.fontawesome.com/8a7bbacc96.js" crossorigin="anonymous"></script>
-<script src="scripts/traslados.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+  <script src="scripts/traslados.js"></script>
   </head>
 
   <body>
@@ -96,10 +98,10 @@
   <div class="bts-section">
     
     
-    <a href="registroTraslado.html"> <button  id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar solicitud de traslado</button>
+    <a href="registroTraslado.html"> <button type="button" id="btnRegister">  <i class="fa-solid fa-clipboard-list"></i> Registrar solicitud de traslado</button>
     </a>
 
-    <a href="editarTraslado.html"> <button  id="btnEdit">  <i class="fa-solid fa-pen-to-square"></i>   Ver solicitud de traslado</button>
+    <a href="#"  > <button type="button" id="btnEdit" >  <i class="fa-solid fa-pen-to-square"></i>   Ver solicitud de traslado</button>
     </a>
   </div>
 </aside>
@@ -139,7 +141,7 @@
   <div class="checkboxesOptions">
     <label for="nombreSolicitante">Id de solicitud</label>
     <input type="text" name="nombreSolicitante" id="nombreSolicitante">
-    <button class="first-button" type="submit"><i class="fa fa-search"></i>Buscar</button>
+    <button class="first-button" id="search-btn" type="submit"><i class="fa fa-search"></i>Buscar</button>
     
   </div>
   </div>
