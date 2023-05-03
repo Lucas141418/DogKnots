@@ -187,6 +187,25 @@ async function sendData(bodyJson) {
 //registrar traslado
 
 window.onload = async function () {
+  //seccion para traer dropdowns
+
+  var queryURLUnidades = "http://localhost:3000/unidades";
+
+  try {
+    const res = await fetch(queryURLUnidades, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    console.log(data);
+    displayUnidades_Dropdown(data);
+  } catch (error) {
+    console.error(error);
+  }
+
   // images
   const transferImageDisplay1 = document.querySelector(
     "#transferImageDisplay1"
@@ -280,4 +299,20 @@ window.onload = async function () {
       } catch (error) {}
     }
   });
+};
+
+const displayUnidades_Dropdown = (unidades) => {
+  const originDD = document.getElementById("currentUnit");
+  const destinationDD = document.getElementById("destinationUnit");
+  originDD.innerHTML = ""; //Aca vaciamos lo que esta DENTRO del select
+  destinationDD.innerHTML = "";
+
+  var dropdownOptions = `<option value="">Seleccione una unidad </option>
+    ${unidades
+      .map((unidad) => `<option value="${unidad.name}">${unidad.name}</option>`)
+      .join("")}
+    `; //Aqui llenamos el dropdown
+
+  originDD.innerHTML = dropdownOptions;
+  destinationDD.innerHTML = dropdownOptions;
 };
