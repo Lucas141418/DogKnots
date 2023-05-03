@@ -107,13 +107,21 @@ window.addEventListener("DOMContentLoaded", function () {
                 
                 <span class="filter-options">
                     <label for= "search-for-id">ID</label>
-                    <input id="search-for-id" class="search-bar" placeholder= "000" type="text"> 
+                    <input id="search-for-id" class="search-bar" placeholder= "1, 2, 3  ..." type="text"> 
                 </span>
 
                 <span class="filter-options">
                     <label for= "search-for-province">Provincia</label>
                     <select id="search-for-province">
                         <option value=""></option>
+                        <option value="San José">-San José-</option>
+                        <option value="Alajuela">-Alajuela-</option>
+                        <option value="Cartago">-Cartago-</option>
+                        <option value="Heredia">-Heredia-</option>
+                        <option value="Puntarenas">-Puntarenas-</option>
+                        <option value="Guanacaste">-Guanacaste-</option>
+                        <option value="Limón">-Limón-</option>
+                        
                     </select>
                 </span>
 
@@ -242,7 +250,7 @@ window.addEventListener("DOMContentLoaded", function () {
         const dataId = response.data[0].sequence_value;
         id.innerHTML = String(dataId + 1).padStart(3, '0');
       }).then(() => {
-        SaveButtonHandler()
+        console.log ("save");
       }).catch(err => {
         console.log(err);
       })
