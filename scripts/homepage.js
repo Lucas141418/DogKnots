@@ -14,16 +14,16 @@ console.log("The name is : ", name);
 
 let role = sessionStorage.getItem('role');
 console.log("the user role is : ", role);
+let status = sessionStorage.getItem('approved');
 
-if(connected){
+if(connected || status === "inactivo"){
 
     switch(role){
-        case 'admin':
-            
+        case 'jefatura':
             
 
             break;
-        case 'adminProv':
+        case 'proveeduria':
              mainCardsLinks[5].classList.add('hide');
               // nav 
               navlinks[1].classList.add('hide');
@@ -34,7 +34,7 @@ if(connected){
               //footer
               footerdivs[5].classList.add('hide');
             break;
-        case "adminEnc":
+        case "encargado":
            
            
             break;

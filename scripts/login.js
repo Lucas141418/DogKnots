@@ -120,7 +120,6 @@ signupPopOut.addEventListener("submit", async function validationSignUp(e){
     signupImageBtn.addEventListener("change", function (e) {
         signupImage.src = URL.createObjectURL(e.target.files[0]);
     });
-
     // // cloudinary
     let cloudinaryWidget = cloudinary.createUploadWidget(
     {
