@@ -12,6 +12,18 @@ const logBookUsers = async () => {
     }
 }
 
+const units = async () => {
+    try{
+        const response = await fetch("http://localhost:3000/unidades");
+        const dataUnits = await response.json();
+        console.log(dataUnits);
+        return dataUnits;
+    } catch(error){
+        console.error(error);
+    }
+    
+}
+
 const logBookUserFilterName = async (name) => {
 
     const user = {
