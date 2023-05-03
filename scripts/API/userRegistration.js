@@ -135,6 +135,7 @@ const loginUser = async (pEmail, pPassword) => {
         data.nombre + " " + data.primerApellido + " " + data.segundoApellido
       );
       sessionStorage.setItem("photo", data.foto);
+      sessionStorage.setItem("unit", data.unidad);
     } else {
       Swal.fire({
         icon: "warning",
