@@ -156,6 +156,7 @@ function buildJason(isPending) {
     image1: `${document.querySelector("#transferImageDisplay1").src}`,
     image2: `${document.querySelector("#transferImageDisplay2").src}`,
     isPending: `${isPending}`,
+    requestedBy: user.cedula,
   };
 
   let body = JSON.stringify(json);
@@ -199,13 +200,54 @@ async function getTransferAsset(id) {
 }
 //funcion para modificar la propiedad
 
-async function setProperties(asset) {
+// cancelButton.addEventListener("click", () => {
+//   const locationCode = setLocationCode();
+//   modifyAsset("000001", currentUnit, locationCode);
+// });
+
+function setLocationCode() {
   //Código Ubicacion
-  let valueUbicacion = currentUnit.value; //quede aca
-  let valuePiso = activePiso.options[activePiso.selectedIndex].text;
-  let codigoUbicacion = "pro" + valueUbicacion.substr(0, 3) + "pis" + valuePiso;
-  let codeUbi = codigoUbicacion.toLowerCase();
-  console.log(codeUbi);
+  let unit = destinationUnit.value; //quede aca
+  let valuePiso = Math.floor(Math.random() * 4);
+  let codigoUbicacion =
+    "PRO" + unit.substr(0, 3).toUpperCase() + "PIS" + valuePiso;
+
+  console.log(codigoUbicacion);
+  return codigoUbicacion;
+}
+
+//funcion para modificar el codigo y ubicacion del asset
+
+async function modifyAsset(assetId, unit, locationCode) {
+  try {
+    const lastChar = locationCode.charAt(locationCode.length - 1);
+    console.log(
+      "corriendo modify asset",
+      assetId,
+      unit,
+      locationCode,
+      lastChar
+    );
+    const response = await fetch(
+      `http://localhost:3000/actualizarActivo/${assetId}`,
+      {
+        method: "POST",
+        // mode: "cors", // no-cors, *cors, same-origin
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          unidad: unit,
+          codeUbicacion: locationCode,
+          piso: lastChar,
+        }),
+      }
+    );
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 //registrar traslado
@@ -224,6 +266,12 @@ window.onload = async function () {
 
   let role = sessionStorage.getItem("role");
   console.log("the user role is : ", role);
+
+  let unit = sessionStorage.getItem("unit");
+  console.log("the user unit is : ", unit);
+
+  let user = sessionStorage.getItem("user");
+  let status = sessionStorage.getItem("approved");
 
   // if (connected) {
   //   switch (role) {
@@ -288,6 +336,7 @@ window.onload = async function () {
   const form = document.querySelector("form");
   const assetId = document.getElementById("assetId");
   const currentUnit = document.getElementById("currentUnit");
+  ``;
   const assetName = document.getElementById("assetName");
   const destinationUnit = document.getElementById("destinationUnit");
   const justification = document.getElementById("justification");
@@ -296,6 +345,8 @@ window.onload = async function () {
   const submit = document.getElementById("saveTransferRequest");
   const transferImage1 = document.getElementById("transferImage1");
   const transferImage2 = document.getElementById("transferImage2");
+
+  const cancelButton = document.getElementById("cancelTransferRequest");
 
   //para subir imagenes
 
@@ -355,16 +406,19 @@ window.onload = async function () {
         let isPending;
         if (role === "jefatura" || role === "proveeduria") {
           isPending = false;
+          const location = setLocationCode();
+          await modifyAsset(assetId.value, destinationUnit.value, location);
         } else {
           isPending = true;
         }
+        //crear transfer
         let requestBody = buildJason(isPending);
         console.log(
           "logueando el body para ver el estado de isPending",
           requestBody
         );
-        // await sendData(requestBody);
-        //form.reset();
+        await sendData(requestBody);
+        form.reset();
       } catch (error) {}
     }
   });

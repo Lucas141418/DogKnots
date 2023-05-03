@@ -133,7 +133,16 @@ async function showPagination(unit) {
 
 //fin de seccion de paginacion
 
-//seccion de login
+async function getTransfers() {
+  try {
+    const response = await fetch(`http://localhost:3000/transfers`); //recordar que debo borrar la ruta
+    const transfers = await response.json();
+    console.log(transfers);
+    return transfers;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 //usando el window.onload que enseñó el profe
 
@@ -149,30 +158,9 @@ window.onload = async function () {
   let role = sessionStorage.getItem("role");
   console.log("the user role is : ", role);
 
-  const unit = sessionStorage.getItem("unit");
+  let unit = sessionStorage.getItem("unit");
   console.log("the user unit is : ", unit);
-
-  // if (connected) {
-  //   switch (role) {
-  //     case "admin":
-  //       break;
-  //     case "adminProv":
-  //       mainCardsLinks[5].classList.add("hide");
-  //       // nav
-  //       navlinks[1].classList.add("hide");
-  //       navlinks[9].classList.add("hide");
-  //       //Main
-  //       mainCards[2].classList.add("hide");
-  //       mainCardsLinks[3].classList.add("hide");
-  //       //footer
-  //       footerdivs[5].classList.add("hide");
-  //       break;
-  //     case "adminEnc":
-  //       break;
-  //   }
-  // } else {
-  //   window.location.href = "login.html";
-  // }
+  let status = sessionStorage.getItem("approved");
 
   //section to retrieve units and set them in the drop downs
   var queryURLUnidades = "http://localhost:3000/unidades";
@@ -196,11 +184,17 @@ window.onload = async function () {
   // Example usage:
   const currentPage = 1;
   const totalPages = 3;
-  generatePaginationLinks(currentPage, totalPages);
+  //generatePaginationLinks(currentPage, totalPages);
 
   //retrieving the unit
   //para probar si traigo la paginacion
-  await showPagination(unit);
+  if (role === "jefatura" || role === "proveeduria") {
+    unit = "";
+  }
+
+  //await showPagination(unit);
+  let json = await getTransfers();
+  showTable(json);
   selectRow();
   //const editTransferBtn = document.getElementById("btnEdit");
   const testBtn = document.getElementById("btnEdit");

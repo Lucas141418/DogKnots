@@ -221,6 +221,16 @@ window.onload = async function () {
   rejectButton.classList.add("hide");
   acceptButton.classList.add("hide");
 
+  let connected = sessionStorage.getItem("connected");
+  console.log("It is connected : ", connected);
+
+  let name = sessionStorage.getItem("name");
+  console.log("The name is : ", name);
+
+  let role = sessionStorage.getItem("role");
+  console.log("the user role is : ", role);
+  let status = sessionStorage.getItem("approved");
+
   //to get the local storage persisted value
 
   var queryURLUnidades = "http://localhost:3000/unidades";
