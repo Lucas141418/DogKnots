@@ -185,6 +185,29 @@ async function sendData(bodyJson) {
   }
 }
 
+//Funcion para traer la info del activo en cuestion
+
+async function getTransferAsset(id) {
+  try {
+    const response = await fetch(`http://localhost:3000/activos/id=${id}`); //recordar que debo borrar la ruta
+    const asset = await response.json();
+    console.log(asset);
+    return transferDataJson[0];
+  } catch (error) {
+    console.log(error);
+  }
+}
+//funcion para modificar la propiedad
+
+async function setProperties(asset) {
+  //Código Ubicacion
+  let valueUbicacion = currentUnit.value; //quede aca
+  let valuePiso = activePiso.options[activePiso.selectedIndex].text;
+  let codigoUbicacion = "pro" + valueUbicacion.substr(0, 3) + "pis" + valuePiso;
+  let codeUbi = codigoUbicacion.toLowerCase();
+  console.log(codeUbi);
+}
+
 //registrar traslado
 
 window.onload = async function () {
@@ -199,8 +222,7 @@ window.onload = async function () {
   let name = sessionStorage.getItem("name");
   console.log("The name is : ", name);
 
-  let role = "encargado";
-  //sessionStorage.getItem("role");
+  let role = sessionStorage.getItem("role");
   console.log("the user role is : ", role);
 
   // if (connected) {
@@ -337,9 +359,12 @@ window.onload = async function () {
           isPending = true;
         }
         let requestBody = buildJason(isPending);
-        console.log(requestBody);
-        await sendData(requestBody);
-        form.reset();
+        console.log(
+          "logueando el body para ver el estado de isPending",
+          requestBody
+        );
+        // await sendData(requestBody);
+        //form.reset();
       } catch (error) {}
     }
   });
