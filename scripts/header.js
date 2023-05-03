@@ -2,6 +2,8 @@ let subMenu = document.querySelector('#subMenu');
 let userPicture = document.querySelector('#userPic');
 let dropDownPhoto = document.querySelector('#dropDownPhoto');
 let userRole = document.querySelector("#userRole")
+const logoutBtn = document.querySelector('#logoutSession');
+
 
 // charge user name
 const userNameL = document.querySelector("#userName")
@@ -32,3 +34,9 @@ const toggleMenu = () => {
 
 
 userPicture.addEventListener('click', toggleMenu);
+
+
+logoutBtn.addEventListener('click', () => {
+    sessionStorage.clear();
+    window.location.href = 'login.html';
+})
