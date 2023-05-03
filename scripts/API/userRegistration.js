@@ -9,14 +9,14 @@ const registerUser = async (
   pSignupPhoto
 ) => {
   const user = {
-    identification: pSignupId,
-    name: pSignupName,
-    lastName: pSignupFirstName,
-    secondLastName: pSignupSecondName,
-    email: pSignupEmail,
-    number: pSignupPhone,
-    birthDay: pSignupBirth,
-    photo: pSignupPhoto,
+    cedula: pSignupId,
+    nombre: pSignupName,
+    primerApellido: pSignupFirstName,
+    segundoApellido: pSignupSecondName,
+    correo: pSignupEmail,
+    telefono: pSignupPhone,
+    fechaNacimiento: pSignupBirth,
+    foto: pSignupPhoto,
   };
 
   try {
@@ -42,11 +42,11 @@ const validatioDB = async (pEmail, pIdentification) => {
     const user = await response.json();
 
     const checkEmailDB = user.find(
-      (checkEmailDB) => checkEmailDB.email === pEmail
+      (checkEmailDB) => checkEmailDB.correo === pEmail
     ); // funcion de comparacion
     const checkIdentificationDB = user.find(
       (checkIdentificationDB) =>
-        checkIdentificationDB.identification === pIdentification
+        checkIdentificationDB.cedula === pIdentification
     );
 
     if (checkEmailDB) {
@@ -71,9 +71,35 @@ const validatioDB = async (pEmail, pIdentification) => {
     return false;
   }
 };
+const InternalValidationDB = async (pEmail, pIdentification) => {
+  try {
+    let validation = true;
+    const response = await fetch("http://localhost:3000/users/");
+    const user = await response.json();
+
+    const checkEmailDB = user.find(
+      (checkEmailDB) => checkEmailDB.correo === pEmail
+    ); // funcion de comparacion
+    const checkIdentificationDB = user.find(
+      (checkIdentificationDB) =>
+        checkIdentificationDB.cedula === pIdentification
+    );
+
+    if (checkEmailDB) {
+      validation = false;
+    } else if (checkIdentificationDB) {
+      validation = false;
+    }
+
+    return validation;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
 
 const loginUser = async (pEmail, pPassword) => {
-  const user = { email: pEmail, password: pPassword };
+  const user = { correo: pEmail, password: pPassword };
 
   try {
     const response = await fetch("http://localhost:3000/loginUser", {
@@ -92,18 +118,23 @@ const loginUser = async (pEmail, pPassword) => {
         title: " El correo no existe, por favor registrarse!",
         confirmButtonColor: "#a44200",
       });
+    } else if (data.status === "inactivo") {
+      Swal.fire({
+        icon: "warning",
+        title: " Tu cuenta se encuentra inactiva",
+        confirmButtonColor: "#a44200",
+      });
     } else if (data.password === user.password) {
       console.log("data", data.name);
       window.location.href = "homepage.html";
       sessionStorage.setItem("connected", true);
-      sessionStorage.setItem("aproved", data.approved);
+      sessionStorage.setItem("aproved", data.status);
       sessionStorage.setItem("role", data.role);
       sessionStorage.setItem(
         "name",
-        data.name + " " + data.lastName + " " + data.secondLastName
+        data.nombre + " " + data.primerApellido + " " + data.segundoApellido
       );
-      sessionStorage.setItem("photo", data.photo);
-      sessionStorage.setItem("unit", data.unidad);
+      sessionStorage.setItem("photo", data.foto);
     } else {
       Swal.fire({
         icon: "warning",
@@ -118,7 +149,7 @@ const loginUser = async (pEmail, pPassword) => {
 
 const recoveryPassword = async (pEmail) => {
   const userUpdate = {
-    email: pEmail,
+    correo: pEmail,
   };
 
   try {
@@ -137,6 +168,12 @@ const recoveryPassword = async (pEmail) => {
       Swal.fire({
         icon: "warning",
         title: " El correo no está registrado",
+        confirmButtonColor: "#a44200",
+      });
+    } else if (data.status === "inactivo") {
+      Swal.fire({
+        icon: "warning",
+        title: " Tu cuenta se encuentra inactiva",
         confirmButtonColor: "#a44200",
       });
     }
