@@ -197,9 +197,10 @@ async function getTransferAsset(id) {
     console.log(error);
   }
 }
+
 //funcion para modificar la propiedad
 
-async function setProperties(asset) {
+async function setProperties() {
   //Código Ubicacion
   let valueUbicacion = currentUnit.value; //quede aca
   let valuePiso = activePiso.options[activePiso.selectedIndex].text;
