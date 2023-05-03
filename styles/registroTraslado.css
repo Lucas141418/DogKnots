@@ -591,3 +591,6 @@ a {
 a:visited {
   text-decoration: none;
 }
+.hide {
+  display: none !important;
+}

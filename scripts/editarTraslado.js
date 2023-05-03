@@ -213,6 +213,12 @@ function assignValues(transfer) {
 }
 
 window.onload = async function () {
+  const rejectButton = document.getElementById("rejectTransferRequest");
+  const acceptButton = document.getElementById("acceptTransferRequest");
+
+  rejectButton.classList.add("hide");
+  acceptButton.classList.add("hide");
+
   //to get the local storage persisted value
 
   var queryURLUnidades = "http://localhost:3000/unidades";

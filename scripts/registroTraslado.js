@@ -141,7 +141,7 @@ function validation() {
 
 //version 2
 
-function buildJason() {
+function buildJason(isPending) {
   //construyendo el json
   const reason = document.querySelector(
     "#radioButtonContainer input[type=radio]:checked"
@@ -155,6 +155,7 @@ function buildJason() {
     justification: `${justification.value}`,
     image1: `${document.querySelector("#transferImageDisplay1").src}`,
     image2: `${document.querySelector("#transferImageDisplay2").src}`,
+    isPending: `${isPending}`,
   };
 
   let body = JSON.stringify(json);
@@ -187,6 +188,43 @@ async function sendData(bodyJson) {
 //registrar traslado
 
 window.onload = async function () {
+  //console.log("logueando el elemento", navPendTransfers);
+  //navPendTransfers.classList.add("hide");
+  const navlinks = document.querySelectorAll(".nav li.navPendTransfer");
+  //navlinks[0].classList.add("hide");
+
+  let connected = sessionStorage.getItem("connected");
+  console.log("It is connected : ", connected);
+
+  let name = sessionStorage.getItem("name");
+  console.log("The name is : ", name);
+
+  let role = "encargado";
+  //sessionStorage.getItem("role");
+  console.log("the user role is : ", role);
+
+  // if (connected) {
+  //   switch (role) {
+  //     case "jefatura":
+  //       break;
+  //     case "proveeduria":
+  //       mainCardsLinks[5].classList.add("hide");
+  //       // nav
+  //       navlinks[1].classList.add("hide");
+  //       navlinks[9].classList.add("hide");
+  //       //Main
+  //       mainCards[2].classList.add("hide");
+  //       mainCardsLinks[3].classList.add("hide");
+  //       //footer
+  //       footerdivs[5].classList.add("hide");
+  //       break;
+  //     case "encargado":
+  //       break;
+  //   }
+  // } else {
+  //   window.location.href = "login.html";
+  // }
+
   //seccion para traer dropdowns
 
   var queryURLUnidades = "http://localhost:3000/unidades";
@@ -286,13 +324,19 @@ window.onload = async function () {
   submit.addEventListener("click", async function (e) {
     e.preventDefault();
 
-    console.log("hola");
+    console.log(role);
     //obtener valor del radio button
 
     validation();
     if (validation()) {
       try {
-        let requestBody = buildJason();
+        let isPending;
+        if (role === "jefatura" || role === "proveeduria") {
+          isPending = false;
+        } else {
+          isPending = true;
+        }
+        let requestBody = buildJason(isPending);
         console.log(requestBody);
         await sendData(requestBody);
         form.reset();
