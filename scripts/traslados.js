@@ -30,8 +30,8 @@ function showTable(json) {
     const transferReason = document.createElement("td");
     transferReason.innerText = `${object.transferReason}`;
 
-    const originUnit = document.createElement("td");
-    originUnit.innerText = `${object.originUnit}`;
+    const currentUnit = document.createElement("td");
+    currentUnit.innerText = `${object.currentUnit}`;
 
     const destinationUnit = document.createElement("td");
     destinationUnit.innerText = `${object.destinationUnit}`;
@@ -42,7 +42,7 @@ function showTable(json) {
     tableInput.appendChild(assetName);
     tableInput.appendChild(assetId);
     tableInput.appendChild(transferReason);
-    tableInput.appendChild(originUnit);
+    tableInput.appendChild(currentUnit);
     tableInput.appendChild(destinationUnit);
 
     // Agregar tr al node table
@@ -114,6 +114,7 @@ async function showPagination() {
   const pagination = document.getElementById("pagination");
   let pageData = await getPaginationData(1);
   showTable(pageData);
+  console.log("mostrando la info de la paginacion", pageData);
   pagination.addEventListener("click", async function (event) {
     event.preventDefault();
     selectedAnchor.classNamex;
@@ -131,13 +132,27 @@ async function showPagination() {
 
 //fin de seccion de paginacion
 
+//
+
 //usando el window.onload que enseñó el profe
 
 window.onload = async function () {
-  //   const response = await fetch("http://localhost:3000/transfers");
-  //   const json = await response.json();
-  //   console.log(json);
-  //   await showTable(json);
+  var queryURLUnidades = "http://localhost:3000/unidades";
+
+  try {
+    const res = await fetch(queryURLUnidades, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    console.log(data);
+    displayUnidades_Dropdown(data);
+  } catch (error) {
+    console.error(error);
+  }
 
   //pagination test
   // Example usage:
@@ -156,4 +171,20 @@ window.onload = async function () {
     e.preventDefault();
     selectTransfer();
   });
+};
+
+const displayUnidades_Dropdown = (unidades) => {
+  const originDD = document.getElementById("unidadOrigen");
+  const destinationDD = document.getElementById("unidadDestino");
+  originDD.innerHTML = ""; //Aca vaciamos lo que esta DENTRO del select
+  destinationDD.innerHTML = "";
+
+  var dropdownOptions = `<option value="">Seleccione una unidad </option>
+    ${unidades
+      .map((unidad) => `<option value="${unidad.name}">${unidad.name}</option>`)
+      .join("")}
+    `; //Aqui llenamos el dropdown
+
+  originDD.innerHTML = dropdownOptions;
+  destinationDD.innerHTML = dropdownOptions;
 };

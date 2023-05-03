@@ -223,7 +223,7 @@ button {
   border: none;
   border-radius: 6px;
   /* padding: 0 1rem; */
-  width: 75%;
+  /* width: 75%; */
   cursor: pointer;
   padding: 0.5rem;
   font-size: 16px;
@@ -569,4 +569,26 @@ aside .bts-section {
   background-color: var(--color6);
   color: var(--color1);
   border-radius: 6px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.error {
+  /* width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px; */
+  border: 1px solid rgba(237, 137, 137, 0.904);
+  background-color: #fbe8e8;
+}
+
+.error-image {
+  border: 1px solid rgba(237, 137, 137, 0.904);
 }

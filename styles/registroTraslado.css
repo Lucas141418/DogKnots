@@ -582,3 +582,12 @@ aside .bts-section {
 .error-image {
   border: 1px solid rgba(237, 137, 137, 0.904);
 }
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:visited {
+  text-decoration: none;
+}

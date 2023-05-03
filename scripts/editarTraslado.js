@@ -106,19 +106,16 @@ function validation() {
     document.getElementsByClassName("radio-button")[1].classList.add("error");
   }
 
-  //validando imagenes
+  // validando que no se pase directo a donacion
 
-  if (!imagen1Uploaded) {
-    errors.push("Es requerido agregar la primera imagen. ");
-    document
-      .querySelector("#transferImageDisplay1")
-      .classList.add("error-image");
+  if (currentUnit.value !== "Bodega" || currentUnit.value === null) {
+    errors.push("La unidad actual es requerida. ");
+    currentUnit.classList.add("error");
   }
-  if (!imagen2Uploaded) {
-    errors.push("Es requerido agregar la seunda imagen. ");
-    document
-      .querySelector("#transferImageDisplay2")
-      .classList.add("error-image");
+
+  if (destinationUnit.value === "" || destinationUnit.value === null) {
+    errors.push("La unidad de destino es requerida. ");
+    destinationUnit.classList.add("error");
   }
 
   if (errors.length > 0) {
@@ -158,6 +155,8 @@ function buildJason() {
 
   return body;
 }
+
+//este es el update
 
 async function sendData(bodyJson) {
   //sending the request
@@ -216,10 +215,31 @@ function assignValues(transfer) {
 window.onload = async function () {
   //to get the local storage persisted value
 
-  const selectedTransferId = localStorage.getItem("selectedTransferId");
-  const transfer = await getTransferbyId(selectedTransferId);
-  console.log("logueando el transfer en consola del onload", transfer);
-  assignValues(transfer);
+  var queryURLUnidades = "http://localhost:3000/unidades";
+
+  try {
+    const res = await fetch(queryURLUnidades, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    console.log(data);
+    displayUnidades_Dropdown(data);
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    const selectedTransferId = localStorage.getItem("selectedTransferId");
+    const transfer = await getTransferbyId(selectedTransferId);
+    console.log("logueando el transfer en consola del onload", transfer);
+    assignValues(transfer);
+  } catch (error) {
+    console.error(error);
+  }
 
   // images
   const transferImageDisplay1 = document.querySelector(
@@ -248,6 +268,7 @@ window.onload = async function () {
   const damageRadio = document.getElementById("damage");
   const disuseRadio = document.getElementById("disuse");
   const submit = document.getElementById("acceptTransferRequest");
+  const decline = document.getElementById("rejectTransferRequest");
   const transferImage1 = document.getElementById("transferImage1");
   const transferImage2 = document.getElementById("transferImage2");
 
@@ -308,9 +329,26 @@ window.onload = async function () {
       try {
         let requestBody = buildJason();
         console.log(requestBody);
-        await sendData(requestBody);
-        form.reset();
+        //await sendData(requestBody);
+        //aca ocurre la magia PENDIENTE
+        //form.reset();
       } catch (error) {}
     }
   });
+};
+
+const displayUnidades_Dropdown = (unidades) => {
+  const originDD = document.getElementById("currentUnit");
+  const destinationDD = document.getElementById("destinationUnit");
+  originDD.innerHTML = ""; //Aca vaciamos lo que esta DENTRO del select
+  destinationDD.innerHTML = "";
+  //<option value="" selected>Seleccione una unidad </option>
+  var dropdownOptions = `
+    ${unidades
+      .map((unidad) => `<option value="${unidad.name}">${unidad.name}</option>`)
+      .join("")}
+    `; //Aqui llenamos el dropdown
+
+  originDD.innerHTML = dropdownOptions;
+  destinationDD.innerHTML = dropdownOptions;
 };
