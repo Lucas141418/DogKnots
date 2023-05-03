@@ -149,8 +149,8 @@ window.onload = async function () {
   let role = sessionStorage.getItem("role");
   console.log("the user role is : ", role);
 
-  const unit = sessionStorage.getItem("unidad");
-  console.log("the user role is : ", unit);
+  const unit = sessionStorage.getItem("unit");
+  console.log("the user unit is : ", unit);
 
   // if (connected) {
   //   switch (role) {
