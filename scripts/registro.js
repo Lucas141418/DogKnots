@@ -1,4 +1,16 @@
-$(document).ready(function () {
+$(document).ready( async function () {
+  
+  
+  
+
+
+
+
+
+
+
+
+
   const form = document.getElementById("register");
   const fileButtonAvatar = document.getElementById("fileButtonAvatar");
   const avatar = document.getElementById("avatar");
@@ -26,19 +38,50 @@ $(document).ready(function () {
   const nacimientoError = document.getElementById("nacimiento-error");
   const unidadError = document.getElementById("unidad-error");
 
-  // campo avatar solo acepta imagenes jpg, png y jpeg
-  avatar.accept = "image/*";
 
-  // click fileButtonAvatar para abrir file explorer
-  fileButtonAvatar.addEventListener("click", function (e) {
-    e.preventDefault();
-    avatar.click();
-  });
+  
+  window.onload = function () {// // cloudinary
+  let cloudinaryWidget = cloudinary.createUploadWidget(
+    {
+      cloudName: "drf1snroe",
+      uploadPreset: "sica_system",
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log("Done! Here is the image info: ", result.info);
+        avatarImage.src = result.info.secure_url;
+      }
+    });
+    
+    fileButtonAvatar.addEventListener('click', () => {
+      cloudinaryWidget.open()
+    }, false)
+    
+    
+    fileButtonAvatar.addEventListener("change", function(e){
+      e.preventDefault
+      avatarImage.src = URL.createObjectURL(e.target.files[0])
+    })}
 
-  // mostrar imagen de avatar cuando se seleccione un archivo
-  avatar.addEventListener("change", function (e) {
-    avatarImage.src = URL.createObjectURL(e.target.files[0]);
-  });
+
+    var queryURLUnidades = "http://localhost:3000/unidades";
+
+    try {
+        const res = await fetch(queryURLUnidades, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+        const unidadesData = await res.json();
+        console.log(unidadesData);
+        displayUnidades_Dropdown(unidadesData)
+    } catch (error) {
+        console.error(error);
+    }
+
+
 
   // evitar que nacimiento sea mayor a la fecha actual
   fechaNacimiento.max = new Date().toISOString().split("T")[0];
@@ -56,17 +99,19 @@ $(document).ready(function () {
     unidad.value = "";
     role.value = "";
     status.value = "";
+    avatarImage.setAttribute( 'src', 'assets/avatar-big.png');
     password.value = "";
   });
 
   // validar formulario de registro cuando se haga submit
-  submit.addEventListener("click", function (e) {
+  submit.addEventListener("click", async function (e) {
     e.preventDefault();
 
     const errors = [];
 
     // revisar que avatar tenga un archivo
-    if (avatar.value === "") {
+    if (avatarImage.src === "" || avatarImage.src.includes("assets/avatar-big.png")) {
+      errors.push("La foto de perfil es requerida. ");
       avatarError.style.display = "block";
     } else {
       avatarError.style.display = "none";
@@ -120,27 +165,18 @@ $(document).ready(function () {
       errors.push("La unidad es requerida. ");
     }
 
-    if (avatar.files.length === 0) {
-      errors.push("La imagen de perfil es requerida. ");
-    }
-
+    if(await InternalValidationDB(correo.value, cedula.value) === false){
+      errors.push("El correo electrónico o la cédula ya están registradas.");
+      
+    } 
     if (errors.length > 0) {
       console.log(errors);
       swal("Hay errores en el formulario", errors.join(""), "error", {
         button: "OK",
       });
-    } else {
-  //    swal({
-  //      title: "Registro exitoso",
-  //      text: "El usuario se ha registrado correctamente",
-  //      icon: "success",
-  //      button: "OK",
-  //    }).then((value) => {
-  //      window.location.href = "usuarios.html";
-  //    });
+    } else{
       registerUser();
      }
-
     // si no hay errores enviar a pagina usuarios
     if (
       nameError.style.display === "none" &&
@@ -159,6 +195,12 @@ $(document).ready(function () {
 
   async function registerUser() {
     console.log("Registrando usuario");
+    swal({
+      title: 'Registrando usuario',
+      html: 'Por favor espere...',
+      timer: 1500,
+      timerProgressBar: true,
+    })
 
     try {
       const response = await fetch("http://localhost:3000/users/", {
@@ -175,13 +217,16 @@ $(document).ready(function () {
           fechaNacimiento: fechaNacimiento.value,
           unidad: unidad.value,
           status: status.value,
+          foto: avatarImage.src,
           role: role.value,
-          password: password.value,
+          // password: password.value,
         }),
       }); 
 
       const data = await response.json();
       console.log(data);
+
+      
 
       console.log("Usuario registrado");
 
@@ -201,3 +246,18 @@ $(document).ready(function () {
     }
   }
 });
+
+
+
+const displayUnidades_Dropdown = (unidades) => {
+
+  var espacioUnidades = document.querySelector("#unidad"); //ID del select 
+  espacioUnidades.innerHTML = ""; //Aca vaciamos lo que esta DENTRO del select
+
+  var dropdownOptions = `
+    <option value="">Seleccione una unidad </option>
+    ${unidades.map(unidad => `<option value="${unidad.name}">${unidad.name}</option>`).join('')}
+    `;//Aqui llenamos el dropdown
+
+    espacioUnidades.innerHTML = dropdownOptions;
+}

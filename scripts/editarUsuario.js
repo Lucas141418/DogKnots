@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready( async function () {
 
   const url = window.location.search;
 
@@ -38,19 +38,47 @@ $(document).ready(function () {
   const nacimientoError = document.getElementById("nacimiento-error");
   const unidadError = document.getElementById("unidad-error");
 
-  // campo avatar solo acepta imagenes jpg, png y jpeg
-  //avatar.accept = "image/*";
+  window.onload = function () {// // cloudinary
+    let cloudinaryWidget = cloudinary.createUploadWidget(
+      {
+        cloudName: "drf1snroe",
+        uploadPreset: "sica_system",
+      },
+      (error, result) => {
+        if (!error && result && result.event === "success") {
+          console.log("Done! Here is the image info: ", result.info);
+          avatarImage.src = result.info.secure_url;
+        }
+      });
+      
+      fileButtonAvatar.addEventListener('click', () => {
+        cloudinaryWidget.open()
+      }, false)
+      
+      
+      fileButtonAvatar.addEventListener("change", function(e){
+        e.preventDefault
+        avatarImage.src = URL.createObjectURL(e.target.files[0])
+      })}
 
-  // click fileButtonAvatar para abrir file explorer
-  // fileButtonAvatar.addEventListener("click", function (e) {
-  //   e.preventDefault();
-  //   avatar.click();
-  // });
+      var queryURLUnidades = "http://localhost:3000/unidades";
 
-  // mostrar imagen de avatar cuando se seleccione un archivo
-  avatar.addEventListener("change", function (e) {
-    avatarImage.src = URL.createObjectURL(e.target.files[0]);
-  });
+    try {
+        const res = await fetch(queryURLUnidades, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+        const unidadesData = await res.json();
+        console.log(unidadesData);
+        displayUnidades_Dropdown(unidadesData)
+    } catch (error) {
+        console.error(error);
+    }
+
+
 
   // evitar que nacimiento sea mayor a la fecha actual
   fechaNacimiento.max = new Date().toISOString().split("T")[0];
@@ -156,6 +184,8 @@ $(document).ready(function () {
       const data = await response.json();
       console.log(data);
 
+      avatarImage.setAttribute("src", data.foto)
+
 
       for (let key in data) {
         if (document.getElementById(key)) {
@@ -170,11 +200,17 @@ $(document).ready(function () {
 
   async function editUser(id) {
     console.log("Editando usuario");
+    swal({
+      title: 'Registrando usuario, por favor espere',
+      timer: 1300,
+      timerProgressBar: true,
+    })
 
     try {
       const api = `http://localhost:3000/users/${id}`;
       const response = await fetch(api, {
         method: "PUT",
+        mode: "cors",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           cedula: cedula.value,
@@ -186,25 +222,28 @@ $(document).ready(function () {
           fechaNacimiento: fechaNacimiento.value,
           unidad: unidad.value,
           status: status.value,
+          foto: avatarImage.src,
           role: role.value,
-          password: password.value,
         }),
       });
 
       const data = await response.json();
       console.log(data);
+      
 
-      console.log("Usuario registrado");
+
+
+      console.log("Usuario editado");
 
       swal({
-        title: "Registro exitoso",
-        text: "El usuario se ha registrado correctamente",
+        title: "Información actualizada",
+        text: "El usuario se ha editado correctamente",
         icon: "success",
         button: "OK",
       })
 
     } catch (error) {
-      console.error(error);
+      console.log(error);
 
       // swal("Hay errores en el formulario", error, "error", {
       //   button: "OK",
@@ -213,3 +252,17 @@ $(document).ready(function () {
   }
 
 });
+
+
+const displayUnidades_Dropdown = (unidades) => {
+
+  var espacioUnidades = document.querySelector("#unidad"); //ID del select 
+  espacioUnidades.innerHTML = ""; //Aca vaciamos lo que esta DENTRO del select
+
+  var dropdownOptions = `
+    <option value="">Seleccione una unidad </option>
+    ${unidades.map(unidad => `<option value="${unidad.name}">${unidad.name}</option>`).join('')}
+    `;//Aqui llenamos el dropdown
+
+    espacioUnidades.innerHTML = dropdownOptions;
+}
