@@ -134,6 +134,8 @@ function validation() {
   return validationPassed;
 }
 
+//funcion para traer asset
+
 //version 2
 
 function buildJason() {
