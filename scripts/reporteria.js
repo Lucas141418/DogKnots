@@ -829,7 +829,7 @@ filterDiv3.appendChild(filterInput5)
 
 
 
-btnAssets.addEventListener('click', () => {
+btnAssets.addEventListener('click', async () => {
     // Dom Filter
   
   // options Dom
@@ -996,7 +996,7 @@ filterDiv3.appendChild(filterInput5)
       headerTable = table.tHead.insertRow(0);
     
       const th1 = document.createElement("th");
-      th1.textContent =  "ID";
+      th1.textContent =  "Foto";
       
       const th2 = document.createElement("th");
       th2.textContent = "Nombre del Activo";
@@ -1012,6 +1012,10 @@ filterDiv3.appendChild(filterInput5)
       
       const th6 = document.createElement("th");
       th6.textContent = "Código de Activo";
+
+
+      const th7 = document.createElement("th");
+      th7.textContent = "Estado";
       
       
       
@@ -1021,6 +1025,51 @@ filterDiv3.appendChild(filterInput5)
       headerTable.appendChild(th4);
       headerTable.appendChild(th5);
       headerTable.appendChild(th6);
+      headerTable.appendChild(th7);
+
+      const assetsData = await assets()
+
+
+      assetsData.forEach(asset => {
+        const tbody = document.querySelector("#table tbody")
+        console.log(tbody)
+        const tr = document.createElement("tr");
+
+        const assetsImg  = document.createElement("img");
+        assetsImg.setAttribute("src", asset.photo);
+        assetsImg.classList.add("img-User")
+        assetsImg.setAttribute("alt", "imagen");
+
+        const assetsName = document.createElement("td");
+        assetsName.textContent = asset.nombre;
+
+        const assetsDescription = document.createElement("td");
+        assetsDescription.textContent = asset.descripcion;
+
+        const assetsId = document.createElement("td");
+        assetsId.textContent = asset.idActivo;
+
+        const assetsUnit  = document.createElement("td");
+        assetsUnit.textContent = asset.unidad;
+
+        const assetsCode = document.createElement("td");
+        assetsCode.textContent = asset.codeUbicacion;
+
+        const assetsState = document.createElement("td");
+        assetsState.textContent = asset.estado;
+
+
+        tbody.appendChild(tr);
+        tr.appendChild(assetsImg);
+        tr.appendChild(assetsName);
+        tr.appendChild(assetsDescription);
+        tr.appendChild(assetsId);
+        tr.appendChild(assetsUnit);
+        tr.appendChild(assetsCode);
+        tr.appendChild(assetsState);
+
+      })
+
 
 
 
@@ -1065,7 +1114,7 @@ btnLogBook.addEventListener('click', () => {
       headerTable.appendChild(th7);
 })
 
-btnWareHouses.addEventListener('click', () => {
+btnWareHouses.addEventListener('click', async () => {
     const tbody = document.querySelector("#table tbody")
     tbody.innerHTML = ""
     if (headerTable !== null) {
@@ -1075,25 +1124,27 @@ btnWareHouses.addEventListener('click', () => {
       headerTable = table.tHead.insertRow(0);
     
       const th1 = document.createElement("th");
-      th1.textContent =  "Bodega";
+      th1.textContent =  "Foto";
       
       const th2 = document.createElement("th");
-      th2.textContent = "";
+      th2.textContent = "Nombre del Activo";
       
       const th3 = document.createElement("th");
-      th3.textContent = "";
+      th3.textContent = "Unidad";
       
       const th4 = document.createElement("th");
-      th4.textContent = "";
+      th4.textContent = "Estado";
       
       const th5 = document.createElement("th");
-      th5.textContent = "  ";
+      th5.textContent = "Fecha Añadido";
       
       const th6 = document.createElement("th");
-      th6.textContent = "";
-      
+      th6.textContent = "Código de Activo";
+
+
       const th7 = document.createElement("th");
-      th7.textContent = "";
+      th7.textContent = "Estado";
+      
       
       headerTable.appendChild(th1);
       headerTable.appendChild(th2);
@@ -1103,31 +1154,138 @@ btnWareHouses.addEventListener('click', () => {
       headerTable.appendChild(th6);
       headerTable.appendChild(th7);
 
+      const  wareHouses = await assets()
+
+      wareHouses.forEach(wareHouse => {
+        const tbody = document.querySelector("#table tbody")
+        console.log(tbody)
+
+        const tr = document.createElement("tr");
+
+        if(wareHouse.unidad === "Bodega"){
+        
+        const assetsImg  = document.createElement("img");
+        assetsImg.setAttribute("src", wareHouse.photo);
+        assetsImg.classList.add("img-User")
+        assetsImg.setAttribute("alt", "imagen");
+
+        const assetsName = document.createElement("td");
+        assetsName.textContent = wareHouse.nombre;
+
+        const assetsDescription = document.createElement("td");
+        assetsDescription.textContent = wareHouse.descripcion;
+
+        const assetsId = document.createElement("td");
+        assetsId.textContent = wareHouse.idActivo;
+
+        const assetsUnit  = document.createElement("td");
+        assetsUnit.textContent = wareHouse.unidad;
+
+        const assetsCode = document.createElement("td");
+        assetsCode.textContent = wareHouse.codeUbicacion;
+
+        const assetsState = document.createElement("td");
+        assetsState.textContent = wareHouse.estado;
+
+
+        tbody.appendChild(tr);
+        tr.appendChild(assetsImg);
+        tr.appendChild(assetsName);
+        tr.appendChild(assetsDescription);
+        tr.appendChild(assetsId);
+        tr.appendChild(assetsUnit);
+        tr.appendChild(assetsCode);
+        tr.appendChild(assetsState);
+        }
+
+      })
+
 })
 
-btnDonations.addEventListener('click', () => {
-    const tbody = document.querySelector("#table tbody")
-    tbody.innerHTML = ""
-    if (headerTable !== null) {
-        headerTable.remove();
-      }
+btnDonations.addEventListener('click', async () => {
+  const tbody = document.querySelector("#table tbody")
+  tbody.innerHTML = ""
+  if (headerTable !== null) {
+      headerTable.remove();
+    }
+  
+    headerTable = table.tHead.insertRow(0);
+  
+    const th1 = document.createElement("th");
+    th1.textContent =  "Foto";
     
-      headerTable = table.tHead.insertRow(0);
+    const th2 = document.createElement("th");
+    th2.textContent = "Nombre del Activo";
     
-      const th1 = document.createElement("th");
-      th1.textContent =  "ID";
-      
-      const th2 = document.createElement("th");
-      th2.textContent = "Activo";
-      
-      const th3 = document.createElement("th");
-      th3.textContent = "Fecha Añadido";
-      
+    const th3 = document.createElement("th");
+    th3.textContent = "Unidad";
+    
+    const th4 = document.createElement("th");
+    th4.textContent = "Estado";
+    
+    const th5 = document.createElement("th");
+    th5.textContent = "Fecha Añadido";
+    
+    const th6 = document.createElement("th");
+    th6.textContent = "Código de Activo";
 
-      
-      headerTable.appendChild(th1);
-      headerTable.appendChild(th2);
-      headerTable.appendChild(th3);
-      
+
+    const th7 = document.createElement("th");
+    th7.textContent = "Estado";
+    
+    
+    headerTable.appendChild(th1);
+    headerTable.appendChild(th2);
+    headerTable.appendChild(th3);
+    headerTable.appendChild(th4);
+    headerTable.appendChild(th5);
+    headerTable.appendChild(th6);
+    headerTable.appendChild(th7);
+
+      const  wareHouses = await assets()
+
+      wareHouses.forEach(wareHouse => {
+        const tbody = document.querySelector("#table tbody")
+        console.log(tbody)
+
+        const tr = document.createElement("tr");
+
+        if(wareHouse.unidad === "Donaciones"){
+        
+        const assetsImg  = document.createElement("img");
+        assetsImg.setAttribute("src", wareHouse.photo);
+        assetsImg.classList.add("img-User")
+        assetsImg.setAttribute("alt", "imagen");
+
+        const assetsName = document.createElement("td");
+        assetsName.textContent = wareHouse.nombre;
+
+        const assetsDescription = document.createElement("td");
+        assetsDescription.textContent = wareHouse.descripcion;
+
+        const assetsId = document.createElement("td");
+        assetsId.textContent = wareHouse.idActivo;
+
+        const assetsUnit  = document.createElement("td");
+        assetsUnit.textContent = wareHouse.unidad;
+
+        const assetsCode = document.createElement("td");
+        assetsCode.textContent = wareHouse.codeUbicacion;
+
+        const assetsState = document.createElement("td");
+        assetsState.textContent = wareHouse.estado;
+
+
+        tbody.appendChild(tr);
+        tr.appendChild(assetsImg);
+        tr.appendChild(assetsName);
+        tr.appendChild(assetsDescription);
+        tr.appendChild(assetsId);
+        tr.appendChild(assetsUnit);
+        tr.appendChild(assetsCode);
+        tr.appendChild(assetsState);
+        }
+
+      })
     
 })}
