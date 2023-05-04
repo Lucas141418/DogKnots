@@ -266,8 +266,6 @@ window.onload = async function () {
     acceptButton.classList.add("hide");
   }
 
-  //to get the local storage persisted value
-
   var queryURLUnidades = "http://localhost:3000/unidades";
 
   try {
