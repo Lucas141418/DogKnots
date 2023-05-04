@@ -1,4 +1,4 @@
-// Buttons entries
+{// Buttons entries
 const btnUsers = document.getElementById("btnUsers")
 const btnUnits = document.getElementById("btnUnits")
 const btnAssets = document.getElementById("btnAssets")
@@ -225,38 +225,44 @@ filterDiv3.appendChild(filterInput5)
 
     const tr = document.createElement("tr");
 
+    if(user.status ==="activo"){
 
+    
     const userImg = document.createElement("img")
-    userImg.setAttribute("src", user.photo)
+    userImg.setAttribute("src", user.foto)
     userImg.classList.add("img-User")
     userImg.setAttribute("alt", "User Photo")
 
     const userId = document.createElement("td");
-    userId.textContent = user.identification;
+    userId.textContent = user.cedula;
 
+
+    
     const userName = document.createElement("td");
-    userName.textContent = user.name + "  " + user.lastName + "  " + user.secondLastName;
+    userName.textContent = user.nombre + "  " + user.primerApellido + "  " + user.segundoApellido;
+    
+   
 
     const userEmail = document.createElement("td");
-    userEmail.textContent = user.email;
+    userEmail.textContent = user.correo;
 
     const userNumber = document.createElement("td");
-    userNumber.textContent = user.number;
+    userNumber.textContent = user.telefono;
 
     const userBirth = document.createElement("td");
-    userBirth.textContent = user.birthDay;
+    userBirth.textContent = user.fechaNacimiento;
 
     const userUnit = document.createElement("td");
-    userUnit.textContent = "Unidad";
+    userUnit.textContent = user.unidad;
 
-    const userAproved  = document.createElement("td");
-    userAproved.textContent = "Aprobado por";
+    const userRole  = document.createElement("td");
+    userRole.textContent = user.role;
+    
 
     const userCreatedAt = document.createElement("td")
     userCreatedAt.textContent = user.createdAt
 
 
-    
 
 
 
@@ -264,13 +270,15 @@ filterDiv3.appendChild(filterInput5)
     tr.appendChild(userImg);
     tr.appendChild(userId);
     tr.appendChild(userName);
-    // tr.appendChild(userLastName);
     tr.appendChild(userEmail);
     tr.appendChild(userNumber);
     tr.appendChild(userBirth);
     tr.appendChild(userUnit);
-    tr.appendChild(userAproved);
+    tr.appendChild(userRole);
     tr.appendChild(userCreatedAt);
+    }
+
+    
 
     
   });
@@ -476,8 +484,8 @@ formFilter.addEventListener('submit', async (e) => {
   //   const userUnit = document.createElement("td");
   //   userUnit.textContent = "Unidad";
 
-  //   const userAproved  = document.createElement("td");
-  //   userAproved.textContent = "Aprobado por";
+  //   const userRole  = document.createElement("td");
+  //   userRole.textContent = "Aprobado por";
 
   //   const userCreatedAt = document.createElement("td")
   //   userCreatedAt.textContent = user.createdAt
@@ -496,7 +504,7 @@ formFilter.addEventListener('submit', async (e) => {
   //   tr.appendChild(userNumber);
   //   tr.appendChild(userBirth);
   //   tr.appendChild(userUnit);
-  //   tr.appendChild(userAproved);
+  //   tr.appendChild(userRole);
   //   tr.appendChild(userCreatedAt);
 
 
@@ -537,7 +545,7 @@ formFilter.addEventListener('submit', async (e) => {
   th6.textContent = "Unidad";
   
   const th7 = document.createElement("th");
-  th7.textContent = "Aprobado";
+  th7.textContent = "Role";
 
   const th8 = document.createElement("th");
   th8.textContent = "Fecha de registro"
@@ -562,37 +570,39 @@ formFilter.addEventListener('submit', async (e) => {
 
     const tr = document.createElement("tr");
 
+    if(user.status ==="activo"){
 
-
+    
     const userImg = document.createElement("img")
-    userImg.setAttribute("src", user.photo)
+    userImg.setAttribute("src", user.foto)
     userImg.classList.add("img-User")
     userImg.setAttribute("alt", "User Photo")
 
     const userId = document.createElement("td");
-    userId.textContent = user.identification;
+    userId.textContent = user.cedula;
 
 
     
     const userName = document.createElement("td");
-    userName.textContent = user.name + "  " + user.lastName + "  " + user.secondLastName;
+    userName.textContent = user.nombre + "  " + user.primerApellido + "  " + user.segundoApellido;
     
    
 
     const userEmail = document.createElement("td");
-    userEmail.textContent = user.email;
+    userEmail.textContent = user.correo;
 
     const userNumber = document.createElement("td");
-    userNumber.textContent = user.number;
+    userNumber.textContent = user.telefono;
 
     const userBirth = document.createElement("td");
-    userBirth.textContent = user.birthDay;
+    userBirth.textContent = user.fechaNacimiento;
 
     const userUnit = document.createElement("td");
-    userUnit.textContent = user.approved;
+    userUnit.textContent = user.unidad;
 
-    const userAproved  = document.createElement("td");
-    userAproved.textContent = user.password;
+    const userRole  = document.createElement("td");
+    userRole.textContent = user.role;
+    
 
     const userCreatedAt = document.createElement("td")
     userCreatedAt.textContent = user.createdAt
@@ -609,8 +619,11 @@ formFilter.addEventListener('submit', async (e) => {
     tr.appendChild(userNumber);
     tr.appendChild(userBirth);
     tr.appendChild(userUnit);
-    tr.appendChild(userAproved);
+    tr.appendChild(userRole);
     tr.appendChild(userCreatedAt);
+    }
+
+    
 
     
   });
@@ -618,7 +631,7 @@ formFilter.addEventListener('submit', async (e) => {
   
 });
 
-btnUnits.addEventListener("click", () => {
+btnUnits.addEventListener("click", async () => {
   // Dom Filter
   
   // options Dom
@@ -773,8 +786,44 @@ filterDiv3.appendChild(filterInput5)
       headerTable.appendChild(th2);
       headerTable.appendChild(th3);
       headerTable.appendChild(th4);
-      
-    })
+
+  
+  const allUnits = await units()
+
+  
+  allUnits.forEach(unit  => {
+    const tbody = document.querySelector("#table tbody")
+    console.log(tbody)
+    const tr = document.createElement("tr");
+
+
+    const unitId = document.createElement("td");
+    unitId.textContent = unit._id;
+
+
+    const unitName = document.createElement("td");
+    unitName.textContent = unit.name;
+
+    const unitLocation = document.createElement("td");
+    unitLocation.textContent = unit.province + ", " + unit.canton + ", " + unit.district;
+
+    const unitRegisteredAt = document.createElement("td");
+    unitRegisteredAt.textContent = unit.registerDate;
+
+    tbody.appendChild(tr);
+    tr.appendChild(unitId);
+    tr.appendChild(unitName);
+    tr.appendChild(unitLocation);
+    tr.appendChild(unitRegisteredAt);
+
+
+
+  })
+
+
+
+
+})
 
     
 
@@ -1081,4 +1130,4 @@ btnDonations.addEventListener('click', () => {
       headerTable.appendChild(th3);
       
     
-})
+})}
