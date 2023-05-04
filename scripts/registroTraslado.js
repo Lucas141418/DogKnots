@@ -139,7 +139,26 @@ function validation() {
   return validationPassed;
 }
 
-//version 2
+
+function buildJasonBitacora() {
+  //construyendo el json
+  const reason = document.querySelector(
+    "#radioButtonContainer input[type=radio]:checked"
+  ).value;
+  let json = {
+    actor: `${sessionStorage.getItem("name")}`,
+    assetName: `${assetName.value}`,
+    assetId: `${assetId.value}`,
+    transferReason: `${reason}`,
+    currentUnit: `${currentUnit.value}`,
+    destinationUnit: `${destinationUnit.value}`,
+  };
+
+  let body = JSON.stringify(json);
+
+  return body;
+}
+
 
 function buildJason(isPending) {
   //construyendo el json
@@ -179,6 +198,22 @@ async function sendData(bodyJson) {
       text: "El traslado se ha registrado correctamente.",
       icon: "success",
       confirmButtonText: "OK",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function sendDataBitacora(bodyJson) {
+  //sending the request
+  try {
+    await fetch("http://localhost:3000/historicoActivo", {
+      method: "POST",
+      // mode: "cors", // no-cors, *cors, same-origin
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: bodyJson,
     });
   } catch (error) {
     console.log(error);
@@ -359,11 +394,13 @@ window.onload = async function () {
           isPending = true;
         }
         let requestBody = buildJason(isPending);
+        let bitacoraBody = buildJasonBitacora();
         console.log(
           "logueando el body para ver el estado de isPending",
           requestBody
         );
         // await sendData(requestBody);
+        await sendDataBitacora(bitacoraBody);
         //form.reset();
       } catch (error) {}
     }
