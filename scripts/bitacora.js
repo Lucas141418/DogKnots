@@ -1,5 +1,5 @@
 window.onload = async function mostrarTraslados(){
-    var queryURL = "http://localhost:3000/traslados";
+    var queryURL = "http://localhost:3000/historicoActivo";
 
     try {
         const res = await fetch(queryURL, {
@@ -16,27 +16,22 @@ window.onload = async function mostrarTraslados(){
         console.error(error);
     }
 
-}
+    var queryURLUnidades = "http://localhost:3000/unidades";
 
-async function mostrarRegistros(){
-  var queryURL = "http://localhost:3000/activos";
-
-  
-  try {
-      const res = await fetch(queryURL, {
-          method: "GET",
-          mode: "cors",
-          headers: {
-              "Content-Type": "application/json",
-          }
+    try {
+      const res = await fetch(queryURLUnidades, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       const data = await res.json();
       console.log(data);
-      displayTrasladosAsATable(data)
-  } catch (error) {
+      displayUnidades_Dropdown(data);
+    } catch (error) {
       console.error(error);
-  }
-
+    }
 }
 
 function displayTrasladosAsATable(traslados) { //el parametro que va dentro de la funcion es el response es decir el array de objetos de la DB
@@ -47,23 +42,27 @@ function displayTrasladosAsATable(traslados) { //el parametro que va dentro de l
   var tbody = `
     <thead>
         <tr>
+            <th>Actor</th>
             <th>ID solicitud</th>
             <th>Nombre Activo</th>
             <th>ID Activo</th>
             <th>Motivo</th>
             <th>Origen</th>
             <th>Destino</th>
+            <th>Fecha</th>
         </tr>
     </thead>
     <tbody>
       ${traslados.map(traslado => `
         <tr>
-          <td>${traslado.idSolicitud}</td>
-          <td>${traslado.nombreActivo}</td>
-          <td>${traslado.idActivo}</td>
-          <td>${traslado.motivo}</td>
-          <td>${traslado.origen}</td>
-          <td>${traslado.destino}</td>
+          <td>${traslado.actor}</td>
+          <td>${traslado.transferId}</td>
+          <td>${traslado.assetName}</td>
+          <td>${traslado.assetId}</td>
+          <td>${traslado.transferReason}</td>
+          <td>${traslado.currentUnit}</td>
+          <td>${traslado.destinationUnit}</td>
+          <td>${traslado.createdAt}</td>
         </tr>
       `).join('')}
     </tbody>
@@ -72,38 +71,17 @@ function displayTrasladosAsATable(traslados) { //el parametro que va dentro de l
   espacioTraslados.innerHTML = tbody;
 }
 
-function displayRegistrosAsATable(registros) { //el parametro que va dentro de la funcion es el response es decir el array de objetos de la DB
-   
-  var espacioRegistros = document.querySelector("#registros");
-  espacioRegistros.innerHTML = "";
+// document.querySelector('#btnTraslados').addEventListener('click', mostrarTraslados);
 
-  var tbody = `
-    <thead>
-        <tr>
-            <th>ID solicitud</th>
-            <th>Nombre Activo</th>
-            <th>ID Activo</th>
-            <th>Motivo</th>
-            <th>Origen</th>
-            <th>Destino</th>
-        </tr>
-    </thead>
-    <tbody>
-      ${registros.map(registro => `
-        <tr>
-          <td>${registro.idSolicitud}</td>
-          <td>${registro.nombreActivo}</td>
-          <td>${registro.idActivo}</td>
-          <td>${registro.motivo}</td>
-          <td>${registro.origen}</td>
-          <td>${registro.destino}</td>
-        </tr>
-      `).join('')}
-    </tbody>
-  `;
+const displayUnidades_Dropdown = (unidades) => {
+  const dropdown = document.getElementById("userUnity"); //Aca vaciamos lo que esta DENTRO del select
+  dropdown.innerHTML = "";
 
-  espacioTraslados.innerHTML = tbody;
-}
+  var dropdownOptions = `<option value="">Seleccione una unidad </option>
+    ${unidades
+      .map((unidad) => `<option value="${unidad.name}">${unidad.name}</option>`)
+      .join("")}
+    `; //Aqui llenamos el dropdown
 
-document.querySelector('#btnTraslados').addEventListener('click', mostrarTraslados);
-document.querySelector('#btnRegistros').addEventListener('click', mostrarRegistros);
+  dropdown.innerHTML = dropdownOptions;
+};
