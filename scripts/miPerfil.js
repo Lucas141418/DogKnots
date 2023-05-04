@@ -26,6 +26,20 @@ $(document).ready( async function () {
   const nacimientoError = document.getElementById("nacimiento-error");
   const unidadError = document.getElementById("unidad-error");
 
+let userNameSession = sessionStorage.getItem("name");
+let roleSession = sessionStorage.getItem("role");
+let pictureSession = sessionStorage.getItem("photo");
+let dataUser = sessionStorage.getItem('ID')
+
+
+
+
+
+
+
+
+
+
   window.onload = function () {// // cloudinary
     let cloudinaryWidget = cloudinary.createUploadWidget(
       {
@@ -121,10 +135,7 @@ $(document).ready( async function () {
        errors.push("La fecha de nacimiento es requerida. ");
      }
  
-     // validar unidad select es distinto de 0
-     if (unidad.value === "") {
-       errors.push("La unidad es requerida. ");
-     }
+   
  
      if (errors.length > 0) {
        console.log(errors);
@@ -132,7 +143,7 @@ $(document).ready( async function () {
          button: "OK",
        });
      } else {
-       editUser(id);
+       editUser(dataUser);
      }
  
      // si no hay errores enviar a pagina usuarios
@@ -149,7 +160,8 @@ $(document).ready( async function () {
      //  window.location.href = "usuarios.html";
      }
    });
- 
+   
+   getUser(dataUser);
    async function getUser(id) {
      try {
        const api = `http://localhost:3000/users/${id}`;

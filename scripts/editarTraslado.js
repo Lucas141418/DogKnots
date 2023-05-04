@@ -214,14 +214,57 @@ function assignValues(transfer) {
   document.querySelector("#transferImageDisplay2").src = transfer.image2;
 }
 
+async function sendEmail(decision) {
+  const selectedTransferId = localStorage.getItem("selectedTransferId");
+
+  let transfer = await getTransferbyId(selectedTransferId);
+
+  let data = {
+    requestedBy: transfer.requestedBy,
+    transferId: transfer.transferId,
+    assetId: transfer.assetId,
+    assetName: transfer.assetName,
+    decision: decision,
+  };
+  const json = JSON.stringify(data);
+  try {
+    await fetch("http://localhost:3000/sendEmail", {
+      method: "POST",
+      // mode: "cors", // no-cors, *cors, same-origin
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: json,
+    });
+    Swal.fire({
+      title: "Registro de traslado exitoso",
+      text: "El traslado se ha registrado correctamente.",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 window.onload = async function () {
   const rejectButton = document.getElementById("rejectTransferRequest");
   const acceptButton = document.getElementById("acceptTransferRequest");
 
-  rejectButton.classList.add("hide");
-  acceptButton.classList.add("hide");
+  let connected = sessionStorage.getItem("connected");
+  console.log("It is connected : ", connected);
 
-  //to get the local storage persisted value
+  let name = sessionStorage.getItem("name");
+  console.log("The name is : ", name);
+
+  let role = sessionStorage.getItem("role");
+  console.log("the user role is : ", role);
+  let status = sessionStorage.getItem("approved");
+
+  if (role == "encargado") {
+    rejectButton.classList.add("hide");
+    acceptButton.classList.add("hide");
+  }
 
   var queryURLUnidades = "http://localhost:3000/unidades";
 
@@ -337,9 +380,9 @@ window.onload = async function () {
       try {
         let requestBody = buildJason();
         console.log(requestBody);
-        //await sendData(requestBody);
-        //aca ocurre la magia PENDIENTE
-        //form.reset();
+        await sendData(requestBody);
+        await sendEmail("aceptada");
+        form.reset();
       } catch (error) {}
     }
   });
@@ -360,3 +403,5 @@ const displayUnidades_Dropdown = (unidades) => {
   originDD.innerHTML = dropdownOptions;
   destinationDD.innerHTML = dropdownOptions;
 };
+
+//{ email, transferId, assetId, assetName, decision }

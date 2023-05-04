@@ -20,21 +20,28 @@ if(connected || status === "inactivo"){
 
     switch(role){
         case 'jefatura':
-            
-
+          
             break;
-        case 'proveeduria':
-             mainCardsLinks[5].classList.add('hide');
-              // nav 
-              navlinks[1].classList.add('hide');
-              navlinks[9].classList.add('hide');
-              //Main 
-              mainCards[2].classList.add('hide');
-              mainCardsLinks[3].classList.add('hide');
-              //footer
-              footerdivs[5].classList.add('hide');
+            case 'proveeduria':
+            mainCardsLinks[4].classList.add('hide');
+            mainCards[2].classList.add('hide');
+            footerdivs[5].classList.add('hide');
+            navlinks[1].classList.add('hide');
+          
             break;
         case "encargado":
+            mainCardsLinks[4].classList.add('hide');
+            mainCards[2].classList.add('hide');
+            footerdivs[5].classList.add('hide');
+            navlinks[1].classList.add('hide');
+
+            navlinks[2].classList.add('hide');
+            mainCards[1].classList.add('hide');
+
+            footerdivs[5].classList.add('hide');
+            footerdivs[4].classList.add('hide');
+            footerdivs[3].classList.add('hide');
+            navlinks[9].classList.add('hide');
            
            
             break;
