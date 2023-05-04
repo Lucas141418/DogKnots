@@ -198,12 +198,8 @@ async function getTransferAsset(id) {
     console.log(error);
   }
 }
-//funcion para modificar la propiedad
 
-// cancelButton.addEventListener("click", () => {
-//   const locationCode = setLocationCode();
-//   modifyAsset("000001", currentUnit, locationCode);
-// });
+//funcion para modificar la propiedad
 
 function setLocationCode() {
   //Código Ubicacion
@@ -273,28 +269,6 @@ window.onload = async function () {
   let user = sessionStorage.getItem("user");
   let status = sessionStorage.getItem("approved");
 
-  // if (connected) {
-  //   switch (role) {
-  //     case "jefatura":
-  //       break;
-  //     case "proveeduria":
-  //       mainCardsLinks[5].classList.add("hide");
-  //       // nav
-  //       navlinks[1].classList.add("hide");
-  //       navlinks[9].classList.add("hide");
-  //       //Main
-  //       mainCards[2].classList.add("hide");
-  //       mainCardsLinks[3].classList.add("hide");
-  //       //footer
-  //       footerdivs[5].classList.add("hide");
-  //       break;
-  //     case "encargado":
-  //       break;
-  //   }
-  // } else {
-  //   window.location.href = "login.html";
-  // }
-
   //seccion para traer dropdowns
 
   var queryURLUnidades = "http://localhost:3000/unidades";
@@ -336,7 +310,6 @@ window.onload = async function () {
   const form = document.querySelector("form");
   const assetId = document.getElementById("assetId");
   const currentUnit = document.getElementById("currentUnit");
-  ``;
   const assetName = document.getElementById("assetName");
   const destinationUnit = document.getElementById("destinationUnit");
   const justification = document.getElementById("justification");
